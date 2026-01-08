@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/', [PageController::class, 'home'])->name('home');
 
 // Route login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
