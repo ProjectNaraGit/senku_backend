@@ -28,7 +28,7 @@
         <div class="flex flex-col w-full items-center">
           <a href="" class="text-[#E5E0D8]">←Kembali Untuk Login</a>
           <!-- <button type="submit" class="bg-[#E5E0D8] text-[#5F6F52] rounded-[40px] py-2.5 px-6 my-4 font-poppins font-semibold w-full">Reset Password</button> -->
-          <a href="lupa password-check email.html" class="block bg-[#E5E0D8] text-[#5F6F52] rounded-[40px] py-2.5 px-6 my-4 font-poppins font-semibold w-full text-center">Reset Password</a>
+          <a href="{{ route('password.check-email') }}" class="block bg-[#E5E0D8] text-[#5F6F52] rounded-[40px] py-2.5 px-6 my-4 font-poppins font-semibold w-full text-center">Reset Password</a>
         </div>
       </form>
     </div>

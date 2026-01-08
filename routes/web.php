@@ -22,6 +22,26 @@ Route::get('/umum/login', function () {
     return view('auth.login-umum');
 })->name('umum.login');
 
+Route::get('/mahasiswa/signup', function () {
+    return view('auth.daftar-mahasiswa');
+})->name('mahasiswa.signup');
+Route::get('/siswa/signup', function () {
+    return view('auth.daftar-siswa');
+})->name('siswa.signup');
+Route::get('/umum/signup', function () {
+    return view('auth.daftar-umum');
+})->name('umum.signup');
+
+Route::get('/password/forget', function () {
+    return view('auth.lupa password');
+})->name('password.forget');
+Route::get('/password/new-password', function () {
+    return view('auth.lupa password-new pass');
+})->name('password.new');
+Route::get('/password/check-email', function () {
+    return view('auth.lupa password-check email');
+})->name('password.check-email');
+
 // Route login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);

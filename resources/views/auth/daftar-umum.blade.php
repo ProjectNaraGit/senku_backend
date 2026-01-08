@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="my-10">
-      <a href="login-umum.html">
+      <a href="{{ route('umum.login') }}">
         <img src="{{ asset('images/daftar.png') }}" alt="" class="w-[70%] ml-auto mr-auto select-none" draggable="false" oncontextmenu="return false;">
       </a>
     </div>
