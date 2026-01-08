@@ -9,7 +9,7 @@
   <nav class="w-full px-[120px] py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
     <div class="flex justify-between">
         <div class="">
-          <img src="img/7343c1fc35b5281de35c18d65f3824a08927c1b7.png" alt="logo" class="h-7">
+          <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}" alt="logo" class="h-7">
         </div>
         <div class="flex gap-5 justify-between items-center">
           <a href="index.html" class="font-poppins font-light text-[1.1em]">
@@ -137,7 +137,7 @@
     </section>
     <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8] rounded-t-2xl flex gap-4">
         <div class="w-[35%]">
-            <img src="img/507a1e4eee802165ee833faef48b17639cc890bf.jpg" alt="" class="h-[250px] object-cover">
+            <img src="{{ asset('images/507a1e4eee802165ee833faef48b17639cc890bf.jpg') }}" alt="" class="h-[250px] object-cover">
         </div>
         <div>
             <h2 class="font-bold text-4xl text-[#5D6B51] font-poppins">Layanan <span>Kami</span></h2>
@@ -155,16 +155,16 @@
       </div>
       <div class="flex flex-row justify-center gap-10 w-full mt-4">
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="img/instagram.png" alt="" class="w-[54px] h-[54px]">
+          <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[54px] h-[54px]">
         </a>
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="img/tiktok.png" alt="" class="w-[57px] h-[57px]">
+          <img src="{{ asset('images/tiktok.png') }}" alt="" class="w-[57px] h-[57px]">
         </a>
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="img/x.png" alt="" class="w-[52px] h-[52px]">
+          <img src="{{ asset('images/x.png') }}" alt="" class="w-[52px] h-[52px]">
         </a>
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="img/threads.png" alt="" class="w-[58px] h-[58px]">
+          <img src="{{ asset('images/threads.png') }}" alt="" class="w-[58px] h-[58px]">
         </a>
       </div>
     </section>

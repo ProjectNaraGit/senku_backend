@@ -24,7 +24,7 @@
     </div>
     <div class="my-10">
       <a href="login-umum.html">
-        <img src="img/daftar.png" alt="" class="w-[70%] ml-auto mr-auto select-none" draggable="false" oncontextmenu="return false;">
+        <img src="{{ asset('images/daftar.png') }}" alt="" class="w-[70%] ml-auto mr-auto select-none" draggable="false" oncontextmenu="return false;">
       </a>
     </div>
   </main>

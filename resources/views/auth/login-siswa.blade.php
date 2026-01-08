@@ -24,7 +24,7 @@
     </div>
     <div class="my-10">
       <a href="daftar-siswa.html">
-        <img src="img/login.png" alt="" class="w-[70%] ml-auto mr-auto select-none" draggable="false" oncontextmenu="return false;">
+        <img src="{{ asset('images/login.png') }}" alt="" class="w-[70%] ml-auto mr-auto select-none" draggable="false" oncontextmenu="return false;">
       </a>
     </div>
   </main>
