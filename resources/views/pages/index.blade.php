@@ -16,7 +16,7 @@
   <nav class="w-full px-30 py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
     <div class="flex justify-between">
         <div class="">
-          <img src="img/7343c1fc35b5281de35c18d65f3824a08927c1b7.png" alt="logo" class="h-7">
+          <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}" alt="logo" class="h-7">
         </div>
         <div class="flex gap-5 justify-between items-center">
           <a href="{{ route('home') }}" class="font-poppins font-light text-[1.1em]">Home</a>
@@ -48,13 +48,13 @@
             id="loginDropdown"
             class="hidden absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg border z-50"
           >
-            <a href="login-siswa.html" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="{{ route('siswa.login') }}" class="block px-4 py-2 hover:bg-gray-100">
               Siswa
             </a>
-            <a href="login-mahasiswa.html" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="{{ route('mahasiswa.login') }}" class="block px-4 py-2 hover:bg-gray-100">
               Mahasiswa
             </a>
-            <a href="login-umum.html" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="{{ route('umum.login') }}" class="block px-4 py-2 hover:bg-gray-100">
               Umum
             </a>
           </div>
@@ -80,7 +80,7 @@
         <div class="rounded-[20px] max-w-87.5 text-[15px] flex-1 p-5 bg-white -mt-10 shadow-xl shadow-gray-400">
           <div class="flex mb-3">
             <div class="flex-1">
-              <img src="img/e7112bf1923a361b34ce13055c57d032c50a17ca.png" alt="icon">
+              <img src="{{ asset('images/e7112bf1923a361b34ce13055c57d032c50a17ca.png') }}" alt="icon">
             </div>
             <div class="flex-2">
               <div class="text-[20px] text-[#5F6F52] font-semibold font-poppins leading-none mb-2]">Serba bisa</div>
@@ -94,7 +94,7 @@
         <div class="rounded-[20px] max-w-87.5 text-[15px] flex-1 p-5 bg-white -mt-10 shadow-xl shadow-gray-400">
           <div class="flex mb-3">
             <div class="flex-1">
-              <img src="img/78b570f382834f7c2682ac6349195a12978b9273.png" alt="icon">
+              <img src="{{ asset('images/78b570f382834f7c2682ac6349195a12978b9273.png') }}" alt="icon">
             </div>
             <div class="flex-2">
               <div class="text-[20px] text-[#5F6F52] font-semibold font-poppins leading-none mb-2]">Serba bisa</div>
@@ -108,7 +108,7 @@
         <div class="rounded-[20px] max-w-87.5 text-[15px] flex-1 p-5 bg-white -mt-10 shadow-xl shadow-gray-400">
           <div class="flex mb-3">
             <div class="flex-1">
-              <img src="img/ac1a0c3d62e9c6c03c8dd582e9d5f93097ccb8ec.png" alt="icon">
+              <img src="{{ asset('images/ac1a0c3d62e9c6c03c8dd582e9d5f93097ccb8ec.png') }}" alt="icon">
             </div>
             <div class="flex-2">
               <div class="text-[20px] text-[#5F6F52] font-semibold font-poppins leading-none mb-2]">Serba bisa</div>
@@ -227,10 +227,10 @@
         <a href="dashoboard.html" class="w-[347px] h-[72px] rounded-[30px] bg-white flex justify-center items-center text-[30px] font-poppins">CTA</a>
         <div class="flex flex-row justify-around w-[374px] mt-4 px-6">
           <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-            <img src="img/22f5dea3c59bcc9f94f3eae6c26ea3394badb610.png" alt="" class="w-[62px] h-[77px]">
+            <img src="{{ asset('images/22f5dea3c59bcc9f94f3eae6c26ea3394badb610.png') }}" alt="" class="w-[62px] h-[77px]">
           </a>
           <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-            <img src="img/a733546c5df6544c73b41c3847436f517e6e9e2b.png" alt="" class="w-[67px] h-[67px]">
+            <img src="{{ asset('images/a733546c5df6544c73b41c3847436f517e6e9e2b.png') }}" alt="" class="w-[67px] h-[67px]">
           </a>
         </div>
       </div>
@@ -241,16 +241,16 @@
       </div>
       <div class="flex flex-row justify-center gap-10 w-full mt-4">
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="img/instagram.png" alt="" class="w-[54px] h-[54px]">
+          <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[54px] h-[54px]">
         </a>
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="img/tiktok.png" alt="" class="w-[57px] h-[57px]">
+          <img src="{{ asset('images/tiktok.png') }}" alt="" class="w-[57px] h-[57px]">
         </a>
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="img/x.png" alt="" class="w-[52px] h-[52px]">
+          <img src="{{ asset('images/x.png') }}" alt="" class="w-[52px] h-[52px]">
         </a>
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="img/threads.png" alt="" class="w-[58px] h-[58px]">
+          <img src="{{ asset('images/threads.png') }}" alt="" class="w-[58px] h-[58px]">
         </a>
       </div>
     </section>

@@ -16,7 +16,7 @@
   <nav class="w-full px-[120px] py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
     <div class="flex justify-between">
         <div class="">
-          <img src="img/7343c1fc35b5281de35c18d65f3824a08927c1b7.png" alt="logo" class="h-7">
+          <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}" alt="logo" class="h-7">
         </div>
         <div class="flex gap-5 justify-between items-center">
           <a href="{{ route('home') }}" class="font-poppins font-light text-[1.1em]">Home</a>
@@ -48,13 +48,13 @@
             id="loginDropdown"
             class="hidden absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg border z-50"
           >
-            <a href="login-siswa.html" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="{{ route('siswa.login') }}" class="block px-4 py-2 hover:bg-gray-100">
               Siswa
             </a>
-            <a href="login-mahasiswa.html" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="{{ route('mahasiswa.login') }}" class="block px-4 py-2 hover:bg-gray-100">
               Mahasiswa
             </a>
-            <a href="login-umum.html" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="{{ route('umum.login') }}" class="block px-4 py-2 hover:bg-gray-100">
               Umum
             </a>
           </div>
@@ -67,10 +67,10 @@
     </section>
     <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8]">
       <div class="w-full flex justify-between gap-10">
-        <img src="img/testimoni.png" alt="" class="flex-1">
-        <img src="img/testimoni.png" alt="" class="flex-1">
-        <img src="img/testimoni.png" alt="" class="flex-1">
-        <img src="img/testimoni.png" alt="" class="flex-1">
+        <img src="{{ asset('images/testimoni.png') }}" alt="" class="flex-1">
+        <img src="{{ asset('images/testimoni.png') }}" alt="" class="flex-1">
+        <img src="{{ asset('images/testimoni.png') }}" alt="" class="flex-1">
+        <img src="{{ asset('images/testimoni.png') }}" alt="" class="flex-1">
       </div>
     </section>
     <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8]">
@@ -79,16 +79,16 @@
       </div>
       <div class="flex flex-row justify-center gap-10 w-full mt-4">
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="img/instagram.png" alt="" class="w-[54px] h-[54px]">
+          <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[54px] h-[54px]">
         </a>
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="img/tiktok.png" alt="" class="w-[57px] h-[57px]">
+          <img src="{{ asset('images/tiktok.png') }}" alt="" class="w-[57px] h-[57px]">
         </a>
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="img/x.png" alt="" class="w-[52px] h-[52px]">
+          <img src="{{ asset('images/x.png') }}" alt="" class="w-[52px] h-[52px]">
         </a>
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="img/threads.png" alt="" class="w-[58px] h-[58px]">
+          <img src="{{ asset('images/threads.png') }}" alt="" class="w-[58px] h-[58px]">
         </a>
       </div>
     </section>
