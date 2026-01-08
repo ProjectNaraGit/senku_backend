@@ -11,6 +11,17 @@ Route::get('/testimoni', [PageController::class, 'testimoni'])->name('testimoni'
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 
+
+Route::get('/mahasiswa/login', function () {
+    return view('auth.login-mahasiswa');
+})->name('mahasiswa.login');
+Route::get('/siswa/login', function () {
+    return view('auth.login-siswa');
+})->name('siswa.login');
+Route::get('/umum/login', function () {
+    return view('auth.login-umum');
+})->name('umum.login');
+
 // Route login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);

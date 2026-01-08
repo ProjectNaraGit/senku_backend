@@ -12,6 +12,7 @@
     --font-mochi-pop-one: 'Mochiy Pop One', sans-serif;
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --bg-login: url('/images/login%20vector.png');
 }
 
 @utility font-poppins {
@@ -21,3 +22,7 @@
 @utility font-mochi {
   font-family: var(--font-mochi-pop-one);
 }
+
+/* @utility bg-login {
+  background-image: url('images/login20%vector.png')
+} */

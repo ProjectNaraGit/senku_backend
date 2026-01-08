@@ -48,13 +48,13 @@
             id="loginDropdown"
             class="hidden absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg border z-50"
           >
-            <a href="login-siswa.html" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="{{ route('siswa.login') }}" class="block px-4 py-2 hover:bg-gray-100">
               Siswa
             </a>
-            <a href="login-mahasiswa.html" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="{{ route('mahasiswa.login') }}" class="block px-4 py-2 hover:bg-gray-100">
               Mahasiswa
             </a>
-            <a href="login-umum.html" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="{{ route('umum.login') }}" class="block px-4 py-2 hover:bg-gray-100">
               Umum
             </a>
           </div>
