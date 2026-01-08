@@ -11,7 +11,7 @@
     <div class="flex my-10">
         <div class="bg-[#5F6F52] flex-1 rounded-[20px] shadow shadow-gray-700 p-2 flex">
             <form action="" class="flex-1 w-full px-10 py-10 flex flex-col items-center justify-around">
-                <h1 class="font-mochi_pop_one font-bold text-3xl text-[#FEFFFE]">Welcome!</h1>
+                <h1 class="font-mochi font-bold text-3xl text-[#FEFFFE]">Welcome!</h1>
                 <div class="flex flex-col w-full">
                     <input type="email" placeholder="E-mail" class="border border-[#E5E0D8] rounded-[40px] py-2 px-4 w-full my-2 text-[#FEFEFE] text-[25px] placeholder:text-[#AAAAAA]">
                     <input type="name" placeholder="Nama" class="border border-[#E5E0D8] rounded-[40px] py-2 px-4 w-full my-2 text-[#FEFEFE] text-[25px] placeholder:text-[#AAAAAA]">

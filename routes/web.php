@@ -6,6 +6,10 @@ use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/cara_order', [PageController::class, 'cara_order'])->name('cara_order');
+Route::get('/testimoni', [PageController::class, 'testimoni'])->name('testimoni');
+Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 
 // Route login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');

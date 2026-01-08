@@ -78,7 +78,7 @@
   <script src="javascript/common.js"></script>
   <main>
     <section class="w-full bg-[#5F6F52] px-[120px] py-20 flex flex-col items-center gap-2">
-      <h1 class="text-white text-4xl font-bold font-mochi_pop_one">Biodata Diri</h1>
+      <h1 class="text-white text-4xl font-bold font-mochi">Biodata Diri</h1>
       <div class="flex gap-3 w-full">
         <div class="flex-1 bg-white p-4 rounded-lg">
           <img src="" alt="foto profile" class="h-[250px]">

@@ -10,19 +10,20 @@ class PageController extends Controller
     {
         return view('pages.index');
     }
-
-    public function contact()
+    public function cara_order()
     {
-        return view('pages.kontak');
+        return view('pages.cara order');
     }
-
+    public function testimoni()
+    {
+        return view('pages.testimoni');
+    }
     public function faq()
     {
         return view('pages.faq');
     }
-
-    public function tutorial()
+    public function kontak()
     {
-        return view('pages.tutorial');
+        return view('pages.kontak');
     }
 }
