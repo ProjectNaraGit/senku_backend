@@ -82,148 +82,73 @@
         </div>
     </div>
   </nav>
-  <script src="javascript/common.js"></script>
   <main>
     <section class="w-full bg-[#5F6F52] px-[120px] py-20 flex flex-col items-center gap-2">
-      <h1 class="text-white text-4xl font-bold font-mochi">Biodata Diri</h1>
-      <div class="flex gap-3 w-full">
-        <div class="flex-1 bg-white p-4 rounded-lg">
-          <img src="" alt="foto profile" class="h-[250px]">
-          <div class="flex flex-col gap-3">
-            <div class="flex gap-3 items-center">
-              <div class="bg-[#E5E0D8] p-2.5"><p class="font-poppins">Category</p></div>
-              <p class="font-poppins">.JPG .JPEG .PNG</p>
-            </div>
-            <h2 class="text-[#5F6F52] font-bold text-xl">Besar file: maksimum 10.000.000 bytes (10 Megabytes).</h2>
-            <a href="" class="bg-[#E5E0D8] text-center text-[#5F6F52] font-bold">Pilih Foto</a>
-          </div>
-        </div>
-        <div class="flex-[1.5] flex flex-col gap-3">
-          <h3 class="font-poppins font-bold text-xl text-white">Ubah Biodata Diri</h3>
-          <div class="flex justify-between">
-            <p class="font-poppins text-white font-semibold">Nama: <span>John</span></p>
-            <a href="" class="font-poppins text-white hover:underline">Ubah</a>
-          </div>
-          <p class="font-poppins text-white font-semibold">NPM/NISN (Jika mahasiswa wajib mengisi): </p>
-          <div class="flex justify-between">
-            <p class="font-poppins text-white font-semibold">Tanggal Lahir: <span>John</span></p>
-            <a href="" class="font-poppins text-white hover:underline">Ubah</a>
-          </div>
-          <h3 class="font-poppins text-white font-semibold text-lg">Ubah Kontak</h3>
-          <div class="flex justify-between items-center">
-            <p class="font-poppins text-white font-semibold">Email: <span>John</span></p>
-            <a href="" class="font-poppins bg-[#E5E0D8] p-1 rounded-lg">Terverifikasi</a>
-          </div>
-          <div class="flex justify-between items-center">
-            <p class="font-poppins text-white font-semibold">Nomor HP: <span>John</span></p>
-            <a href="" class="font-poppins bg-[#E5E0D8] p-1 rounded-lg">Terverifikasi</a>
-          </div>
-        </div>
-        <div class="flex-1">
-          <div class="bg-white p-4 flex flex-col gap-1 rounded-2xl">
-            <h4 class="font-poppins font-bold">Ubah Nama</h4>
-            <p class="font-poppins">Kamu hanya dapat mengubah nama 1 kali lagi. Pastikan nama sudah benar.</p>
-            <form action="" class="flex flex-col">
-              <label for="name" class="font-poppins">NAMA</label>
-              <input type="text" name="name" id="name" placeholder="Masukkan nama lengkap" class="bg-[#D9D9D9] p-2 rounded-xl font-poppins">
-              <button type="submit" class="font-poppins text-lg bg-[#D9D9D9] rounded-lg w-fit py-2 px-5 text-[#5F6F52] mx-auto mt-2">SIMPAN</button>
-            </form>
-          </div>
-          <div class="bg-white p-4 flex flex-col gap-1 rounded-2xl mt-3">
-            <h4 class="font-poppins font-bold">Ubah Tanggal Lahir</h4>
-            <p class="font-poppins">Kamu hanya dapat mengatur tanggal lahir satu kali. Pastikan tanggal lahir sudah benar.</p>
-            <form action="" class="flex flex-col">
-              <!-- <label for="name" class="font-poppins">NAMA</label> -->
-               <div class="flex gap-1">
-                 <input type="text" name="name" id="name" placeholder="Tanggal" class="bg-[#D9D9D9] p-2 rounded-xl font-poppins flex-1 w-[90px]">
-                 <input type="text" name="name" id="name" placeholder="Bulan" class="bg-[#D9D9D9] p-2 rounded-xl font-poppins flex-2 w-[150px]">
-                 <input type="text" name="name" id="name" placeholder="Tahun" class="bg-[#D9D9D9] p-2 rounded-xl font-poppins flex-1 w-[90px]">
-               </div>
-              <button type="submit" class="font-poppins text-lg bg-[#D9D9D9] rounded-lg w-fit py-2 px-5 text-[#5F6F52] mx-auto mt-2">SIMPAN</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="w-full px-[120px] py-20 bg-[#E5E0D8] flex flex-col gap-4 justify-center items-center">
-        <h1 class="text-[#5D6B51] font-bold text-[40px]">Status <span class="text-[#B56727]">Pemesanan</span></h1>
-        <p class="text-center">SenkuSolutions berkomitmen untuk selalu memberikan hasil terbaik dengan jaminan pelayanan yang cepat, akurat, dan bersahabat. Tidak perlu khawatir, setiap layanan Senkusolutions 100% bergaransi!</p>
-        <div class="w-full px-40 py-8">
-        <div class="relative flex items-center justify-between">
-
-          <!-- Garis -->
-          <div class="absolute top-5 left-0 w-full h-0.5 bg-gray-300"></div>
-
-          <!-- STEP 1 (Aktif) -->
-          <div class="relative z-10 flex flex-col items-center">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-orange-500 text-white font-semibold">
-              1
-            </div>
-            <p class="mt-2 text-orange-500 font-medium text-sm">
-              Menunggu pembayaran
-            </p>
-          </div>
-
-          <!-- STEP 2 -->
-          <div class="relative z-10 flex flex-col items-center">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white border-2 border-gray-300 text-gray-400 font-semibold">
-              2
-            </div>
-            <p class="mt-2 text-gray-400 font-medium text-sm">
-              Verifikasi Admin Senku
-            </p>
-          </div>
-
-          <!-- STEP 3 -->
-          <div class="relative z-10 flex flex-col items-center">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white border-2 border-gray-300 text-gray-400 font-semibold">
-              3
-            </div>
-            <p class="mt-2 text-gray-400 font-medium text-sm">
-              Selesai
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <section class="w-full px-[120px] py-20 bg-[#5D6B51] flex flex-col gap-4 justify-center items-center">
-        <p class="text-center font-poppins text-[#E5E0D8] text-[20px]">Yuk konsultasikan dulu kebutuhanmu GRATIS,<br>mulai kejar wisudamu dari sekarang!</p>
-        <a href="" class="py-2 px-5 bg-[#E5E0D8] rounded-lg">CTA WA</a>
-    </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8] rounded-t-2xl flex gap-4">
-        <div class="w-[35%]">
-            <img src="{{ asset('images/507a1e4eee802165ee833faef48b17639cc890bf.jpg') }}" alt="" class="h-[250px] object-cover">
-        </div>
+      <h1 class="text-white text-4xl font-bold font-mochi self-start mb-6">Keranjang</h1>
+      <div class="flex w-full bg-white p-10 gap-7 rounded-2xl">
         <div>
-            <h2 class="font-bold text-4xl text-[#5D6B51] font-poppins">Layanan <span>Kami</span></h2>
-            <div class="flex gap-5 mt-4">
-                <p class="font-poppins">SenkuSolutions berkomitmen untuk selalu memberikan hasil terbaik dengan jaminan pelayanan yang cepat, akurat, dan bersahabat. Tidak perlu khawatir, setiap layanan Senkusolutions 100% bergaransi!</p>
-                <p class="font-poppins">HUBUNGI KAMI
-                    <br>WA Admin/CS: +62 
-                    <br>Email: Senkusolutions@gmail.com</p>
-            </div>
+          <svg width="100" height="100" viewBox="0 0 61 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 50.667C21.3 50.667 24 53.5167 24 57C24 60.4833 21.3 63.333 18 63.333C14.7 63.333 12.0303 60.4833 12.0303 57C12.0303 53.5167 14.7 50.667 18 50.667ZM48 50.667C51.3 50.667 54 53.5167 54 57C54 60.4833 51.3 63.333 48 63.333C44.7 63.333 42.0303 60.4833 42.0303 57C42.0303 53.5167 44.7 50.667 48 50.667ZM7.91992 0C9.05985 0 10.1401 0.696482 10.6201 1.80469L12.6299 6.33301H57.0303C59.31 6.33321 60.7494 8.92965 59.6396 11.0195L48.9004 31.5713C47.8804 33.5345 45.9002 34.8329 43.6504 34.833H21.2998L18 41.167H51C52.6499 41.167 53.9998 42.5915 54 44.333C54 46.0747 52.65 47.5 51 47.5H18C13.44 47.5 10.56 42.3381 12.75 38.0947L16.7998 30.3682L6 6.33301H3C1.3501 6.33301 0.000168158 4.90851 0 3.16699C0 1.42533 1.35 0 3 0H7.91992Z" fill="#5F6F52"/>
+          </svg>
         </div>
-    </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8]">
-      <div class="w-full flex justify-center">
-        <h2 class="mb-8 font-poppins text-[40px] font-semibold">Follow <span class="text-[#FE8929]">Us</span></h2>
-      </div>
-      <div class="flex flex-row justify-center gap-10 w-full mt-4">
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[54px] h-[54px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/tiktok.png') }}" alt="" class="w-[57px] h-[57px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/x.png') }}" alt="" class="w-[52px] h-[52px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/threads.png') }}" alt="" class="w-[58px] h-[58px]">
-        </a>
+        <div class="flex flex-col w-fuil">
+          <p class="font-poppins text-2xl">Wah, keranjang belanjamu kosong<br>Yuk, isi dengan barang-barang impianmu!</p>
+          <a href="" class="w-fit mt-3 font-poppins font-bold text-white bg-[#5F6F52] py-1 px-20 rounded-xl0">Mulai Belanja</a>
+        </div>
       </div>
     </section>
+    <section class="w-full bg-[#E9E4DA] px-30 py-12">
+      <div class="max-w-7xl mx-auto grid grid-cols-4 gap-10 text-[#5F6F52]">
+          <div class="space-y-2">
+              <h3 class="font-semibold text-lg font-poppins">Home</h3>
+              <ul class="space-y-1 text-sm">
+                  <li><a href="#" class="hover:underline font-poppins">Home</a></li>
+                  <li><a href="#" class="hover:underline font-poppins">About Us</a></li>
+                  <li><a href="#" class="hover:underline font-poppins">Layanan Kami</a></li>
+                  <li><a href="#" class="hover:underline font-poppins">Tugas populer</a></li>
+                  <li><a href="#" class="hover:underline font-poppins">Kesan & pesan</a></li>
+              </ul>
+          </div>
+          <div class="space-y-2">
+              <h3 class="font-semibold text-lg font-poppins">Help</h3>
+              <ul class="space-y-1 text-sm">
+                  <li><a href="#" class="hover:underline font-poppins">Cara Order</a></li>
+                  <li><a href="#" class="hover:underline font-poppins">FAQ</a></li>
+              </ul>
+          </div>
+          <div class="space-y-2">
+              <h3 class="font-semibold text-lg font-poppins">Contacts</h3>
+              <ul class="space-y-1 text-sm">
+                  <li class="font-poppins">WA Senku</li>
+                  <li class="font-poppins">senkusolution@gmail.com</li>
+              </ul>
+          </div>
+          <div class="space-y-4">
+              <h3 class="font-semibold text-lg text-black font-poppins">
+                  FOLLOW <span class="text-[#FE8929]">US</span>
+              </h3>
+              <div class="flex gap-3">
+                  <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
+                    <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[25px] h-[25px]">
+                  </a>
+                  <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
+                    <img src="{{ asset('images/tiktok.png') }}" alt="" class="w-[25px] h-[25px]">
+                  </a>
+                  <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
+                    <img src="{{ asset('images/x.png') }}" alt="" class="w-[25px] h-[25px]">
+                  </a> 
+                  <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
+                    <img src="{{ asset('images/threads.png') }}" alt="" class="w-[25px] h-[25px]">
+                  </a>
+              </div>
+          </div>
+      </div>
+
+      {{-- Footer Bottom --}}
+      <div class="mt-12 text-center text-xs text-[#6B705C] font-poppins">
+          Made with ♡ by SenkuSolutions ID © 2025. All rights reserved.
+      </div>
+  </section>
   </main>
   <script src="{{ asset('js/common.js') }}"></script>
 </body>

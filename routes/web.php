@@ -42,6 +42,16 @@ Route::get('/password/check-email', function () {
     return view('auth.lupa password-check email');
 })->name('password.check-email');
 
+Route::get('/dashboard', function () {
+    return view('user.dashboard');
+})->name('user.dashboard');
+Route::get('/profile', function () {
+    return view('user.profile');
+})->name('user.profile');
+Route::get('/cart', function () {
+    return view('user.cart');
+})->name('user.cart');
+
 // Route login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
