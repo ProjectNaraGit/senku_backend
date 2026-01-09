@@ -52,6 +52,10 @@ Route::get('/cart', function () {
     return view('user.cart');
 })->name('user.cart');
 
+Route::get('/order-detail', function () {
+    return view('product.order-detail');
+})->name('order.order-detail');
+
 // Route login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
