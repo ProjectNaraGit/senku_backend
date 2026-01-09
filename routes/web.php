@@ -55,6 +55,15 @@ Route::get('/cart', function () {
 Route::get('/order-detail', function () {
     return view('product.order-detail');
 })->name('order.order-detail');
+Route::get('/checkout-detail', function () {
+    return view('product.co-detail');
+})->name('order.co-detail');
+Route::get('/checkout-payment', function () {
+    return view('product.co-bayar');
+})->name('order.co-payment');
+Route::get('/checkout-verification', function () {
+    return view('product.co-verif');
+})->name('order.co-verification');
 
 // Route login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
