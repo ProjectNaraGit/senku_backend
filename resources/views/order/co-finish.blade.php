@@ -12,139 +12,49 @@
         </style>
   @endif
 </head>
-<body class="bg-[#5F6F52]">
+<body class="bg-[#E9E5DC]">
   <main>
-    <section class="min-h-screen bg-[#E9E5DC] relative flex flex-col items-center py-12">
-
-      {{-- BACKGROUND PATTERN --}}
-      <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
-
-      {{-- STEP INDICATOR --}}
-      <div class="relative z-10 w-[50%] max-w-4xl flex items-center justify-between mb-10 px-6">
-          <div class="flex flex-col items-center gap-2 text-orange-500 font-semibold">
-            <span class="w-7 h-7 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">1</span>
-            <p class="absolute w-[150px] mt-7 ml-8">Booking Details</p>
-          </div>
-          <div class="flex-1 h-px bg-orange-500"></div>
-          <div class="flex flex-col items-center gap-2 text-orange-500 font-semibold">
-              <span class="w-7 h-7 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">2</span>
-              <p class="absolute w-[150px] mt-7 ml-16">Your Details</p>
-          </div>
-          <div class="flex-1 h-px bg-orange-500"></div>
-          <div class="flex flex-col items-center gap-2 text-orange-500 font-semibold">
-              <span class="w-7 h-7 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">3</span>
-              <p class="absolute w-[150px] mt-7 ml-22">Payment</p>
-          </div>
-      </div>
-
-        <div class="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 px-6">
-
-            {{-- LEFT : PAYMENT METHOD --}}
-            <div class="bg-white rounded-2xl p-8 shadow-sm">
-                <h2 class="text-lg font-semibold mb-6">Pilih metode pembayaran</h2>
-
-                {{-- ITEM --}}
-                <label class="flex items-start gap-4 p-4 border rounded-xl mb-4 cursor-pointer">
-                    <input type="radio" name="payment" class="mt-1 accent-orange-500">
-                    <div class="flex-1">
-                        <p class="font-medium">Shoppe Pay</p>
-                        <p class="text-sm text-gray-500">
-                            Anda akan diarahkan ke situs web Shoppe Pay setelah mengirimkan pesanan Anda.
-                        </p>
-                    </div>
-                    <div class="w-10 h-10 bg-gray-200 rounded"></div>
-                </label>
-
-                {{-- ITEM --}}
-                <label class="flex items-start gap-4 p-4 border rounded-xl mb-4 cursor-pointer">
-                    <input type="radio" name="payment" class="mt-1 accent-orange-500">
-                    <div class="flex-1">
-                        <p class="font-medium">Superbank</p>
-                        <p class="text-sm text-gray-500">
-                            Anda akan diarahkan ke situs web Superbank setelah mengirimkan pesanan Anda.
-                        </p>
-                    </div>
-                    <div class="w-10 h-10 bg-gray-200 rounded"></div>
-                </label>
-
-                {{-- ITEM --}}
-                <label class="flex items-start gap-4 p-4 border rounded-xl mb-4 cursor-pointer">
-                    <input type="radio" name="payment" class="mt-1 accent-orange-500">
-                    <div class="flex-1">
-                        <p class="font-medium">Qriss bank</p>
-                        <p class="text-sm text-gray-500">pilihan semuanya</p>
-                    </div>
-                    <div class="w-10 h-10 bg-gray-200 rounded"></div>
-                </label>
-
-                {{-- ITEM --}}
-                <label class="flex items-start gap-4 p-4 border rounded-xl cursor-pointer">
-                    <input type="radio" name="payment" class="mt-1 accent-orange-500">
-                    <div class="flex-1">
-                        <p class="font-medium">Alo bank</p>
-                        <p class="text-sm text-gray-500">pilih web alo bank</p>
-                    </div>
-                    <div class="w-10 h-10 bg-gray-200 rounded"></div>
-                </label>
-            </div>
-
-            {{-- RIGHT : SUMMARY --}}
-            <div class="bg-white rounded-2xl p-8 shadow-sm h-fit">
-
-                <h2 class="text-lg font-semibold mb-6">Paket yang di pilih</h2>
-
-                {{-- PRODUCT --}}
-                <div class="flex gap-4 pb-6 border-b">
-                    <div class="w-16 h-16 rounded-lg bg-gray-300 overflow-hidden">
-                        <img src="" alt="" class="w-full h-full object-cover">
-                    </div>
-                    <div>
-                        <p class="font-semibold">Nama produk</p>
-                        <p class="text-sm text-gray-500">Detail Produk</p>
-                        <p class="text-sm mt-1">Harga (Rp. 10.000)</p>
-                    </div>
-                </div>
-
-                {{-- LIST --}}
-                <div class="mt-6 space-y-4 text-sm">
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-3">
-                            <span class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">2</span>
-                            Adult (18+) (€32.00)
-                        </div>
-                        <span>Rp.</span>
-                    </div>
-
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-3">
-                            <span class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">1</span>
-                            Child (6-17)
-                        </div>
-                        <span>Rp.</span>
-                    </div>
-
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-3">
-                            <span class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">1</span>
-                            Infant (0-5)
-                        </div>
-                        <span>Rp.</span>
-                    </div>
-                </div>
-
-                {{-- TOTAL --}}
-                <div class="flex justify-between items-center mt-8 font-semibold">
-                    <span>Total Price</span>
-                    <span class="text-orange-500">Rp.xxxx</span>
-                </div>
-            </div>
-        </div>
-
-      {{-- CTA --}}
-      <a href="" class="relative z-10 mt-10 bg-orange-500 hover:bg-orange-600 text-white px-10 py-3 rounded-full font-semibold">
-          Go to the Next Step
+    <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover -z-10" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
+    <div class="flex justify-center flex-col items-center h-screen gap-2">
+      <svg class="z-99" width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M45.8333 0C20.5208 0 0 20.5208 0 45.8333C0 71.1458 20.5208 91.6667 45.8333 91.6667C71.1458 91.6667 91.6667 71.1458 91.6667 45.8333C91.6667 20.5208 71.1458 0 45.8333 0ZM65.7 38.0833C66.0658 37.6652 66.3443 37.1781 66.5191 36.6507C66.6939 36.1233 66.7615 35.5663 66.7178 35.0124C66.6741 34.4586 66.5202 33.919 66.2649 33.4255C66.0096 32.932 65.6583 32.4946 65.2314 32.1389C64.8046 31.7832 64.311 31.5165 63.7796 31.3544C63.2482 31.1923 62.6897 31.1382 62.137 31.1951C61.5843 31.2521 61.0486 31.4189 60.5614 31.686C60.0742 31.953 59.6453 32.3148 59.3 32.75L41.3833 54.2458L32.1125 44.9708C31.3267 44.2118 30.2741 43.7919 29.1817 43.8014C28.0892 43.8109 27.0441 44.2491 26.2716 45.0216C25.4991 45.7941 25.0609 46.8392 25.0514 47.9317C25.0419 49.0241 25.4618 50.0767 26.2208 50.8625L38.7208 63.3625C39.1302 63.7717 39.6204 64.091 40.1601 64.3002C40.6997 64.5095 41.2771 64.604 41.8553 64.5777C42.4335 64.5514 42.9999 64.405 43.5184 64.1477C44.0369 63.8904 44.496 63.5279 44.8667 63.0833L65.7 38.0833Z" fill="#5F6F52"/>
+      </svg>
+      <h1 class="font-poppins font-bold text-2xl">Pesanan Anda Telah Selesai!</h1>
+      <p class="font-poppins">Anda akan menerima email konfirmasi yang berisi rincian pesanan</p>
+      <a href=""
+        class="w-full max-w-sm py-3 px-6
+              rounded-full
+              border-2 border-[#5F6F52]
+              text-[#5F6F52]
+              transition
+              font-poppins
+              font-bold
+              text-center">
+        Print Bukti Pembayaran
       </a>
-  </section>
+      <a href=""
+        class="w-full max-w-sm py-3 px-6
+              rounded-full
+              border-2 border-[#5F6F52]
+              text-[#5F6F52]
+              transition
+              font-poppins
+              font-bold
+              text-center">
+        Hubungi Admin Senku
+      </a>
+      <a href="{{ route('user.dashboard') }}"
+        class="w-full max-w-md py-4 px-6
+              rounded-full
+              bg-[#5F6F52]
+              text-white
+              font-semibold
+              transition mt-6
+              text-center">
+        Go to the Home Page
+      </a>
+
+    </div>
   </main>
   <script src="{{ asset('js/common.js') }}"></script>
 </body>

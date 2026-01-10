@@ -53,17 +53,20 @@ Route::get('/cart', function () {
 })->name('user.cart');
 
 Route::get('/order-detail', function () {
-    return view('product.order-detail');
+    return view('order.order-detail');
 })->name('order.order-detail');
 Route::get('/checkout-detail', function () {
-    return view('product.co-detail');
+    return view('order.co-detail');
 })->name('order.co-detail');
 Route::get('/checkout-payment', function () {
-    return view('product.co-bayar');
+    return view('order.co-bayar');
 })->name('order.co-payment');
 Route::get('/checkout-verification', function () {
-    return view('product.co-verif');
+    return view('order.co-verif');
 })->name('order.co-verification');
+Route::get('/checkout-finish', function () {
+    return view('order.co-finish');
+})->name('order.co-finish');
 
 // Route login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
