@@ -42,6 +42,32 @@ Route::get('/password/check-email', function () {
     return view('auth.lupa password-check email');
 })->name('password.check-email');
 
+Route::get('/dashboard', function () {
+    return view('user.dashboard');
+})->name('user.dashboard');
+Route::get('/profile', function () {
+    return view('user.profile');
+})->name('user.profile');
+Route::get('/cart', function () {
+    return view('user.cart');
+})->name('user.cart');
+
+Route::get('/order-detail', function () {
+    return view('order.order-detail');
+})->name('order.order-detail');
+Route::get('/checkout-detail', function () {
+    return view('order.co-detail');
+})->name('order.co-detail');
+Route::get('/checkout-payment', function () {
+    return view('order.co-bayar');
+})->name('order.co-payment');
+Route::get('/checkout-verification', function () {
+    return view('order.co-verif');
+})->name('order.co-verification');
+Route::get('/checkout-finish', function () {
+    return view('order.co-finish');
+})->name('order.co-finish');
+
 // Route login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
