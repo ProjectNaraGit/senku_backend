@@ -12,7 +12,7 @@
         </style>
   @endif
 </head>
-<body class="bg-[#5F6F52]">
+<body class="bg-[#E5E0D8]">
   <nav class="w-full px-[120px] py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
     <div class="flex justify-between">
         <div class="">
@@ -61,13 +61,52 @@
         </div>
     </div>
   </nav>
-  <main>
-    <section class="w-full bg-[#5F6F52] px-[120px] py-20 flex flex-row justify-center items-center">
-      <h1 class="font-mochi text-[48px] text-[#E5E0D8]">Cara Order</h1>
+  <main class="relative">
+    <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover z-0" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
+    <section class="w-full bg-[#E5E0D8] px-[120px] py-20 flex flex-row justify-center items-center">
+      <h1 class="z-10 font-mochi text-[48px] text-[#5F6F52]">Cara Order</h1>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8]">
+    <section class="z-10 w-full py-[60px] px-[120px] bg-[#5F6F52] rounded-t-3xl">
+      <div class="pb-2 mb-2 w-full">
+        <div class="flex bg-[#E5E0D8] rounded-xl w-fit px-4 py-2 w-full">
+          <div class="min-w-12 min-h-12">
+            <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq1-icon" class="w-12 h-12">
+          </div>
+          <h3 class="h-12 flex items-center text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq1')">
+            1. Apa aja jenis jasa joki yang Senku Solutions tawarkan?
+          </h3>
+        </div>
+        <p id="faq1" class="hidden font-poppins text-[15px] pl-14 text-[#E5E0D8] mt-2">Kami bantu berbagai kebutuhan digital dan akademik — mulai dari joki tugas, proyek, desain, sampai pengerjaan website. Pokoknya, kami bantu kamu biar hasilnya beres dan tepat waktu.</p>
+      </div>
+      <div class="pb-2 mb-2 w-full">
+        <div class="flex bg-[#E5E0D8] rounded-xl w-fit px-4 py-2 w-full">
+          <div class="min-w-12 min-h-12">
+            <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq2-icon" class="w-12 h-12">
+          </div>
+          <h3 class="h-12 flex items-center text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq2')">
+            2. Apa aja jenis jasa joki yang Senku Solutions tawarkan?
+          </h3>
+        </div>
+        <p id="faq2" class="hidden font-poppins text-[15px] pl-14 text-[#E5E0D8] mt-2">Kami bantu berbagai kebutuhan digital dan akademik — mulai dari joki tugas, proyek, desain, sampai pengerjaan website. Pokoknya, kami bantu kamu biar hasilnya beres dan tepat waktu.</p>
+      </div>
+    </section>
+    <section class="w-full pt-15 px-30 bg-[#5F6F52] rounded-t-2xl flex gap-4">
+        <div class="z-10 w-[35%]">
+            <img src="{{ asset('images/507a1e4eee802165ee833faef48b17639cc890bf.jpg') }}" alt="" class="h-[250px] object-cover">
+        </div>
+        <div>
+            <h2 class="font-bold text-4xl font-poppins text-[#E5E0D8]">Layanan <span>Kami</span></h2>
+            <div class="flex gap-5 mt-4 text-[#E5E0D8]">
+                <p class="font-poppins">SenkuSolutions berkomitmen untuk selalu memberikan hasil terbaik dengan jaminan pelayanan yang cepat, akurat, dan bersahabat. Tidak perlu khawatir, setiap layanan Senkusolutions 100% bergaransi!</p>
+                <p class="font-poppins">HUBUNGI KAMI
+                    <br>WA Admin/CS: +62 
+                    <br>Email: Senkusolutions@gmail.com</p>
+            </div>
+        </div>
+    </section>
+    <section class="w-full px-30 bg-[#5F6F52]">
       <div class="w-full flex justify-center">
-        <h2 class="mb-8 font-poppins text-[40px] font-semibold">Follow <span class="text-[#FE8929]">Us</span></h2>
+        <h2 class="mb-8 font-poppins text-[40px] font-semibold text-[#E5E0D8]">Follow <span class="text-[#FE8929]">Us</span></h2>
       </div>
       <div class="flex flex-row justify-center gap-10 w-full mt-4">
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
@@ -86,5 +125,16 @@
     </section>
   </main>
   <script src="{{ asset('js/common.js') }}"></script>
+  <script>
+  function toggleFaq(id) {
+    const el = document.getElementById(id)
+    const elicon = document.getElementById(id+"-icon")
+    el.classList.toggle('hidden')
+    //elicon.classList.toggle('rotate-90')
+    elicon.src = elicon.src.includes('beaker.png')
+        ? "{{ asset('images/beaker_spill.png') }}"
+        : "{{ asset('images/beaker.png') }}"
+  }
+  </script>
 </body>
 </html>
