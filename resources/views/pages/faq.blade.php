@@ -61,11 +61,12 @@
         </div>
     </div>
   </nav>
-  <main>
+  <main class="relative">
+    <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover z-0" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
     <section class="w-full bg-[#5F6F52] px-[120px] py-20 flex flex-row justify-center items-center">
-      <h1 class="font-mochi text-[48px] text-[#E5E0D8]">FAQ</h1>
+      <h1 class="font-mochi text-[48px] text-[#E5E0D8] z-10">FAQ</h1>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8] rounded-t-3xl">
+    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8] rounded-t-3xl z-10">
       <div class="flex border-b border-gray-400 pb-2 mb-2">
         <div class="min-w-12 min-h-12">
           <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq1-icon" class="w-12 h-12">
@@ -144,7 +145,21 @@
         </div>
       </div>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8]">
+    <section class="w-full pt-15 px-[120px] bg-[#E5E0D8] rounded-t-2xl flex gap-4">
+        <div class="z-10 w-[35%]">
+            <img src="{{ asset('images/507a1e4eee802165ee833faef48b17639cc890bf.jpg') }}" alt="" class="h-[250px] object-cover">
+        </div>
+        <div>
+            <h2 class="font-bold text-4xl text-[#5D6B51] font-poppins">Layanan <span>Kami</span></h2>
+            <div class="flex gap-5 mt-4">
+                <p class="font-poppins">SenkuSolutions berkomitmen untuk selalu memberikan hasil terbaik dengan jaminan pelayanan yang cepat, akurat, dan bersahabat. Tidak perlu khawatir, setiap layanan Senkusolutions 100% bergaransi!</p>
+                <p class="font-poppins">HUBUNGI KAMI
+                    <br>WA Admin/CS: +62 
+                    <br>Email: Senkusolutions@gmail.com</p>
+            </div>
+        </div>
+    </section>
+    <section class="w-full px-[120px] bg-[#E5E0D8]">
       <div class="w-full flex justify-center">
         <h2 class="mb-8 font-poppins text-[40px] font-semibold">Follow <span class="text-[#FE8929]">Us</span></h2>
       </div>
@@ -171,7 +186,10 @@
     const el = document.getElementById(id)
     const elicon = document.getElementById(id+"-icon")
     el.classList.toggle('hidden')
-    elicon.classList.toggle('rotate-90')
+    //elicon.classList.toggle('rotate-90')
+    elicon.src = elicon.src.includes('beaker.png')
+        ? "{{ asset('images/beaker_spill.png') }}"
+        : "{{ asset('images/beaker.png') }}"
   }
   </script>
 </body>
