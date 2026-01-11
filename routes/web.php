@@ -67,6 +67,9 @@ Route::get('/checkout-verification', function () {
 Route::get('/checkout-finish', function () {
     return view('order.co-finish');
 })->name('order.co-finish');
+Route::get('/checkout-snk', function () {
+    return view('order.co-snk');
+})->name('order.co-snk');
 
 // Route login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
