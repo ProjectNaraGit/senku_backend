@@ -71,6 +71,16 @@ Route::get('/checkout-snk', function () {
     return view('order.co-snk');
 })->name('order.co-snk');
 
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+})->name('admin.dashboard');
+Route::get('/admin/layanan', function () {
+    return view('admin.layanan');
+})->name('admin.layanan');
+Route::get('/admin/order', function () {
+    return view('admin.order');
+})->name('admin.order');
+
 // Route login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
