@@ -83,8 +83,8 @@
               <img src="{{ asset('images/e7112bf1923a361b34ce13055c57d032c50a17ca.png') }}" alt="icon">
             </div>
             <div class="flex-2">
-              <div class="text-[20px] text-[#5F6F52] font-semibold font-poppins leading-none mb-2]">Serba bisa</div>
-              <div class="text-[30px] text-[#5F6F52] font-semibold font-poppins leading-none">Tugas atau Konsultasi</div>
+              <div class="text-[20px] text-[#5F6F52] font-semibold font-poppins mb-2">Serba bisa</div>
+              <div class="text-[30px] text-[#5F6F52] font-semibold font-poppins">Tugas atau Konsultasi</div>
             </div>
           </div>
           <p class="font-poppins">
@@ -97,8 +97,8 @@
               <img src="{{ asset('images/78b570f382834f7c2682ac6349195a12978b9273.png') }}" alt="icon">
             </div>
             <div class="flex-2">
-              <div class="text-[20px] text-[#5F6F52] font-semibold font-poppins leading-none mb-2]">Serba bisa</div>
-              <div class="text-[30px] text-[#5F6F52] font-semibold font-poppins leading-none">Tugas atau Konsultasi</div>
+              <div class="text-[20px] text-[#5F6F52] font-semibold font-poppins mb-2">Serba bisa</div>
+              <div class="text-[30px] text-[#5F6F52] font-semibold font-poppins">Tugas atau Konsultasi</div>
             </div>
           </div>
           <p class="font-poppins">
@@ -111,8 +111,8 @@
               <img src="{{ asset('images/ac1a0c3d62e9c6c03c8dd582e9d5f93097ccb8ec.png') }}" alt="icon">
             </div>
             <div class="flex-2">
-              <div class="text-[20px] text-[#5F6F52] font-semibold font-poppins leading-none mb-2]">Serba bisa</div>
-              <div class="text-[30px] text-[#5F6F52] font-semibold font-poppins leading-none">Tugas atau Konsultasi</div>
+              <div class="text-[20px] text-[#5F6F52] font-semibold font-poppins mb-2">Serba bisa</div>
+              <div class="text-[30px] text-[#5F6F52] font-semibold font-poppins">Tugas atau Konsultasi</div>
             </div>
           </div>
           <p class="font-poppins">
