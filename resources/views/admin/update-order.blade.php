@@ -13,163 +13,37 @@
   @endif
   <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
 </head>
-<body class="bg-dark-backdrop">        
-    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base ms-3 mt-3 text-sm p-2 focus:outline-none inline-flex sm:hidden">
-    <span class="sr-only">Open sidebar</span>
-    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
-    </svg>
-    </button>
-
-    <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-    <div class="h-full px-3 py-4 overflow-y-auto bg-neutral-primary-soft border-e border-default">
-        <ul class="space-y-2 font-medium">
-            <li>
-                <a href="{{ route('admin.dashboard') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6.025A7.5 7.5 0 1 0 17.975 14H10V6.025Z"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 3c-.169 0-.334.014-.5.025V11h7.975c.011-.166.025-.331.025-.5A7.5 7.5 0 0 0 13.5 3Z"/></svg>
-                <span class="ms-3">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.layanan') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v14M9 5v14M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>
-                <span class="flex-1 ms-3 whitespace-nowrap">Layanan</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.order') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 13h3.439a.991.991 0 0 1 .908.6 3.978 3.978 0 0 0 7.306 0 .99.99 0 0 1 .908-.6H20M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6M4 13l2-9h12l2 9M9 7h6m-7 3h8"/></svg>
-                <span class="flex-1 ms-3 whitespace-nowrap">Order</span>
-                <span class="inline-flex items-center justify-center w-4.5 h-4.5 ms-2 text-xs font-medium text-fg-brand-strong bg-brand-soft border border-brand-subtle rounded-full">41</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                    <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"/></svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-    </aside>
-    <div class="p-4 sm:ml-64">
-        <div class="p-4">
-            <h1 class="text-2xl font-semibold text-heading mb-4">Admin Dashboard</h1>
-            <p class="text-body mb-4">Welcome to the admin dashboard. Use the sidebar to navigate through different sections.</p>
-            <!-- Add more dashboard content here -->
+<body class="bg-dark-backdrop">
+    <h2 class="w-full text-center my-3 text-white font-semibold text-xl">Update Status Order</h2>
+    <div class="flex justify-center gap-5 px-30 my-7">    
+        <div class="flex-1 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
+            <p class="text-body">Kode Order</p>
+            <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">31573146673</h5>
         </div>
-        <div class="p-4">
-            <h1 class="text-2xl font-semibold text-heading mb-4">Omset</h1>
-            <div class="flex gap-5">        
-                <div href="#" class="flex-1 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
-                    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Rp 123.456,78</h5>
-                    <p class="text-body">Omset hari ini</p>
-                </div>
-                <div href="#" class="flex-1 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
-                    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Rp 123.456,78</h5>
-                    <p class="text-body">Omset bulan ini</p>
-                </div>
-            </div>
+        <div class="flex-1 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
+            <p class="text-body">Pemesan</p>
+            <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">John</h5>
         </div>
-        <div class="p-4">
-            <h1 class="text-2xl font-semibold text-heading mb-4">Order</h1>
-            <div class="flex">        
-                <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default flex-1">
-                    <table class="w-full text-sm text-left rtl:text-right text-body">
-                        <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
-                            <tr>
-                                <th scope="col" class="px-6 py-3 font-medium">
-                                    Produk
-                                </th>
-                                <th scope="col" class="px-6 py-3 font-medium">
-                                    Pengguna
-                                </th>
-                                <th scope="col" class="px-6 py-3 font-medium">
-                                    Jenis
-                                </th>
-                                <th scope="col" class="px-6 py-3 font-medium">
-                                    Deadline
-                                </th>
-                                <th scope="col" class="px-6 py-3 font-medium">
-                                    Status
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="bg-neutral-primary border-b border-default">
-                                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Apple MacBook Pro 17"
-                                </th>
-                                <td class="px-6 py-4">
-                                    Silver
-                                </td>
-                                <td class="px-6 py-4">
-                                    Laptop
-                                </td>
-                                <td class="px-6 py-4">
-                                    $2999
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="bg-success-soft text-fg-success-strong text-xs font-medium px-1.5 py-0.5 rounded">Selesai</span>
-                                </td>
-                            </tr>
-                            <tr class="bg-neutral-primary border-b border-default">
-                                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Microsoft Surface Pro
-                                </th>
-                                <td class="px-6 py-4">
-                                    White
-                                </td>
-                                <td class="px-6 py-4">
-                                    Laptop PC
-                                </td>
-                                <td class="px-6 py-4">
-                                    $1999
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="bg-danger-soft text-fg-danger-strong text-xs font-medium px-1.5 py-0.5 rounded">Dibatalkan</span>
-                                </td>
-                            </tr>
-                            <tr class="bg-neutral-primary">
-                                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Magic Mouse 2
-                                </th>
-                                <td class="px-6 py-4">
-                                    Black
-                                </td>
-                                <td class="px-6 py-4">
-                                    Accessories
-                                </td>
-                                <td class="px-6 py-4">
-                                    $99
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="bg-warning-soft text-fg-warning text-xs font-medium px-1.5 py-0.5 rounded">Pending</span>
-                                </td>
-                            </tr>
-                            <tr class="bg-neutral-primary">
-                                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Magic Mouse 2
-                                </th>
-                                <td class="px-6 py-4">
-                                    Black
-                                </td>
-                                <td class="px-6 py-4">
-                                    Accessories
-                                </td>
-                                <td class="px-6 py-4">
-                                    $99
-                                </td>
-                                <td class="px-6 py-4">                                    
-                                    <span class="bg-neutral-secondary-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Progress</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div class="flex-1 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
+            <p class="text-body">Deadline</p>
+            <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">18 Februari 2026</h5>
+        </div>
+        <div class="flex-1 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
+            <p class="text-body">Harga</p>
+            <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Rp 120.000</h5>
         </div>
     </div>
+    <form class="max-w-sm mx-auto">
+      <label for="countries" class="block mb-2.5 text-sm font-medium text-heading">Pilih Status</label>
+      <select id="countries" class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
+        <option selected>-- Pilih Status --</option>
+        <option value="US">Canceled</option>
+        <option value="CA">Selesai</option>
+        <option value="FR">Progress</option>
+        <option value="DE">Pending</option>
+      </select>
+      <button type="submit" class="mt-5 text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Submit</button>
+    </form>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 </body>
 </html>
