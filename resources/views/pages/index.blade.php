@@ -18,9 +18,6 @@
       <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}"
          class="h-7" />
 
-      <button class="md:hidden" onclick="toggleMobileMenu()">
-        ☰
-      </button>
         <div class="gap-5 justify-between items-center hidden md:flex">
           <a href="{{ route('home') }}" class="font-poppins font-light text-[1.1em]">Home</a>
           <a href="{{ route('cara_order') }}" class="font-poppins font-light text-[1.1em]">Cara Order</a>
@@ -28,7 +25,12 @@
           <a href="{{ route('faq') }}" class="font-poppins font-light text-[1.1em]">FAQ</a>
           <a href="{{ route('kontak') }}" class="font-poppins font-light text-[1.1em]">Kontak</a>
         </div>
-        <div class="hidden md:block relative">
+
+        <div class="flex gap-2">
+        <button class="md:hidden" onclick="toggleMobileMenu()">
+          ☰
+        </button>
+        <div class="relative">
           <button
             onclick="toggleLogin()"
             class="bg-[#5F6F52] hover:bg-[#37402f] cursor-pointer text-white px-4 py-2 rounded-lg font-poppins font-light text-[1.1em] flex items-center gap-2"
@@ -61,6 +63,7 @@
               Umum
             </a>
           </div>
+        </div>
         </div>
     </div>
 
