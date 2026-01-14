@@ -104,7 +104,7 @@
       </form>
     </div>
   </main>
-  <script src="javascript/common.js"></script>
+  <script src="{{ asset('js/common.js') }}"></script>
   <script>
     function togglePassword(inputId, btn) {
       const input = document.getElementById(inputId);

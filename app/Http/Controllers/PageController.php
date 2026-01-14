@@ -12,7 +12,7 @@ class PageController extends Controller
     }
     public function cara_order()
     {
-        return view('pages.cara order');
+        return view('pages.cara_order');
     }
     public function testimoni()
     {

@@ -10,12 +10,13 @@ class Layanan extends Model
 {
     use HasFactory;
 
-    protected $table = 'layanan';
+    protected $table = 'layanans';
     
     protected $fillable = [
         'nama_layanan',
         'deskripsi_layanan',
         'harga_layanan',
+        'gambar_layanan',
     ];
 
     protected $casts = [

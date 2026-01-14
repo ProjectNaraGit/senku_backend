@@ -33,6 +33,6 @@
       </form>
     </div>
   </main>
-  <script src="javascript/common.js"></script>
+  <script src="{{ asset('js/common.js') }}"></script>
 </body>
 </html>

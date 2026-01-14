@@ -25,6 +25,6 @@
       <a href="" class="text-[#F8FAFF] font-semibold">←Kembali Untuk Login</a>
     </div>
   </main>
-  <script src="javascript/common.js"></script>
+  <script src="{{ asset('js/common.js') }}"></script>
 </body>
 </html>

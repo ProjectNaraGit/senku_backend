@@ -14,26 +14,61 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'user_type' => 'required|in:mahasiswa,siswa,umum',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'name' => 'required_if:user_type,umum|string|max:255',
+            'nim' => 'required_if:user_type,mahasiswa|string|max:20|unique:users,nim',
+            'nisn' => 'required_if:user_type,siswa|string|max:20|unique:users,nisn',
+            'nama_lengkap' => 'required_if:user_type,siswa|string|max:255',
+            'jurusan' => 'nullable|string|max:100',
+            'jenis_kelamin' => 'required|in:L,P',
+            'no_hp' => 'required|string|max:15',
+            'alamat' => 'required|string',
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
+        $userData = [
+            'user_type' => $request->user_type,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
-        ]);
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'no_hp' => $request->no_hp,
+            'alamat' => $request->alamat,
+        ];
 
+        // Tambahkan field sesuai tipe user
+        switch ($request->user_type) {
+            case 'mahasiswa':
+                $userData['nim'] = $request->nim;
+                $userData['name'] = $request->nama_lengkap ?? $request->name;
+                if (isset($request->jurusan)) {
+                    $userData['jurusan'] = $request->jurusan;
+                }
+                break;
+                
+            case 'siswa':
+                $userData['nisn'] = $request->nisn;
+                $userData['name'] = $request->nama_lengkap;
+                $userData['sekolah_asal'] = $request->sekolah_asal ?? null;
+                break;
+                
+            case 'umum':
+                $userData['name'] = $request->name;
+                $userData['pekerjaan'] = $request->pekerjaan ?? null;
+                break;
+        }
+
+        $user = User::create($userData);
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
+            'message' => 'Registrasi berhasil',
             'access_token' => $token,
             'token_type' => 'Bearer',
             'user' => $user
-        ]);
+        ], 201);
     }
 
     public function login(Request $request)

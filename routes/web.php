@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\User\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
@@ -22,15 +25,10 @@ Route::get('/umum/login', function () {
     return view('auth.login-umum');
 })->name('umum.login');
 
-Route::get('/mahasiswa/signup', function () {
-    return view('auth.daftar-mahasiswa');
-})->name('mahasiswa.signup');
-Route::get('/siswa/signup', function () {
-    return view('auth.daftar-siswa');
-})->name('siswa.signup');
-Route::get('/umum/signup', function () {
-    return view('auth.daftar-umum');
-})->name('umum.signup');
+Route::get('/mahasiswa/signup', [RegisterController::class, 'showRegistrationForm'])->defaults('userType', 'mahasiswa')->name('mahasiswa.signup');
+Route::get('/siswa/signup', [RegisterController::class, 'showRegistrationForm'])->defaults('userType', 'siswa')->name('siswa.signup');
+Route::get('/umum/signup', [RegisterController::class, 'showRegistrationForm'])->defaults('userType', 'umum')->name('umum.signup');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::get('/password/forget', function () {
     return view('auth.lupa password');
@@ -69,25 +67,29 @@ Route::get('/checkout-finish', function () {
 })->name('order.co-finish');
 
 // Route login
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::get('/login', function () {
+    return redirect()->route('home');
+})->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Route lupa password
 Route::get('/password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('/password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 
 // Route dashboard berdasarkan tipe user (protected)
 Route::middleware(['auth'])->group(function () {
-    Route::get('/mahasiswa/dashboard', function () {
-        return view('dashboard.mahasiswa');
-    })->name('mahasiswa.dashboard')->middleware('check.user.type:mahasiswa');
+    Route::get('/mahasiswa/dashboard', [DashboardController::class, 'index'])
+        ->name('mahasiswa.dashboard')
+        ->middleware('check.user.type:mahasiswa');
     
-    Route::get('/siswa/dashboard', function () {
-        return view('dashboard.siswa');
-    })->name('siswa.dashboard')->middleware('check.user.type:siswa');
+    Route::get('/siswa/dashboard', [DashboardController::class, 'index'])
+        ->name('siswa.dashboard')
+        ->middleware('check.user.type:siswa');
     
-    Route::get('/umum/dashboard', function () {
-        return view('dashboard.umum');
-    })->name('umum.dashboard')->middleware('check.user.type:umum');
+    Route::get('/umum/dashboard', [DashboardController::class, 'index'])
+        ->name('umum.dashboard')
+        ->middleware('check.user.type:umum');
 });
