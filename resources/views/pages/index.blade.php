@@ -15,8 +15,8 @@
 <body class="bg-[#5F6F52] overflow-x-hidden">
   <nav class="w-full px-4 md:px-30 py-4 bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
     <div class="flex justify-between items-center">
-      <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}"
-         class="h-7" />
+      <a href="{{ route('home') }}"><img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}"
+         class="h-7" /></a>
 
         <div class="gap-5 justify-between items-center hidden md:flex">
           <a href="{{ route('home') }}" class="font-poppins font-light text-[1.1em]">Home</a>

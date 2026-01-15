@@ -13,11 +13,11 @@
   @endif
 </head>
 <body class="bg-[#5F6F52]">
-  <nav class="w-full px-[120px] py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
+  <nav class="w-full px-7.5 md:px-30 py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
     <div class="flex justify-between">
-        <div class="">
+        <a href="{{ route('user.dashboard') }}" class="block">
           <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}" alt="logo" class="h-7">
-        </div>
+        </a>
         <div class="flex gap-5 justify-between items-center">
           <a href="{{ route('user.cart') }}" class="font-poppins font-light text-[1.1em]">
             <svg width="28" height="28" viewBox="0 0 61 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,17 +83,17 @@
     </div>
   </nav>
   <main>
-    <section class="w-full bg-[#5F6F52] px-[120px] py-20 flex flex-col items-center gap-2">
+    <section class="w-full bg-[#5F6F52] px-7.5 md:px-30 py-20 flex flex-col items-center gap-2">
       <h1 class="text-white text-4xl font-bold font-mochi self-start mb-6">Keranjang</h1>
-      <div class="flex w-full bg-white p-10 gap-7 rounded-2xl">
-        <div>
+      <div class="flex flex-col md:flex-row w-full bg-white p-10 gap-7 rounded-2xl">
+        <div class="flex justify-center">
           <svg width="100" height="100" viewBox="0 0 61 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M18 50.667C21.3 50.667 24 53.5167 24 57C24 60.4833 21.3 63.333 18 63.333C14.7 63.333 12.0303 60.4833 12.0303 57C12.0303 53.5167 14.7 50.667 18 50.667ZM48 50.667C51.3 50.667 54 53.5167 54 57C54 60.4833 51.3 63.333 48 63.333C44.7 63.333 42.0303 60.4833 42.0303 57C42.0303 53.5167 44.7 50.667 48 50.667ZM7.91992 0C9.05985 0 10.1401 0.696482 10.6201 1.80469L12.6299 6.33301H57.0303C59.31 6.33321 60.7494 8.92965 59.6396 11.0195L48.9004 31.5713C47.8804 33.5345 45.9002 34.8329 43.6504 34.833H21.2998L18 41.167H51C52.6499 41.167 53.9998 42.5915 54 44.333C54 46.0747 52.65 47.5 51 47.5H18C13.44 47.5 10.56 42.3381 12.75 38.0947L16.7998 30.3682L6 6.33301H3C1.3501 6.33301 0.000168158 4.90851 0 3.16699C0 1.42533 1.35 0 3 0H7.91992Z" fill="#5F6F52"/>
           </svg>
         </div>
         <div class="flex flex-col w-fuil">
-          <p class="font-poppins text-2xl">Wah, keranjang belanjamu kosong<br>Yuk, isi dengan barang-barang impianmu!</p>
-          <a href="" class="w-fit mt-3 font-poppins font-bold text-white bg-[#5F6F52] py-1 px-20 rounded-xl0">Mulai Belanja</a>
+          <p class="font-poppins text-2xl text-center md:text-left">Wah, keranjang belanjamu kosong<br>Yuk, isi dengan barang-barang impianmu!</p>
+          <a href="" class="w-fit mt-3 font-poppins font-bold text-white bg-[#5F6F52] py-1 px-20 rounded-xl0 text-center">Mulai Belanja</a>
         </div>
       </div>
     </section>

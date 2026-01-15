@@ -182,7 +182,7 @@
       <div class="w-full flex justify-center">
         <h2 class="mb-8 font-poppins text-[40px] font-semibold">Follow <span class="text-[#FE8929]">Us</span></h2>
       </div>
-      <div class="flex flex-row justify-center gap-10 w-full mt-4">
+      <div class="flex flex-row justify-center gap-5 md:gap-10 w-full mt-4">
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
           <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[54px] h-[54px]">
         </a>
