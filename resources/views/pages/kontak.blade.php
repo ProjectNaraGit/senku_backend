@@ -13,18 +13,23 @@
   @endif
 </head>
 <body class="bg-[#E5E0D8]">
-  <nav class="w-full px-[120px] py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
-    <div class="flex justify-between">
-        <div class="">
-          <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}" alt="logo" class="h-7">
-        </div>
-        <div class="flex gap-5 justify-between items-center">
+  <nav class="w-full px-4 md:px-30 py-4 bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
+    <div class="flex justify-between items-center">
+      <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}"
+         class="h-7" />
+
+        <div class="gap-5 justify-between items-center hidden md:flex">
           <a href="{{ route('home') }}" class="font-poppins font-light text-[1.1em]">Home</a>
           <a href="{{ route('cara_order') }}" class="font-poppins font-light text-[1.1em]">Cara Order</a>
           <a href="{{ route('testimoni') }}" class="font-poppins font-light text-[1.1em]">Testimoni</a>
           <a href="{{ route('faq') }}" class="font-poppins font-light text-[1.1em]">FAQ</a>
           <a href="{{ route('kontak') }}" class="font-poppins font-light text-[1.1em]">Kontak</a>
         </div>
+
+        <div class="flex gap-2">
+        <button class="md:hidden" onclick="toggleMobileMenu()">
+          ☰
+        </button>
         <div class="relative">
           <button
             onclick="toggleLogin()"
@@ -59,16 +64,30 @@
             </a>
           </div>
         </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden flex-row justify-between items-center gap-3 mt-4 md:hidden">
+      <a href="{{ route('home') }}">Home</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('cara_order') }}">Cara Order</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('testimoni') }}">Testimoni</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('faq') }}">FAQ</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('kontak') }}">Kontak</a>
     </div>
   </nav>
   <main>
-    <section class="w-full bg-[#E5E0D8] px-[120px] py-20 flex flex-col justify-center items-center">
+    <section class="w-full bg-[#E5E0D8] px-7.5 md:px-30 py-20 flex flex-col justify-center items-center">
       <h1 class="font-mochi text-[48px] text-[#FE8929]">Kontak</h1>
       <p class="text-center font-poppins text-[16px]">Punya pertanyaan atau hanya ingin menyapa? <br> Jangan ragu, kami sangat senang mendengar kabar dari Anda.</p>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#5F6F52] rounded-t-2xl">
-      <form action="" class="px-10 flex flex-col">
-        <div class="flex gap-16">
+    <section class="w-full py-[60px] px-7.5 md:px-30 bg-[#5F6F52] rounded-t-2xl">
+      <form action="" class="md:px-10 flex flex-col">
+        <div class="flex gap-2 md:gap-16 flex-col md:flex-row">
           <div class="flex-1">
             <label for="name" class="font-poppins text-[#E5E0D8]">Nama<span class="text-red-600">*</span></label>
             <input type="text" name="name" id="name" class="w-full h-[50px] rounded-lg mt-2 mb-4 px-4 focus:outline-none bg-[#E5E0D8]" required>
@@ -87,7 +106,7 @@
         <button type="submit" class="bg-[#E5E0D8] px-5 py-3 rounded-lg text-[#5F6F52] font-poppins self-center">Kirim</button>
       </form>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#5F6F52] flex gap-[90px] justify-center">
+    <section class="w-full py-[60px] px-7.5 md:px-30 bg-[#5F6F52] flex gap-2 md:gap-22.5 justify-center">
       <div class="flex-1 max-w-[378px] flex justify-center items-center flex-col gap-1">
         <svg width="44" height="34" viewBox="0 0 44 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.33333 0C5.38841 0 3.52315 0.737498 2.14788 2.05025C0.772617 3.36301 0 5.14348 0 7V7.7035L22 19.012L44 7.707V7C44 5.14348 43.2274 3.36301 41.8521 2.05025C40.4768 0.737498 38.6116 0 36.6667 0H7.33333ZM44 11.6795L22.869 22.54C22.6019 22.6772 22.3033 22.7491 22 22.7491C21.6967 22.7491 21.3981 22.6772 21.131 22.54L0 11.6795V28C0 29.8565 0.772617 31.637 2.14788 32.9497C3.52315 34.2625 5.38841 35 7.33333 35H36.6667C38.6116 35 40.4768 34.2625 41.8521 32.9497C43.2274 31.637 44 29.8565 44 28V11.6795Z" fill="white"/></svg>
         <h4 class="text-[#E5E0D8] font-poppins">Email</h4>
@@ -99,7 +118,7 @@
         <p class="text-[#E5E0D8] font-poppins text-center">Hubungi kami untuk berbicara dengan salah satu anggota tim kami.<br>+089699882356</p>
       </div>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#5F6F52]">
+    <section class="w-full py-[60px] px-7.5 md:px-30 bg-[#5F6F52]">
       <div class="w-full flex justify-center">
         <h2 class="mb-8 font-poppins text-[40px] font-semibold">Follow <span class="text-[#FE8929]">Us</span></h2>
       </div>

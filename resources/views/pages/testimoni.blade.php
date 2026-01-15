@@ -13,18 +13,23 @@
   @endif
 </head>
 <body class="bg-[#5F6F52]">
-  <nav class="w-full px-[120px] py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
-    <div class="flex justify-between">
-        <div class="">
-          <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}" alt="logo" class="h-7">
-        </div>
-        <div class="flex gap-5 justify-between items-center">
+  <nav class="w-full px-4 md:px-30 py-4 bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
+    <div class="flex justify-between items-center">
+      <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}"
+         class="h-7" />
+
+        <div class="gap-5 justify-between items-center hidden md:flex">
           <a href="{{ route('home') }}" class="font-poppins font-light text-[1.1em]">Home</a>
           <a href="{{ route('cara_order') }}" class="font-poppins font-light text-[1.1em]">Cara Order</a>
           <a href="{{ route('testimoni') }}" class="font-poppins font-light text-[1.1em]">Testimoni</a>
           <a href="{{ route('faq') }}" class="font-poppins font-light text-[1.1em]">FAQ</a>
           <a href="{{ route('kontak') }}" class="font-poppins font-light text-[1.1em]">Kontak</a>
         </div>
+
+        <div class="flex gap-2">
+        <button class="md:hidden" onclick="toggleMobileMenu()">
+          ☰
+        </button>
         <div class="relative">
           <button
             onclick="toggleLogin()"
@@ -59,21 +64,35 @@
             </a>
           </div>
         </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden flex-row justify-between items-center gap-3 mt-4 md:hidden">
+      <a href="{{ route('home') }}">Home</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('cara_order') }}">Cara Order</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('testimoni') }}">Testimoni</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('faq') }}">FAQ</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('kontak') }}">Kontak</a>
     </div>
   </nav>
   <main>
-    <section class="w-full bg-[#5F6F52] px-[120px] py-20 flex flex-row justify-center items-center">
+    <section class="w-full bg-[#5F6F52] px-7.5 md:px-30 py-20 flex flex-row justify-center items-center">
       <h1 class="font-mochi text-[48px] text-[#E5E0D8]">Testimoni</h1>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8]">
-      <div class="w-full flex justify-between gap-10">
+    <section class="w-full py-[60px] px-7.5 md:px-30 bg-[#E5E0D8]">
+      <div class="w-full flex flex-col md:flex-row justify-between gap-10">
         <img src="{{ asset('images/testimoni.png') }}" alt="" class="flex-1">
         <img src="{{ asset('images/testimoni.png') }}" alt="" class="flex-1">
         <img src="{{ asset('images/testimoni.png') }}" alt="" class="flex-1">
         <img src="{{ asset('images/testimoni.png') }}" alt="" class="flex-1">
       </div>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8]">
+    <section class="w-full py-[60px] px-7.5 md:px-30 bg-[#E5E0D8]">
       <div class="w-full flex justify-center">
         <h2 class="mb-8 font-poppins text-[40px] font-semibold">Follow <span class="text-[#FE8929]">Us</span></h2>
       </div>

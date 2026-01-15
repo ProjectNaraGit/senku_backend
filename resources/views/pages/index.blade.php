@@ -81,7 +81,7 @@
     </div>
   </nav>
   <main>
-    <section class="w-full bg-[#5F6F52] px-7.5 md:px-30  pt-20 flex flex-row gap-5">
+    <section class="w-full bg-[#5F6F52] px-7.5 md:px-30 pt-20 flex flex-row gap-5">
       <div class="flex-2 flex flex-col gap-5">
         <h1 class="font-mochi text-[48px] text-[#E5E0D8]">Senku Adalah</h1>
         <p class="font-poppins text-[16px] font-normal text-[#E5E0D8]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa doloremque est eius. Eligendi ut dignissimos quaerat voluptate veniam. Quasi aliquid repellat quia aliquam, odit architecto ab temporibus rem aperiam.</p>
@@ -279,11 +279,5 @@
     </section>
   </main>
   <script src="{{ asset('js/common.js') }}"></script>
-  <script>
-  function toggleMobileMenu() {
-    document.getElementById('mobileMenu').classList.toggle('hidden');
-    document.getElementById('mobileMenu').classList.toggle('flex');
-  }
-  </script>
 </body>
 </html>
