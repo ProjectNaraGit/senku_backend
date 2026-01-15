@@ -17,7 +17,7 @@
     <section class="min-h-screen bg-[#E9E5DC] relative flex flex-col items-center py-12 -z-10">
         <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover -z-5" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
         <h1 class="font-mochi font-medium text-3xl text-[#5F6F52]">Detail SNK</h1>
-        <div class="w-full px-30 mt-10 font-poppins">
+        <div class="w-full px-4 md:px-30 mt-10 font-poppins">
             <!-- Ruang Lingkup Layanan -->
             <div class="w-full bg-[#FFFCFC] p-4 text-[#5F6F52] text-xl rounded-xl mt-4">
                 <h3>Ruang Lingkup Layanan</h3>

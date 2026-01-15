@@ -97,58 +97,66 @@
         </div>
       </div>
     </section>
-    <section class="w-full bg-[#E9E4DA] px-30 py-12">
-      <div class="max-w-7xl mx-auto grid grid-cols-4 gap-10 text-[#5F6F52]">
-          <div class="space-y-2">
-              <h3 class="font-semibold text-lg font-poppins">Home</h3>
-              <ul class="space-y-1 text-sm">
-                  <li><a href="#" class="hover:underline font-poppins">Home</a></li>
-                  <li><a href="#" class="hover:underline font-poppins">About Us</a></li>
-                  <li><a href="#" class="hover:underline font-poppins">Layanan Kami</a></li>
-                  <li><a href="#" class="hover:underline font-poppins">Tugas populer</a></li>
-                  <li><a href="#" class="hover:underline font-poppins">Kesan & pesan</a></li>
-              </ul>
+    <section class="w-full bg-[#E9E4DA] px-6 sm:px-10 lg:px-30 py-12">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-[#5F6F52] text-center sm:text-left">
+
+        <!-- Home -->
+        <div class="space-y-2">
+          <h3 class="font-semibold text-lg font-poppins">Home</h3>
+          <ul class="space-y-1 text-sm">
+            <li><a href="{{ route('home') }}" class="hover:underline font-poppins">Home</a></li>
+            <li><a href="{{ route('home') }}" class="hover:underline font-poppins">About Us</a></li>
+            <li><a href="{{ route('home') }}" class="hover:underline font-poppins">Layanan Kami</a></li>
+            <li><a href="{{ route('home') }}" class="hover:underline font-poppins">Tugas populer</a></li>
+            <li><a href="{{ route('home') }}" class="hover:underline font-poppins">Kesan & pesan</a></li>
+          </ul>
+        </div>
+
+        <!-- Help -->
+        <div class="space-y-2">
+          <h3 class="font-semibold text-lg font-poppins">Help</h3>
+          <ul class="space-y-1 text-sm">
+            <li><a href="{{ route('cara_order') }}" class="hover:underline font-poppins">Cara Order</a></li>
+            <li><a href="{{ route('faq') }}" class="hover:underline font-poppins">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacts -->
+        <div class="space-y-2">
+          <h3 class="font-semibold text-lg font-poppins">Contacts</h3>
+          <ul class="space-y-1 text-sm">
+            <li class="font-poppins break-words">WA Senku</li>
+            <li class="font-poppins break-words">senkusolution@gmail.com</li>
+          </ul>
+        </div>
+
+        <!-- Social -->
+        <div class="space-y-4">
+          <h3 class="font-semibold text-lg text-black font-poppins">
+            FOLLOW <span class="text-[#FE8929]">US</span>
+          </h3>
+          <div class="flex gap-3 justify-center sm:justify-start flex-wrap">
+            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
+              <img src="{{ asset('images/instagram.png') }}" class="w-[22px] h-[22px]" />
+            </a>
+            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
+              <img src="{{ asset('images/tiktok.png') }}" class="w-[22px] h-[22px]" />
+            </a>
+            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
+              <img src="{{ asset('images/x.png') }}" class="w-[22px] h-[22px]" />
+            </a>
+            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
+              <img src="{{ asset('images/threads.png') }}" class="w-[22px] h-[22px]" />
+            </a>
           </div>
-          <div class="space-y-2">
-              <h3 class="font-semibold text-lg font-poppins">Help</h3>
-              <ul class="space-y-1 text-sm">
-                  <li><a href="#" class="hover:underline font-poppins">Cara Order</a></li>
-                  <li><a href="#" class="hover:underline font-poppins">FAQ</a></li>
-              </ul>
-          </div>
-          <div class="space-y-2">
-              <h3 class="font-semibold text-lg font-poppins">Contacts</h3>
-              <ul class="space-y-1 text-sm">
-                  <li class="font-poppins">WA Senku</li>
-                  <li class="font-poppins">senkusolution@gmail.com</li>
-              </ul>
-          </div>
-          <div class="space-y-4">
-              <h3 class="font-semibold text-lg text-black font-poppins">
-                  FOLLOW <span class="text-[#FE8929]">US</span>
-              </h3>
-              <div class="flex gap-3">
-                  <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
-                    <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[25px] h-[25px]">
-                  </a>
-                  <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
-                    <img src="{{ asset('images/tiktok.png') }}" alt="" class="w-[25px] h-[25px]">
-                  </a>
-                  <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
-                    <img src="{{ asset('images/x.png') }}" alt="" class="w-[25px] h-[25px]">
-                  </a> 
-                  <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
-                    <img src="{{ asset('images/threads.png') }}" alt="" class="w-[25px] h-[25px]">
-                  </a>
-              </div>
-          </div>
+        </div>
       </div>
 
-      {{-- Footer Bottom --}}
-      <div class="mt-12 text-center text-xs text-[#6B705C] font-poppins">
-          Made with ♡ by SenkuSolutions ID © 2025. All rights reserved.
+      <!-- Footer Bottom -->
+      <div class="mt-12 text-center text-xs text-[#6B705C] font-poppins px-4">
+        Made with ♡ by SenkuSolutions ID © 2025. All rights reserved.
       </div>
-  </section>
+    </section>
   </main>
   <script src="{{ asset('js/common.js') }}"></script>
 </body>
