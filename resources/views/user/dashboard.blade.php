@@ -13,11 +13,11 @@
   @endif
 </head>
 <body class="bg-[#5F6F52]">
-  <nav class="w-full px-[120px] py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
+  <nav class="w-full px-7.5 md:px-30 py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
     <div class="flex justify-between">
-        <div class="">
+        <a href="{{ route('user.dashboard') }}" class="block">
           <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}" alt="logo" class="h-7">
-        </div>
+        </a>
         <div class="flex gap-5 justify-between items-center">
           <a href="{{ route('user.cart') }}" class="font-poppins font-light text-[1.1em]">
             <svg width="28" height="28" viewBox="0 0 61 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,47 +83,47 @@
     </div>
   </nav>
   <main>
-    <section class="w-full bg-[#5F6F52] px-[120px] py-20">
-        <div class="grid grid-cols-4 grid-rows-2 gap-x-5 gap-y-4">
-            <div class="bg-white rounded-[30px] p-3">
+    <section class="w-full bg-[#5F6F52] px-7.5 md:px-30 py-20">
+        <div class="grid grid-cols-2 grid-rows-4 md:grid-cols-4 md:grid-rows-2 gap-x-5 gap-y-4">
+            <div class="bg-white rounded-[20px] md:rounded-[30px] p-3 max-h-62.5 md:max-h-none overflow-y-clip">
                 <img src="" alt="image" class="w-full h-24">
                 <h4 class="font-bold">Konsultasi Personal Development</h4>
-                <p class="text-justify leading-none">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
+                <p class="text-justify">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
             </div>
-            <div class="bg-white rounded-[30px] p-3">
+            <div class="bg-white rounded-[20px] md:rounded-[30px] p-3 max-h-62.5 md:max-h-none overflow-y-clip">
                 <img src="" alt="image" class="w-full h-24">
                 <h4 class="font-bold">Konsultasi Personal Development</h4>
-                <p class="text-justify leading-none">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
+                <p class="text-justify">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
             </div>
-            <div class="bg-white rounded-[30px] p-3">
+            <div class="bg-white rounded-[20px] md:rounded-[30px] p-3 max-h-62.5 md:max-h-none overflow-y-clip">
                 <img src="" alt="image" class="w-full h-24">
                 <h4 class="font-bold">Konsultasi Personal Development</h4>
-                <p class="text-justify leading-none">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
+                <p class="text-justify">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
             </div>
-            <div class="bg-white rounded-[30px] p-3">
+            <div class="bg-white rounded-[20px] md:rounded-[30px] p-3 max-h-62.5 md:max-h-none overflow-y-clip">
                 <img src="" alt="image" class="w-full h-24">
                 <h4 class="font-bold">Konsultasi Personal Development</h4>
-                <p class="text-justify leading-none">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
+                <p class="text-justify">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
             </div>
-            <div class="bg-white rounded-[30px] p-3">
+            <div class="bg-white rounded-[20px] md:rounded-[30px] p-3 max-h-62.5 md:max-h-none overflow-y-clip">
                 <img src="" alt="image" class="w-full h-24">
                 <h4 class="font-bold">Konsultasi Personal Development</h4>
-                <p class="text-justify leading-none">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
+                <p class="text-justify">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
             </div>
-            <div class="bg-white rounded-[30px] p-3">
+            <div class="bg-white rounded-[20px] md:rounded-[30px] p-3 max-h-62.5 md:max-h-none overflow-y-clip">
                 <img src="" alt="image" class="w-full h-24">
                 <h4 class="font-bold">Konsultasi Personal Development</h4>
-                <p class="text-justify leading-none">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
+                <p class="text-justify">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
             </div>
-            <div class="bg-white rounded-[30px] p-3">
+            <div class="bg-white rounded-[20px] md:rounded-[30px] p-3 max-h-62.5 md:max-h-none overflow-y-clip">
                 <img src="" alt="image" class="w-full h-24">
                 <h4 class="font-bold">Konsultasi Personal Development</h4>
-                <p class="text-justify leading-none">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
+                <p class="text-justify">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
             </div>
-            <div class="bg-white rounded-[30px] p-3">
+            <div class="bg-white rounded-[20px] md:rounded-[30px] p-3 max-h-62.5 md:max-h-none overflow-y-clip">
                 <img src="" alt="image" class="w-full h-24">
                 <h4 class="font-bold">Konsultasi Personal Development</h4>
-                <p class="text-justify leading-none">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
+                <p class="text-justify">nisl. maximus venenatis malesuada tincidunt commodo In nulla, elit Cras at, non ex in Lorem laoreet Donec elementum nisl. tincidunt efficitur. nec nec amet, </p>
             </div>
         </div>
         <div class="flex justify-center mt-3">
@@ -134,21 +134,21 @@
             </p>
         </div>
     </section>
-    <section class="w-full px-[120px] py-20 bg-[#E5E0D8] flex flex-col gap-4 justify-center items-center">
+    <section class="w-full px-7.5 md:px-30 py-20 bg-[#E5E0D8] flex flex-col gap-4 justify-center items-center">
         <h1 class="text-[#5D6B51] font-bold text-[40px]">100% <span class="text-[#B56727]">Guarantee Service</span></h1>
         <p class="text-center">SenkuSolutions berkomitmen untuk selalu memberikan hasil terbaik dengan jaminan pelayanan yang cepat, akurat, dan bersahabat. Tidak perlu khawatir, setiap layanan Senkusolutions 100% bergaransi!</p>
     </section>
-    <section class="w-full px-[120px] py-20 bg-[#5D6B51] flex flex-col gap-4 justify-center items-center">
+    <section class="w-full px-7.5 md:px-30 py-20 bg-[#5D6B51] flex flex-col gap-4 justify-center items-center">
         <p class="text-center font-poppins text-[#E5E0D8] text-[20px]">Yuk konsultasikan dulu kebutuhanmu GRATIS,<br>mulai kejar wisudamu dari sekarang!</p>
         <a href="" class="py-2 px-5 bg-[#E5E0D8] rounded-lg">CTA WA</a>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8] rounded-t-2xl flex gap-4">
-        <div class="w-[35%]">
+    <section class="w-full pt-15 px-7.5 md:px-30 bg-[#E5E0D8] rounded-t-2xl flex gap-4">
+        <div class="z-10 w-[35%] hidden md:block">
             <img src="{{ asset('images/507a1e4eee802165ee833faef48b17639cc890bf.jpg') }}" alt="" class="h-[250px] object-cover">
         </div>
         <div>
             <h2 class="font-bold text-4xl text-[#5D6B51] font-poppins">Layanan <span>Kami</span></h2>
-            <div class="flex gap-5 mt-4">
+            <div class="flex flex-col md:flex-row gap-5 mt-4">
                 <p class="font-poppins">SenkuSolutions berkomitmen untuk selalu memberikan hasil terbaik dengan jaminan pelayanan yang cepat, akurat, dan bersahabat. Tidak perlu khawatir, setiap layanan Senkusolutions 100% bergaransi!</p>
                 <p class="font-poppins">HUBUNGI KAMI
                     <br>WA Admin/CS: +62 
@@ -156,11 +156,11 @@
             </div>
         </div>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8]">
+    <section class="w-full py-[60px] px-7.5 md:px-30 bg-[#E5E0D8]">
       <div class="w-full flex justify-center">
         <h2 class="mb-8 font-poppins text-[40px] font-semibold">Follow <span class="text-[#FE8929]">Us</span></h2>
       </div>
-      <div class="flex flex-row justify-center gap-10 w-full mt-4">
+      <div class="flex flex-row justify-center gap-5 md:gap-10 w-full mt-4">
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
           <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[54px] h-[54px]">
         </a>

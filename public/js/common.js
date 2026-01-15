@@ -16,3 +16,8 @@ document.addEventListener('click', function (e) {
         document.getElementById('loginIcon').classList.remove('rotate-180')
     }
 })
+
+function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+    document.getElementById('mobileMenu').classList.toggle('flex');
+}

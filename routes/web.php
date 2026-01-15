@@ -80,6 +80,15 @@ Route::get('/admin/layanan', function () {
 Route::get('/admin/order', function () {
     return view('admin.order');
 })->name('admin.order');
+Route::get('/admin/layanan/tambah', function () {
+    return view('admin.tambah-layanan');
+})->name('admin.layanan.tambah');
+Route::get('/admin/layanan/edit', function () {
+    return view('admin.edit-layanan');
+})->name('admin.layanan.edit');
+Route::get('/admin/order/update', function () {
+    return view('admin.update-order');
+})->name('admin.order.update');
 
 // Route login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');

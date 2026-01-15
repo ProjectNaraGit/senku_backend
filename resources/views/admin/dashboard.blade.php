@@ -110,7 +110,7 @@
                                     $2999
                                 </td>
                                 <td class="px-6 py-4">
-                                    231
+                                    <span class="bg-success-soft text-fg-success-strong text-xs font-medium px-1.5 py-0.5 rounded">Selesai</span>
                                 </td>
                             </tr>
                             <tr class="bg-neutral-primary border-b border-default">
@@ -127,7 +127,7 @@
                                     $1999
                                 </td>
                                 <td class="px-6 py-4">
-                                    423
+                                    <span class="bg-danger-soft text-fg-danger-strong text-xs font-medium px-1.5 py-0.5 rounded">Dibatalkan</span>
                                 </td>
                             </tr>
                             <tr class="bg-neutral-primary">
@@ -144,7 +144,24 @@
                                     $99
                                 </td>
                                 <td class="px-6 py-4">
-                                    121
+                                    <span class="bg-warning-soft text-fg-warning text-xs font-medium px-1.5 py-0.5 rounded">Pending</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-neutral-primary">
+                                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
+                                    Magic Mouse 2
+                                </th>
+                                <td class="px-6 py-4">
+                                    Black
+                                </td>
+                                <td class="px-6 py-4">
+                                    Accessories
+                                </td>
+                                <td class="px-6 py-4">
+                                    $99
+                                </td>
+                                <td class="px-6 py-4">                                    
+                                    <span class="bg-neutral-secondary-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Progress</span>
                                 </td>
                             </tr>
                         </tbody>

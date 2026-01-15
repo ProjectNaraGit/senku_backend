@@ -55,7 +55,7 @@
     <div class="p-4 sm:ml-64">
         <div class="p-4">
             <h1 class="text-2xl font-semibold text-heading mb-4">Dashboard Layanan</h1>
-            <a href="" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Tambah Layanan</a>
+            <a href="{{ route('admin.layanan.tambah') }}" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Tambah Layanan</a>
         </div>
         <div class="p-4">
             <h1 class="text-2xl font-semibold text-heading mb-4">Daftar Layanan</h1>
@@ -68,13 +68,16 @@
                                     Nama Layanan
                                 </th>
                                 <th scope="col" class="px-6 py-3 font-medium">
-                                    Jenis
+                                    Deskripsi
+                                </th>
+                                <th scope="col" class="px-6 py-3 font-medium">
+                                    Gambar
+                                </th>
+                                <th scope="col" class="px-6 py-3 font-medium">
+                                    Harga
                                 </th>
                                 <th scope="col" class="px-6 py-3 font-medium">
                                     Kategori
-                                </th>
-                                <th scope="col" class="px-6 py-3 font-medium">
-                                    Biaya
                                 </th>
                                 <th scope="col" class="px-6 py-3 font-medium">
                                     Action
@@ -96,7 +99,10 @@
                                     $2999
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-fg-brand hover:underline">Edit</a>
+                                    $2999
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="{{ route('admin.layanan.edit') }}" class="font-medium text-fg-brand hover:underline">Edit</a>
                                     <a href="#" class="font-medium text-fg-danger hover:underline">Delete</a>
                                 </td>
                             </tr>
@@ -114,7 +120,10 @@
                                     $1999
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-fg-brand hover:underline">Edit</a>
+                                    $1999
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="{{ route('admin.layanan.edit') }}" class="font-medium text-fg-brand hover:underline">Edit</a>
                                     <a href="#" class="font-medium text-fg-danger hover:underline">Delete</a>
                                 </td>
                             </tr>
@@ -132,7 +141,10 @@
                                     $99
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-fg-brand hover:underline">Edit</a>
+                                    $99
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="{{ route('admin.layanan.edit') }}" class="font-medium text-fg-brand hover:underline">Edit</a>
                                     <a href="#" class="font-medium text-fg-danger hover:underline">Delete</a>
                                 </td>
                             </tr>
@@ -150,7 +162,10 @@
                                     $799
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-fg-brand hover:underline">Edit</a>
+                                    $799
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="{{ route('admin.layanan.edit') }}" class="font-medium text-fg-brand hover:underline">Edit</a>
                                     <a href="#" class="font-medium text-fg-danger hover:underline">Delete</a>
                                 </td>
                             </tr>
@@ -168,7 +183,10 @@
                                     $999
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-fg-brand hover:underline">Edit</a>
+                                    $999
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="{{ route('admin.layanan.edit') }}" class="font-medium text-fg-brand hover:underline">Edit</a>
                                     <a href="#" class="font-medium text-fg-danger hover:underline">Delete</a>
                                 </td>
                             </tr>

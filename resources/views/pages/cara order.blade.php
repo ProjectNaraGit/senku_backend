@@ -13,18 +13,23 @@
   @endif
 </head>
 <body class="bg-[#E5E0D8]">
-  <nav class="w-full px-[120px] py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
-    <div class="flex justify-between">
-        <div class="">
-          <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}" alt="logo" class="h-7">
-        </div>
-        <div class="flex gap-5 justify-between items-center">
+  <nav class="w-full px-4 md:px-30 py-4 bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
+    <div class="flex justify-between items-center">
+      <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}"
+         class="h-7" />
+
+        <div class="gap-5 justify-between items-center hidden md:flex">
           <a href="{{ route('home') }}" class="font-poppins font-light text-[1.1em]">Home</a>
           <a href="{{ route('cara_order') }}" class="font-poppins font-light text-[1.1em]">Cara Order</a>
           <a href="{{ route('testimoni') }}" class="font-poppins font-light text-[1.1em]">Testimoni</a>
           <a href="{{ route('faq') }}" class="font-poppins font-light text-[1.1em]">FAQ</a>
           <a href="{{ route('kontak') }}" class="font-poppins font-light text-[1.1em]">Kontak</a>
         </div>
+
+        <div class="flex gap-2">
+        <button class="md:hidden" onclick="toggleMobileMenu()">
+          ☰
+        </button>
         <div class="relative">
           <button
             onclick="toggleLogin()"
@@ -59,20 +64,34 @@
             </a>
           </div>
         </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden flex-row justify-between items-center gap-3 mt-4 md:hidden">
+      <a href="{{ route('home') }}">Home</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('cara_order') }}">Cara Order</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('testimoni') }}">Testimoni</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('faq') }}">FAQ</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('kontak') }}">Kontak</a>
     </div>
   </nav>
   <main class="relative">
     <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover z-0" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
-    <section class="w-full bg-[#E5E0D8] px-[120px] py-20 flex flex-row justify-center items-center">
-      <h1 class="z-10 font-mochi text-[48px] text-[#5F6F52]">Cara Order</h1>
+    <section class="w-full bg-[#E5E0D8] px-7.5 md:px-30 py-20 flex flex-row justify-center items-center">
+      <h1 class="z-10 font-mochi text-[48px] text-[#5F6F52] text-center">Cara Order</h1>
     </section>
-    <section class="z-10 w-full py-[60px] px-[120px] bg-[#5F6F52] rounded-t-3xl">
+    <section class="z-10 w-full py-[60px] px-7.5 md:px-30 bg-[#5F6F52] rounded-t-3xl">
       <div class="pb-2 mb-2 w-full">
         <div class="flex bg-[#E5E0D8] rounded-xl w-fit px-4 py-2 w-full">
           <div class="min-w-12 min-h-12">
             <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq1-icon" class="w-12 h-12">
           </div>
-          <h3 class="h-12 flex items-center text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq1')">
+          <h3 class="h-12 flex items-center text-md md:text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq1')">
             1. Apa aja jenis jasa joki yang Senku Solutions tawarkan?
           </h3>
         </div>
@@ -83,20 +102,20 @@
           <div class="min-w-12 min-h-12">
             <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq2-icon" class="w-12 h-12">
           </div>
-          <h3 class="h-12 flex items-center text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq2')">
+          <h3 class="h-12 flex items-center text-md md:text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq2')">
             2. Apa aja jenis jasa joki yang Senku Solutions tawarkan?
           </h3>
         </div>
         <p id="faq2" class="hidden font-poppins text-[15px] pl-14 text-[#E5E0D8] mt-2">Kami bantu berbagai kebutuhan digital dan akademik — mulai dari joki tugas, proyek, desain, sampai pengerjaan website. Pokoknya, kami bantu kamu biar hasilnya beres dan tepat waktu.</p>
       </div>
     </section>
-    <section class="w-full pt-15 px-30 bg-[#5F6F52] rounded-t-2xl flex gap-4">
-        <div class="z-10 w-[35%]">
+    <section class="w-full pt-15 px-7.5 md:px-30 bg-[#5F6F52] rounded-t-2xl flex gap-4">
+        <div class="z-10 w-[35%] hidden md:block">
             <img src="{{ asset('images/507a1e4eee802165ee833faef48b17639cc890bf.jpg') }}" alt="" class="h-[250px] object-cover">
         </div>
         <div>
             <h2 class="font-bold text-4xl font-poppins text-[#E5E0D8]">Layanan <span>Kami</span></h2>
-            <div class="flex gap-5 mt-4 text-[#E5E0D8]">
+            <div class="flex flex-col md:flex-row gap-5 mt-4 text-[#E5E0D8]">
                 <p class="font-poppins">SenkuSolutions berkomitmen untuk selalu memberikan hasil terbaik dengan jaminan pelayanan yang cepat, akurat, dan bersahabat. Tidak perlu khawatir, setiap layanan Senkusolutions 100% bergaransi!</p>
                 <p class="font-poppins">HUBUNGI KAMI
                     <br>WA Admin/CS: +62 
@@ -104,11 +123,11 @@
             </div>
         </div>
     </section>
-    <section class="w-full px-30 bg-[#5F6F52]">
+    <section class="w-full px-7.5 md:px-30 bg-[#5F6F52]">
       <div class="w-full flex justify-center">
         <h2 class="mb-8 font-poppins text-[40px] font-semibold text-[#E5E0D8]">Follow <span class="text-[#FE8929]">Us</span></h2>
       </div>
-      <div class="flex flex-row justify-center gap-10 w-full mt-4">
+      <div class="flex flex-row justify-center gap-5 md:gap-10 w-full mt-4">
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
           <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[54px] h-[54px]">
         </a>

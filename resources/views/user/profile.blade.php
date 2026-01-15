@@ -13,11 +13,11 @@
   @endif
 </head>
 <body class="bg-[#5F6F52]">
-  <nav class="w-full px-[120px] py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
+  <nav class="w-full px-7.5 md:px-30 py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
     <div class="flex justify-between">
-        <div class="">
+        <a href="{{ route('user.dashboard') }}" class="block">
           <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}" alt="logo" class="h-7">
-        </div>
+        </a>
         <div class="flex gap-5 justify-between items-center">
           <a href="{{ route('user.cart') }}" class="font-poppins font-light text-[1.1em]">
             <svg width="28" height="28" viewBox="0 0 61 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,121 +83,181 @@
     </div>
   </nav>
   <script src="javascript/common.js"></script>
-  <main>
-    <section class="w-full bg-[#5F6F52] px-[120px] py-20 flex flex-col items-center gap-2">
-      <h1 class="text-white text-4xl font-bold font-mochi">Biodata Diri</h1>
-      <div class="flex gap-3 w-full">
-        <div class="flex-1 bg-white p-4 rounded-lg">
-          <img src="" alt="foto profile" class="h-[250px]">
-          <div class="flex flex-col gap-3">
-            <div class="flex gap-3 items-center">
-              <div class="bg-[#E5E0D8] p-2.5"><p class="font-poppins">Category</p></div>
-              <p class="font-poppins">.JPG .JPEG .PNG</p>
+  <main class="relative">
+    <div class="absolute inset-0 opacity-20 pointer-events-none z-0 bg-size-[100%]" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
+    <section class="w-full bg-[#5F6F52] px-4 md:px-30 py-12 md:py-20">
+      <div class="max-w-7xl mx-auto flex flex-col gap-8">
+
+        <!-- Title -->
+        <h1 class="text-white text-3xl md:text-4xl font-bold font-mochi text-center">
+          Biodata Diri
+        </h1>
+
+        <!-- CONTENT -->
+        <div class="flex flex-col lg:flex-row gap-6">
+
+          <!-- FOTO PROFILE -->
+          <div class="bg-white p-4 rounded-xl flex flex-col gap-4 lg:w-[25%]">
+            <img src="" alt="foto profile"
+                class="h-[200px] md:h-[250px] w-full object-cover rounded-lg bg-gray-200">
+
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-wrap gap-2 items-center text-sm">
+                <span class="bg-[#E5E0D8] px-3 py-1 font-poppins rounded">
+                  Category
+                </span>
+                <span class="font-poppins text-gray-600">
+                  .JPG .JPEG .PNG
+                </span>
+              </div>
+
+              <p class="text-[#5F6F52] font-semibold text-sm">
+                Besar file: maksimum 10.000.000 bytes (10 megabytes).
+              </p>
+
+              <a href=""
+                class="bg-[#E5E0D8] text-center text-[#5F6F52] font-bold py-2 rounded-lg">
+                Pilih Foto
+              </a>
             </div>
-            <h2 class="text-[#5F6F52] font-bold text-xl">Besar file: maksimum 10.000.000 bytes (10 Megabytes).</h2>
-            <a href="" class="bg-[#E5E0D8] text-center text-[#5F6F52] font-bold">Pilih Foto</a>
           </div>
+
+          <!-- BIODATA -->
+          <div class="flex flex-col gap-4 lg:flex-1 min-w-0">
+            <h3 class="font-poppins font-bold text-lg md:text-xl text-white">
+              Ubah Biodata Diri
+            </h3>
+
+            <!-- item -->
+            <div class="flex justify-between items-center">
+              <p class="font-poppins text-white font-semibold break-words">
+                Nama: <span>John</span>
+              </p>
+              <a href="" class="font-poppins text-white hover:underline text-sm">
+                Ubah
+              </a>
+            </div>
+
+            <p class="font-poppins text-white font-semibold text-sm">
+              NPM/NISN (Jika mahasiswa wajib mengisi)
+            </p>
+
+            <div class="flex justify-between items-center">
+              <p class="font-poppins text-white font-semibold">
+                Tanggal Lahir: <span>John</span>
+              </p>
+              <a href="" class="font-poppins text-white hover:underline text-sm">
+                Ubah
+              </a>
+            </div>
+
+            <h4 class="font-poppins text-white font-semibold text-lg mt-2">
+              Ubah Kontak
+            </h4>
+
+            <div class="flex justify-between items-center">
+              <p class="font-poppins text-white font-semibold break-words">
+                Email: <span>John</span>
+              </p>
+              <span class="font-poppins bg-[#E5E0D8] px-2 py-1 rounded text-sm">
+                Terverifikasi
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <p class="font-poppins text-white font-semibold">
+                Nomor HP: <span>John</span>
+              </p>
+              <span class="font-poppins bg-[#E5E0D8] px-2 py-1 rounded text-sm">
+                Terverifikasi
+              </span>
+            </div>
+          </div>
+
+          <!-- FORM -->
+          <div class="flex flex-col gap-4 lg:w-[30%]">
+
+            <!-- Ubah Nama -->
+            <div class="bg-white p-4 rounded-xl flex flex-col gap-2">
+              <h4 class="font-poppins font-bold">Ubah Nama</h4>
+              <p class="font-poppins text-sm text-gray-600">
+                Nama hanya dapat diubah satu kali lagi.
+              </p>
+
+              <form class="flex flex-col gap-2">
+                <label class="font-poppins text-sm">Nama</label>
+                <input type="text"
+                      placeholder="Masukkan nama lengkap"
+                      class="bg-[#D9D9D9] p-2 rounded-lg font-poppins">
+
+                <button
+                  class="font-poppins bg-[#D9D9D9] rounded-lg py-2 text-[#5F6F52] font-semibold mx-auto">
+                  Simpan
+                </button>
+              </form>
+            </div>
+
+            <!-- Ubah Tanggal Lahir -->
+            <div class="bg-white p-4 rounded-xl flex flex-col gap-2">
+              <h4 class="font-poppins font-bold">Ubah Tanggal Lahir</h4>
+              <p class="font-poppins text-sm text-gray-600">
+                Tanggal lahir hanya dapat diatur satu kali.
+              </p>
+
+              <form class="flex flex-col gap-2">
+                <div class="flex gap-2 justify-center">
+                  <input class="flex-1 bg-[#D9D9D9] p-2 rounded-lg font-poppins max-w-20" placeholder="Tanggal">
+                  <input class="flex-1 bg-[#D9D9D9] p-2 rounded-lg font-poppins max-w-25" placeholder="Bulan">
+                  <input class="flex-1 bg-[#D9D9D9] p-2 rounded-lg font-poppins max-w-20" placeholder="Tahun">
+                </div>
+
+                <button
+                  class="font-poppins bg-[#D9D9D9] rounded-lg py-2 px-2 text-[#5F6F52] font-semibold mx-auto">
+                  Simpan
+                </button>
+              </form>
+            </div>
+
+          </div>
+
         </div>
-        <div class="flex-[1.5] flex flex-col gap-3">
-          <h3 class="font-poppins font-bold text-xl text-white">Ubah Biodata Diri</h3>
-          <div class="flex justify-between">
-            <p class="font-poppins text-white font-semibold">Nama: <span>John</span></p>
-            <a href="" class="font-poppins text-white hover:underline">Ubah</a>
+      </div>
+    </section>
+
+    <section class="w-full px-7.5 md:px-30 py-20 bg-[#E5E0D8] flex flex-col gap-4 justify-center items-center">
+      <h1 class="text-[#5D6B51] font-bold text-[40px]">Status <span class="text-[#B56727]">Pemesanan</span></h1>
+      <p class="text-center">SenkuSolutions berkomitmen untuk selalu memberikan hasil terbaik dengan jaminan pelayanan yang cepat, akurat, dan bersahabat. Tidak perlu khawatir, setiap layanan Senkusolutions 100% bergaransi!</p>
+      <div class="w-full md:px-40 py-8">
+      {{-- STEP INDICATOR --}}
+      <div class="relative z-10 w-full max-w-4xl flex items-center justify-between mb-10 px-6">
+          <div class="flex flex-col items-center gap-2 text-orange-500 font-semibold">
+            <span class="w-7 h-7 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">1</span>
+            <p class="absolute w-[100px] md:w-[250px] mt-7 text-center">Menunggu Pembayaran</p>
           </div>
-          <p class="font-poppins text-white font-semibold">NPM/NISN (Jika mahasiswa wajib mengisi): </p>
-          <div class="flex justify-between">
-            <p class="font-poppins text-white font-semibold">Tanggal Lahir: <span>John</span></p>
-            <a href="" class="font-poppins text-white hover:underline">Ubah</a>
+          <div class="flex-1 h-px bg-orange-500"></div>
+          <div class="flex flex-col items-center gap-2 text-orange-500 font-semibold">
+              <span class="w-7 h-7 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">2</span>
+              <p class="absolute w-[100px] md:w-[250px] mt-7 text-center">Verifikasi Admin Senku</p>
           </div>
-          <h3 class="font-poppins text-white font-semibold text-lg">Ubah Kontak</h3>
-          <div class="flex justify-between items-center">
-            <p class="font-poppins text-white font-semibold">Email: <span>John</span></p>
-            <a href="" class="font-poppins bg-[#E5E0D8] p-1 rounded-lg">Terverifikasi</a>
-          </div>
-          <div class="flex justify-between items-center">
-            <p class="font-poppins text-white font-semibold">Nomor HP: <span>John</span></p>
-            <a href="" class="font-poppins bg-[#E5E0D8] p-1 rounded-lg">Terverifikasi</a>
-          </div>
-        </div>
-        <div class="flex-1">
-          <div class="bg-white p-4 flex flex-col gap-1 rounded-2xl">
-            <h4 class="font-poppins font-bold">Ubah Nama</h4>
-            <p class="font-poppins">Kamu hanya dapat mengubah nama 1 kali lagi. Pastikan nama sudah benar.</p>
-            <form action="" class="flex flex-col">
-              <label for="name" class="font-poppins">NAMA</label>
-              <input type="text" name="name" id="name" placeholder="Masukkan nama lengkap" class="bg-[#D9D9D9] p-2 rounded-xl font-poppins">
-              <button type="submit" class="font-poppins text-lg bg-[#D9D9D9] rounded-lg w-fit py-2 px-5 text-[#5F6F52] mx-auto mt-2">SIMPAN</button>
-            </form>
-          </div>
-          <div class="bg-white p-4 flex flex-col gap-1 rounded-2xl mt-3">
-            <h4 class="font-poppins font-bold">Ubah Tanggal Lahir</h4>
-            <p class="font-poppins">Kamu hanya dapat mengatur tanggal lahir satu kali. Pastikan tanggal lahir sudah benar.</p>
-            <form action="" class="flex flex-col">
-              <!-- <label for="name" class="font-poppins">NAMA</label> -->
-               <div class="flex gap-1">
-                 <input type="text" name="name" id="name" placeholder="Tanggal" class="bg-[#D9D9D9] p-2 rounded-xl font-poppins flex-1 w-[90px]">
-                 <input type="text" name="name" id="name" placeholder="Bulan" class="bg-[#D9D9D9] p-2 rounded-xl font-poppins flex-2 w-[150px]">
-                 <input type="text" name="name" id="name" placeholder="Tahun" class="bg-[#D9D9D9] p-2 rounded-xl font-poppins flex-1 w-[90px]">
-               </div>
-              <button type="submit" class="font-poppins text-lg bg-[#D9D9D9] rounded-lg w-fit py-2 px-5 text-[#5F6F52] mx-auto mt-2">SIMPAN</button>
-            </form>
+          <div class="flex-1 h-px bg-orange-500"></div>
+          <div class="flex flex-col items-center gap-2 text-orange-500 font-semibold">
+              <span class="w-7 h-7 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">3</span>
+              <p class="absolute w-[100px] md:w-[250px] mt-7 text-center">Selesai</p>
           </div>
         </div>
       </div>
     </section>
-    <section class="w-full px-[120px] py-20 bg-[#E5E0D8] flex flex-col gap-4 justify-center items-center">
-        <h1 class="text-[#5D6B51] font-bold text-[40px]">Status <span class="text-[#B56727]">Pemesanan</span></h1>
-        <p class="text-center">SenkuSolutions berkomitmen untuk selalu memberikan hasil terbaik dengan jaminan pelayanan yang cepat, akurat, dan bersahabat. Tidak perlu khawatir, setiap layanan Senkusolutions 100% bergaransi!</p>
-        <div class="w-full px-40 py-8">
-        <div class="relative flex items-center justify-between">
-
-          <!-- Garis -->
-          <div class="absolute top-5 left-0 w-full h-0.5 bg-gray-300"></div>
-
-          <!-- STEP 1 (Aktif) -->
-          <div class="relative z-10 flex flex-col items-center">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-orange-500 text-white font-semibold">
-              1
-            </div>
-            <p class="mt-2 text-orange-500 font-medium text-sm">
-              Menunggu pembayaran
-            </p>
-          </div>
-
-          <!-- STEP 2 -->
-          <div class="relative z-10 flex flex-col items-center">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white border-2 border-gray-300 text-gray-400 font-semibold">
-              2
-            </div>
-            <p class="mt-2 text-gray-400 font-medium text-sm">
-              Verifikasi Admin Senku
-            </p>
-          </div>
-
-          <!-- STEP 3 -->
-          <div class="relative z-10 flex flex-col items-center">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white border-2 border-gray-300 text-gray-400 font-semibold">
-              3
-            </div>
-            <p class="mt-2 text-gray-400 font-medium text-sm">
-              Selesai
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <section class="w-full px-[120px] py-20 bg-[#5D6B51] flex flex-col gap-4 justify-center items-center">
+    <section class="w-full px-7.5 md:px-30 py-20 bg-[#5D6B51] flex flex-col gap-4 justify-center items-center">
         <p class="text-center font-poppins text-[#E5E0D8] text-[20px]">Yuk konsultasikan dulu kebutuhanmu GRATIS,<br>mulai kejar wisudamu dari sekarang!</p>
         <a href="" class="py-2 px-5 bg-[#E5E0D8] rounded-lg">CTA WA</a>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8] rounded-t-2xl flex gap-4">
-        <div class="w-[35%]">
+    <section class="w-full pt-15 px-7.5 md:px-30 bg-[#E5E0D8] rounded-t-2xl flex gap-4">
+        <div class="z-10 w-[35%] hidden md:block">
             <img src="{{ asset('images/507a1e4eee802165ee833faef48b17639cc890bf.jpg') }}" alt="" class="h-[250px] object-cover">
         </div>
         <div>
             <h2 class="font-bold text-4xl text-[#5D6B51] font-poppins">Layanan <span>Kami</span></h2>
-            <div class="flex gap-5 mt-4">
+            <div class="flex flex-col md:flex-row gap-5 mt-4">
                 <p class="font-poppins">SenkuSolutions berkomitmen untuk selalu memberikan hasil terbaik dengan jaminan pelayanan yang cepat, akurat, dan bersahabat. Tidak perlu khawatir, setiap layanan Senkusolutions 100% bergaransi!</p>
                 <p class="font-poppins">HUBUNGI KAMI
                     <br>WA Admin/CS: +62 
@@ -205,11 +265,11 @@
             </div>
         </div>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8]">
+    <section class="w-full py-[60px] px-7.5 md:px-30 bg-[#E5E0D8]">
       <div class="w-full flex justify-center">
         <h2 class="mb-8 font-poppins text-[40px] font-semibold">Follow <span class="text-[#FE8929]">Us</span></h2>
       </div>
-      <div class="flex flex-row justify-center gap-10 w-full mt-4">
+      <div class="flex flex-row justify-center gap-5 md:gap-10 w-full mt-4">
         <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
           <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[54px] h-[54px]">
         </a>

@@ -105,7 +105,7 @@
                                     <span class="bg-success-soft text-fg-success-strong text-xs font-medium px-1.5 py-0.5 rounded">Selesai</span>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-fg-brand hover:underline">Update</a>
+                                    <a href="{{ route('admin.order.update') }}" class="font-medium text-fg-brand hover:underline">Update</a>
                                 </td>
                             </tr>
                             <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
@@ -125,7 +125,7 @@
                                     <span class="bg-danger-soft text-fg-danger-strong text-xs font-medium px-1.5 py-0.5 rounded">Dibatalkan</span>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-fg-brand hover:underline">Update</a>
+                                    <a href="{{ route('admin.order.update') }}" class="font-medium text-fg-brand hover:underline">Update</a>
                                 </td>
                             </tr>
                             <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
@@ -145,7 +145,7 @@
                                     <span class="bg-warning-soft text-fg-warning text-xs font-medium px-1.5 py-0.5 rounded">Pending</span>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-fg-brand hover:underline">Update</a>
+                                    <a href="{{ route('admin.order.update') }}" class="font-medium text-fg-brand hover:underline">Update</a>
                                 </td>
                             </tr>
                             <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
@@ -165,7 +165,7 @@
                                     <span class="bg-neutral-secondary-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Progress</span>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-fg-brand hover:underline">Update</a>
+                                    <a href="{{ route('admin.order.update') }}" class="font-medium text-fg-brand hover:underline">Update</a>
                                 </td>
                             </tr>
                             <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft">
@@ -185,7 +185,7 @@
                                     <span class="bg-neutral-secondary-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Progress</span>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-fg-brand hover:underline">Update</a>
+                                    <a href="{{ route('admin.order.update') }}" class="font-medium text-fg-brand hover:underline">Update</a>
                                 </td>
                             </tr>
                         </tbody>
