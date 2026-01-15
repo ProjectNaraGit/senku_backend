@@ -14,12 +14,12 @@
 </head>
 <body class=" bg-cover overflow-hidden" style="background-image: url('{{ asset('images/login%20vector.png') }}')">
   <main class="h-screen w-screen flex justify-center">
-    <div class="bg-[#5F6F52] max-w-[647px] py-10 px-[60px] my-10 rounded-3xl shadow-md shadow-gray-500">
+    <div class="bg-[#5F6F52] max-w-[647px] py-10 mx-3 px-5 md:px-15 my-10 rounded-3xl shadow-md shadow-gray-500">
       <form action="" class="flex flex-col items-center justify-between h-full">
         <div class="bg-[#E5E0D8] w-10 h-10 flex justify-center items-center rounded-[50%] hidden">
         <svg width="19" height="10" viewBox="0 0 19 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 10C6.15196 9.99846 7.26816 9.59975 8.16039 8.8711C9.05263 8.14245 9.66632 7.12842 9.898 6H12V8H14V6H16V9H18V6H19V4H9.898C9.66632 2.87158 9.05263 1.85755 8.16039 1.1289C7.26816 0.400248 6.15196 0.00153976 5 0C2.243 0 0 2.243 0 5C0 7.757 2.243 10 5 10ZM5 2C6.654 2 8 3.346 8 5C8 6.654 6.654 8 5 8C3.346 8 2 6.654 2 5C2 3.346 3.346 2 5 2Z" fill="#ffffff"/></svg>
         </div>
-        <h1 class="text-[#E5E0D8] font-mochi font-bold text-3xl">Atur Kata Sandi Baru</h1>
+        <h1 class="text-[#E5E0D8] font-mochi font-bold text-xl md:text-3xl text-center">Atur Kata Sandi Baru</h1>
         <p class="text-[#E5E0D8] text-center">Kata sandi baru Anda harus berbeda dari kata sandi yang pernah digunakan sebelumnya!</p>
         <div class="relative w-full">
           <label for="password" class="text-[#E5E0D8]">Password Baru</label>
