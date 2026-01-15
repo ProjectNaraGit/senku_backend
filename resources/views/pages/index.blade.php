@@ -68,11 +68,15 @@
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobileMenu" class="hidden flex-col gap-3 mt-4 md:hidden">
+    <div id="mobileMenu" class="hidden flex-row justify-between items-center gap-3 mt-4 md:hidden">
       <a href="{{ route('home') }}">Home</a>
+      <div class="w-px bg-gray-800 h-5"></div>
       <a href="{{ route('cara_order') }}">Cara Order</a>
+      <div class="w-px bg-gray-800 h-5"></div>
       <a href="{{ route('testimoni') }}">Testimoni</a>
+      <div class="w-px bg-gray-800 h-5"></div>
       <a href="{{ route('faq') }}">FAQ</a>
+      <div class="w-px bg-gray-800 h-5"></div>
       <a href="{{ route('kontak') }}">Kontak</a>
     </div>
   </nav>
@@ -144,24 +148,24 @@
         <div class="flex gap-5">
           <div class="flex-1 lg:max-w-70 max-w-none bg-white p-4 rounded-[30px]">
             <img src="" alt="layanan1">
-            <h3 class="font-poppins font-bold text-lg md:text-[20px]">Konsultasi Personal Development</h3>
+            <h3 class="font-poppins font-bold text-md md:text-[20px]">Konsultasi Personal Development</h3>
             <p class="text-[15px] font-normal font-poppins">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio id inventore tempore exercitationem.</p>
           </div>
           <div class="flex-1 lg:max-w-70 max-w-none bg-white p-4 rounded-[30px]">
             <img src="" alt="layanan1">
-            <h3 class="font-poppins font-bold text-lg md:text-[20px]">Konsultasi Akademik  & Komprehensif</h3>
+            <h3 class="font-poppins font-bold text-md md:text-[20px]">Konsultasi Akademik  & Komprehensif</h3>
             <p class="text-[15px] font-normal font-poppins">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio id inventore tempore exercitationem.</p>
           </div>
         </div>
         <div class="flex gap-5">
           <div class="flex-1 lg:max-w-70 max-w-none bg-white p-4 rounded-[30px]">
             <img src="" alt="layanan1">
-            <h3 class="font-poppins font-bold text-[20px]">Bantuan & Bimbingan Akademik</h3>
+            <h3 class="font-poppins font-bold text-md md:text-[20px]">Bantuan & Bimbingan Akademik</h3>
             <p class="text-[15px] font-normal font-poppins">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio id inventore tempore exercitationem.</p>
           </div>
           <div class="flex-1 lg:max-w-70 max-w-none bg-white p-4 rounded-[30px]">
             <img src="" alt="layanan1">
-            <h3 class="font-poppins font-bold text-[20px]">Konsultasi Personal Development</h3>
+            <h3 class="font-poppins font-bold text-md md:text-[20px]">Konsultasi Personal Development</h3>
             <p class="text-[15px] font-normal font-poppins">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio id inventore tempore exercitationem.</p>
           </div>
         </div>
@@ -278,6 +282,7 @@
   <script>
   function toggleMobileMenu() {
     document.getElementById('mobileMenu').classList.toggle('hidden');
+    document.getElementById('mobileMenu').classList.toggle('flex');
   }
   </script>
 </body>
