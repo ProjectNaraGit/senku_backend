@@ -20,60 +20,111 @@
       <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
 
       {{-- STEP INDICATOR --}}
-      <div class="relative z-10 w-[50%] max-w-4xl flex items-center justify-between mb-10 px-6">
+      <div class="relative z-10 w-full md:w-[50%] max-w-4xl flex items-center justify-between mb-15 md:mb-10 px-6">
           <div class="flex flex-col items-center gap-2 text-orange-500 font-semibold">
             <span class="w-7 h-7 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">1</span>
-            <p class="absolute w-[150px] mt-7 ml-8">Booking Details</p>
+            <p class="absolute w-20 md:w-37.5 mt-7 text-center">Booking Details</p>
           </div>
           <div class="flex-1 h-px bg-orange-500"></div>
           <div class="flex flex-col items-center gap-2 text-orange-500 font-semibold">
               <span class="w-7 h-7 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">2</span>
-              <p class="absolute w-[150px] mt-7 ml-16">Your Details</p>
+              <p class="absolute w-20 md:w-37.5 mt-7 text-center">Your Details</p>
           </div>
           <div class="flex-1 h-px bg-gray-300"></div>
           <div class="flex flex-col items-center gap-2 text-gray-400">
               <span class="w-7 h-7 rounded-full bg-gray-300 text-white flex items-center justify-center text-sm">3</span>
-              <p class="absolute w-[150px] mt-7 ml-22">Payment</p>
+              <p class="absolute w-20 md:w-37.5 mt-7 text-center">Payment</p>
           </div>
       </div>
 
-      {{-- CARD --}}
-      <div class="relative z-10 bg-white w-full max-w-3xl rounded-2xl p-10 shadow-sm">
+    {{-- CARD --}}
+    <div class="relative z-10 bg-white w-[95%] md:w-full max-w-3xl
+                rounded-2xl shadow-sm
+                p-6 sm:p-8 md:p-10">
 
-        <h2 class="text-center text-xl font-semibold font-poppins mb-8">Verifikasi Data</h2>
-        <form action="">
-            <div class="flex gap-20">
-                <div class="flex-1 flex flex-col gap-2">
-                    <div class="flex flex-col">
-                        <label class="font-semibold font-poppins mb-1" for="surename">Nama Depan</label>
-                        <input class="border border-gray-500 rounded-sm px-1" type="text" name="surename" id="surename">
-                    </div>
-                    <div class="flex flex-col">
-                        <label class="font-semibold font-poppins mb-1" for="phone">Nomor Telepon</label>
-                        <input class="border border-gray-500 rounded-sm px-1" type="text" name="phone" id="phone">
-                    </div>
-                </div>
-                <div class="flex-1 flex flex-col gap-2">
-                    <div class="flex flex-col">
-                        <label class="font-semibold font-poppins mb-1" for="lastname">Nama Belakang</label>
-                        <input class="border border-gray-500 rounded-sm px-1" type="text" name="lastname" id="lastname">
-                    </div>
-                    <div class="flex flex-col">
-                        <label class="font-semibold font-poppins mb-1" for="email">Email Address</label>
-                        <input class="border border-gray-500 rounded-sm px-1" type="text" name="email" id="email">
-                    </div>
-                </div>
+    <h2 class="text-center text-lg sm:text-xl font-semibold font-poppins mb-6 sm:mb-8">
+        Verifikasi Data
+    </h2>
+
+    <form class="flex flex-col gap-6">
+
+        <!-- INPUT GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10">
+
+        <!-- KOLOM KIRI -->
+        <div class="flex flex-col gap-4">
+            <div class="flex flex-col">
+            <label for="surename" class="font-semibold font-poppins mb-1">
+                Nama Depan
+            </label>
+            <input
+                type="text"
+                id="surename"
+                class="border border-gray-500 rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-[#5F6F52]">
             </div>
-            <div class="mt-4 flex flex-col">
-                <label class="font-semibold font-poppins" for="note">Kasih Catatan!</label>
-                <textarea class="border border-gray-500 rounded-sm px-1" name="note" id="note" cols="30" rows="10"></textarea>
+
+            <div class="flex flex-col">
+            <label for="phone" class="font-semibold font-poppins mb-1">
+                Nomor Telepon
+            </label>
+            <input
+                type="text"
+                id="phone"
+                class="border border-gray-500 rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-[#5F6F52]">
             </div>
-            <div class="mt-4 flex flex-col">
-                <label class="font-semibold font-poppins" for="note">Tenggat Tugas</label>
-                <input class="border border-gray-500 rounded-sm px-2 py-1" type="date" name="" id="">
+        </div>
+
+        <!-- KOLOM KANAN -->
+        <div class="flex flex-col gap-4">
+            <div class="flex flex-col">
+            <label for="lastname" class="font-semibold font-poppins mb-1">
+                Nama Belakang
+            </label>
+            <input
+                type="text"
+                id="lastname"
+                class="border border-gray-500 rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-[#5F6F52]">
             </div>
-        </form>
-      </div>
+
+            <div class="flex flex-col">
+            <label for="email" class="font-semibold font-poppins mb-1">
+                Email Address
+            </label>
+            <input
+                type="email"
+                id="email"
+                class="border border-gray-500 rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-[#5F6F52]">
+            </div>
+        </div>
+
+        </div>
+
+        <!-- CATATAN -->
+        <div class="flex flex-col">
+        <label for="note" class="font-semibold font-poppins mb-1">
+            Kasih Catatan!
+        </label>
+        <textarea
+            id="note"
+            rows="4"
+            class="border border-gray-500 rounded-md px-2 py-1 resize-y min-h-[120px]
+                focus:outline-none focus:ring-1 focus:ring-[#5F6F52]"></textarea>
+        </div>
+
+        <!-- DEADLINE -->
+        <div class="flex flex-col">
+        <label class="font-semibold font-poppins mb-1">
+            Tenggat Tugas
+        </label>
+        <input
+            type="date"
+            class="border border-gray-500 rounded-md px-2 py-1
+                focus:outline-none focus:ring-1 focus:ring-[#5F6F52]">
+        </div>
+
+    </form>
+    </div>
+
 
       {{-- CTA --}}
       <a href="{{ route('order.co-payment') }}" class="relative z-10 mt-10 bg-orange-500 hover:bg-orange-600 text-white px-10 py-3 rounded-full font-semibold">

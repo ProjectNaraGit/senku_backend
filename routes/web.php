@@ -65,6 +65,28 @@ Route::get('/checkout-verification', function () {
 Route::get('/checkout-finish', function () {
     return view('order.co-finish');
 })->name('order.co-finish');
+Route::get('/checkout-snk', function () {
+    return view('order.co-snk');
+})->name('order.co-snk');
+
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+})->name('admin.dashboard');
+Route::get('/admin/layanan', function () {
+    return view('admin.layanan');
+})->name('admin.layanan');
+Route::get('/admin/order', function () {
+    return view('admin.order');
+})->name('admin.order');
+Route::get('/admin/layanan/tambah', function () {
+    return view('admin.tambah-layanan');
+})->name('admin.layanan.tambah');
+Route::get('/admin/layanan/edit', function () {
+    return view('admin.edit-layanan');
+})->name('admin.layanan.edit');
+Route::get('/admin/order/update', function () {
+    return view('admin.update-order');
+})->name('admin.order.update');
 
 // Route login
 Route::get('/login', function () {

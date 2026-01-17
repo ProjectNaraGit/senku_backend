@@ -13,11 +13,11 @@
   @endif
 </head>
 <body class="bg-[#5F6F52]">
-  <nav class="w-full px-[120px] py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
+  <nav class="w-full px-7.5 md:px-30 py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
     <div class="flex justify-between">
-        <div class="">
+        <a href="{{ route('user.dashboard') }}" class="block">
           <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}" alt="logo" class="h-7">
-        </div>
+        </a>
         <div class="flex gap-5 justify-between items-center">
           <a href="{{ route('user.cart') }}" class="font-poppins font-light text-[1.1em]">
             <svg width="28" height="28" viewBox="0 0 61 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +45,7 @@
               id="loginDropdown"
               class="hidden absolute right-0 mt-2 w-44 bg-white rounded-lg z-50 overflow-hidden"
             >
-              <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100 text-[#5F6F52] font-semibold">
+              <a href="{{ route('user.profile') }}" class="block px-4 py-2 hover:bg-gray-100 text-[#5F6F52] font-semibold">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5F6F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user inline-block mr-1"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
                 Profile
               </a>
@@ -83,154 +83,176 @@
     </div>
   </nav>
   <main>
-    <section class="bg-[#EDE8DE] px-16 py-14">
-      <div class="max-w-7xl mx-auto grid grid-cols-12 gap-10">
-          <div class="col-span-8 space-y-6">
-              <div class="w-[420px] h-[420px] rounded-2xl overflow-hidden bg-gray-300">
-                  <img src="{{ asset('images/thumbnail.png') }}" alt="Gambar layanan" class="w-full h-full object-cover">
-              </div>
-              <div class="flex justify-between">
-                  <h1 class="text-2xl font-semibold text-black">Judul layanan</h1>
+    <section class="bg-[#EDE8DE] px-5 sm:px-8 lg:px-16 py-10 sm:py-14">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10">
 
-                  <div class="flex items-center gap-6 mt-2 text-sm text-gray-600">
-                      <div class="flex items-center gap-1">
-                          <span>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM15.6104 13.7598C14.1505 13.7598 11.2104 14.4699 11.21 15.8896V19.96C11.47 19.99 11.73 20 12 20C15.39 20 18.2802 17.8801 19.4502 14.9102C18.5303 14.1502 16.6804 13.7599 15.6104 13.7598ZM9.61035 12.9902C8.14036 12.9902 5.51975 13.5597 4.46973 14.6797C5.30973 17.0397 7.21035 18.8896 9.61035 19.6396V15.8896C9.61044 15.2296 9.87021 14.0798 11.5098 13.21C10.81 13.07 10.1402 12.9903 9.61035 12.9902ZM15.6104 8.33984C14.5405 8.33984 13.6699 9.19975 13.6797 10.2695C13.6797 11.3395 14.5404 12.2002 15.6104 12.2002C16.6802 12.2 17.54 11.3394 17.54 10.2695C17.5398 9.19987 16.68 8.34003 15.6104 8.33984ZM9.61035 6.75977C8.30035 6.75977 7.25 7.81012 7.25 9.12012C7.25006 10.4201 8.31039 11.4805 9.61035 11.4805C10.9102 11.4803 11.9697 10.4199 11.9697 9.12012C11.9697 7.82023 10.9102 6.75996 9.61035 6.75977Z" fill="#5F6F52"/>
-                            </svg>
-                          </span>
-                          <span>2.3k</span>
-                      </div>
-                      <div class="flex items-center gap-1">
-                          <span>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 2C21.1 2 22 2.9 22 4V16C22 17.1 21.1 18 20 18H6L2 22V4C2 2.9 2.9 2 4 2H20ZM13.5898 4.65039C13.3898 4.45039 13.0799 4.45039 12.8799 4.65039L6 11.5303V14H8.46973L15.3604 7.12988C15.5601 6.92992 15.5601 6.61985 15.3604 6.41992L13.5898 4.65039ZM12.5 12L10.5 14H17C17.55 14 18 13.55 18 13C18 12.45 17.55 12 17 12H12.5Z" fill="#5F6F52"/>
-                            </svg>
-                          </span>
-                          <span>1.4k</span>
-                      </div>
-                  </div>
-              </div>
-              <div>
-                  <h2 class="font-semibold mb-2">Detail Layanan</h2>
-                  <p class="text-sm text-gray-700 leading-relaxed max-w-2xl">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, possimus mollitia et cum nostrum tenetur natus asperiores minus aliquam explicabo, ad aliquid non, assumenda repellat quis iste impedit? Assumenda, ut?
-                  </p>
-              </div>
-          </div>
-          <div class="col-span-4 space-y-6">
-              <div class="bg-white rounded-xl p-6 shadow-sm space-y-4">
-                  <div class="flex items-center gap-3">
-                      <span class="text-xl font-bold">US$22.40</span>
-                      <span class="line-through text-sm text-gray-400">$30.13</span>
-                      <span class="bg-purple-500 text-white text-xs px-2 py-1 rounded">20% OFF</span>
-                  </div>
-                  <button class="w-full bg-[#6B7C59] text-white py-3 rounded-lg font-semibold">
-                      Buy
-                  </button>
-                  <button class="w-full border border-gray-400 text-gray-700 py-3 rounded-lg">
-                      Keranjang
-                  </button>
-                  <ul class="text-sm text-gray-600 space-y-2 pt-2">
-                      <li class="flex items-center gap-1">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M4 12C4 7.58172 7.58172 4 12 4V4C16.4183 4 20 7.58172 20 12V17.0909C20 17.9375 20 18.3608 19.8739 18.6989C19.6712 19.2425 19.2425 19.6712 18.6989 19.8739C18.3608 20 17.9375 20 17.0909 20H12C7.58172 20 4 16.4183 4 12V12Z" stroke="#5F6F52"/>
-                          <path d="M9 12L15 12" stroke="#5F6F52" stroke-linecap="round" stroke-linejoin="round"/>
-                          <path d="M12 9L12 15" stroke="#5F6F52" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Chat WA link
-                      </li>
-                      <li class="flex items-center gap-1">
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.31802 6.36626C2.56066 8.13703 2.56066 11.008 4.31802 12.7788L12.0001 20.5195L19.682 12.7788C21.4393 11.008 21.4393 8.13703 19.682 6.36626C17.9246 4.59548 15.0754 4.59548 13.318 6.36626L12.0001 7.69439L10.682 6.36626C8.92462 4.59548 6.07538 4.59548 4.31802 6.36626Z" stroke="#5F6F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Like (ganti icon like)
-                      </li>
-                      <li class="flex items-center gap-2">
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M8.68387 13.4438C8.88616 13.0369 9 12.5776 9 12.0916C9 11.6055 8.88616 11.1463 8.68387 10.7394M8.68387 13.4438C8.19134 14.4344 7.17449 15.1145 6 15.1145C4.34315 15.1145 3 13.7611 3 12.0916C3 10.4221 4.34315 9.06869 6 9.06869C7.17449 9.06869 8.19134 9.74876 8.68387 10.7394M8.68387 13.4438L15.3161 16.7852M8.68387 10.7394L15.3161 7.39797M15.3161 7.39797C15.8087 8.38862 16.8255 9.06869 18 9.06869C19.6569 9.06869 21 7.71529 21 6.04579C21 4.37629 19.6569 3.02289 18 3.02289C16.3431 3.02289 15 4.37629 15 6.04579C15 6.53184 15.1138 6.9911 15.3161 7.39797ZM15.3161 16.7852C15.1138 17.1921 15 17.6513 15 18.1374C15 19.8069 16.3431 21.1603 18 21.1603C19.6569 21.1603 21 19.8069 21 18.1374C21 16.4679 19.6569 15.1145 18 15.1145C16.8255 15.1145 15.8087 15.7946 15.3161 16.7852Z" stroke="#5F6F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Share (ganti icon like)
-                      </li>
-                  </ul>
-              </div>
-              <img src="{{ asset('images/iklan.png') }}" alt="">
-              <img src="{{ asset('images/iklan.png') }}" alt="">
-          </div>
+    <!-- LEFT CONTENT -->
+    <div class="lg:col-span-8 space-y-6">
+
+      <!-- Thumbnail -->
+      <div class="w-full max-w-[420px] aspect-square rounded-2xl overflow-hidden bg-gray-300">
+        <img src="{{ asset('images/thumbnail.png') }}" class="w-full h-full object-cover" />
       </div>
 
-      <div class="bg-blue-600 rounded-xl p-8 mt-10 relative overflow-hidden flex items-center justify-between text-white">
-        <div class="relative z-10 max-w-lg">
-            <h3 class="text-xl font-semibold">Percayakan Pada Ahlinya!</h3>
-            <p class="text-sm opacity-90 mt-1">
-                Tunggu apalagi? Yuk percayakan pada ahlinya! Hubungi Educativa sekarang!
-            </p>
+      <!-- Title + Stats -->
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+        <h1 class="text-xl sm:text-2xl font-semibold text-black">
+          Judul layanan
+        </h1>
+
+        <div class="flex gap-6 text-sm text-gray-600">
+          <div class="flex items-center gap-1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM15.6104 13.7598C14.1505 13.7598 11.2104 14.4699 11.21 15.8896V19.96C11.47 19.99 11.73 20 12 20C15.39 20 18.2802 17.8801 19.4502 14.9102C18.5303 14.1502 16.6804 13.7599 15.6104 13.7598ZM9.61035 12.9902C8.14036 12.9902 5.51975 13.5597 4.46973 14.6797C5.30973 17.0397 7.21035 18.8896 9.61035 19.6396V15.8896C9.61044 15.2296 9.87021 14.0798 11.5098 13.21C10.81 13.07 10.1402 12.9903 9.61035 12.9902ZM15.6104 8.33984C14.5405 8.33984 13.6699 9.19975 13.6797 10.2695C13.6797 11.3395 14.5404 12.2002 15.6104 12.2002C16.6802 12.2 17.54 11.3394 17.54 10.2695C17.5398 9.19987 16.68 8.34003 15.6104 8.33984ZM9.61035 6.75977C8.30035 6.75977 7.25 7.81012 7.25 9.12012C7.25006 10.4201 8.31039 11.4805 9.61035 11.4805C10.9102 11.4803 11.9697 10.4199 11.9697 9.12012C11.9697 7.82023 10.9102 6.75996 9.61035 6.75977Z" fill="#5F6F52"/>
+            </svg>
+            <span>2.3k</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 2C21.1 2 22 2.9 22 4V16C22 17.1 21.1 18 20 18H6L2 22V4C2 2.9 2.9 2 4 2H20ZM13.5898 4.65039C13.3898 4.45039 13.0799 4.45039 12.8799 4.65039L6 11.5303V14H8.46973L15.3604 7.12988C15.5601 6.92992 15.5601 6.61985 15.3604 6.41992L13.5898 4.65039ZM12.5 12L10.5 14H17C17.55 14 18 13.55 18 13C18 12.45 17.55 12 17 12H12.5Z" fill="#5F6F52"/>
+            </svg>
+            <span>1.4k</span>
+          </div>
         </div>
-        <a href="#" class="relative z-10 bg-teal-400 px-6 py-3 rounded-lg font-semibold text-sm">
-            Chat & Konsultasi via WA
-        </a>
-        <div class="absolute right-0 top-0 h-full w-56 pointer-events-none">
-            <img
-                src="{{ asset('images/pattern.png') }}"
-                alt="pattern"
-                class="h-full w-full object-cover opacity-90"
-            >
-        </div>
+      </div>
+
+      <!-- Detail -->
+      <div>
+        <h2 class="font-semibold mb-2">Detail Layanan</h2>
+        <p class="text-sm text-gray-700 leading-relaxed max-w-2xl">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit...
+        </p>
+      </div>
     </div>
 
-  </section>
-    <section class="w-full bg-[#5F6F52] px-30 py-12">
-      <div class="max-w-7xl mx-auto grid grid-cols-4 gap-10 text-[#E9E4DA]">
-          <div class="space-y-2">
-              <h3 class="font-semibold text-lg font-poppins">Home</h3>
-              <ul class="space-y-1 text-sm">
-                  <li><a href="#" class="hover:underline font-poppins">Home</a></li>
-                  <li><a href="#" class="hover:underline font-poppins">About Us</a></li>
-                  <li><a href="#" class="hover:underline font-poppins">Layanan Kami</a></li>
-                  <li><a href="#" class="hover:underline font-poppins">Tugas populer</a></li>
-                  <li><a href="#" class="hover:underline font-poppins">Kesan & pesan</a></li>
-              </ul>
-          </div>
-          <div class="space-y-2">
-              <h3 class="font-semibold text-lg font-poppins">Help</h3>
-              <ul class="space-y-1 text-sm">
-                  <li><a href="#" class="hover:underline font-poppins">Cara Order</a></li>
-                  <li><a href="#" class="hover:underline font-poppins">FAQ</a></li>
-              </ul>
-          </div>
-          <div class="space-y-2">
-              <h3 class="font-semibold text-lg font-poppins">Contacts</h3>
-              <ul class="space-y-1 text-sm">
-                  <li class="font-poppins">WA Senku</li>
-                  <li class="font-poppins">senkusolution@gmail.com</li>
-              </ul>
-          </div>
-          <div class="space-y-4">
-              <h3 class="font-semibold text-lg text-black font-poppins">
-                  FOLLOW <span class="text-[#FE8929]">US</span>
-              </h3>
-              <div class="flex gap-3">
-                  <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
-                    <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[25px] h-[25px]">
-                  </a>
-                  <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
-                    <img src="{{ asset('images/tiktok.png') }}" alt="" class="w-[25px] h-[25px]">
-                  </a>
-                  <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
-                    <img src="{{ asset('images/x.png') }}" alt="" class="w-[25px] h-[25px]">
-                  </a> 
-                  <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
-                    <img src="{{ asset('images/threads.png') }}" alt="" class="w-[25px] h-[25px]">
-                  </a>
-              </div>
-          </div>
+    <!-- SIDEBAR -->
+    <div class="lg:col-span-4 space-y-6">
+
+      <!-- Pricing Card -->
+      <div class="bg-white rounded-xl p-6 shadow-sm space-y-4">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="text-xl font-bold">US$22.40</span>
+          <span class="line-through text-sm text-gray-400">$30.13</span>
+          <span class="bg-purple-500 text-white text-xs px-2 py-1 rounded">
+            20% OFF
+          </span>
+        </div>
+
+        <button class="w-full bg-[#6B7C59] text-white py-3 rounded-lg font-semibold">
+          Buy
+        </button>
+
+        <button class="w-full border border-gray-400 text-gray-700 py-3 rounded-lg">
+          Keranjang
+        </button>
+
+        <ul class="text-sm text-gray-600 space-y-2 pt-2">
+          <li class="flex items-center gap-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 12C4 7.58172 7.58172 4 12 4V4C16.4183 4 20 7.58172 20 12V17.0909C20 17.9375 20 18.3608 19.8739 18.6989C19.6712 19.2425 19.2425 19.6712 18.6989 19.8739C18.3608 20 17.9375 20 17.0909 20H12C7.58172 20 4 16.4183 4 12V12Z" stroke="#5F6F52"/>
+            <path d="M9 12L15 12" stroke="#5F6F52" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 9L12 15" stroke="#5F6F52" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Chat WA link</li>
+          <li class="flex items-center gap-2"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.31802 6.36626C2.56066 8.13703 2.56066 11.008 4.31802 12.7788L12.0001 20.5195L19.682 12.7788C21.4393 11.008 21.4393 8.13703 19.682 6.36626C17.9246 4.59548 15.0754 4.59548 13.318 6.36626L12.0001 7.69439L10.682 6.36626C8.92462 4.59548 6.07538 4.59548 4.31802 6.36626Z" stroke="#5F6F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Like</li>
+          <li class="flex items-center gap-2"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.68387 13.4438C8.88616 13.0369 9 12.5776 9 12.0916C9 11.6055 8.88616 11.1463 8.68387 10.7394M8.68387 13.4438C8.19134 14.4344 7.17449 15.1145 6 15.1145C4.34315 15.1145 3 13.7611 3 12.0916C3 10.4221 4.34315 9.06869 6 9.06869C7.17449 9.06869 8.19134 9.74876 8.68387 10.7394M8.68387 13.4438L15.3161 16.7852M8.68387 10.7394L15.3161 7.39797M15.3161 7.39797C15.8087 8.38862 16.8255 9.06869 18 9.06869C19.6569 9.06869 21 7.71529 21 6.04579C21 4.37629 19.6569 3.02289 18 3.02289C16.3431 3.02289 15 4.37629 15 6.04579C15 6.53184 15.1138 6.9911 15.3161 7.39797ZM15.3161 16.7852C15.1138 17.1921 15 17.6513 15 18.1374C15 19.8069 16.3431 21.1603 18 21.1603C19.6569 21.1603 21 19.8069 21 18.1374C21 16.4679 19.6569 15.1145 18 15.1145C16.8255 15.1145 15.8087 15.7946 15.3161 16.7852Z" stroke="#5F6F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Share</li>
+        </ul>
       </div>
 
-      {{-- Footer Bottom --}}
-      <div class="mt-12 text-center text-xs text-[#6B705C] font-poppins">
-          Made with ♡ by SenkuSolutions ID © 2025. All rights reserved.
+      <!-- Ads -->
+      <img src="{{ asset('images/iklan.png') }}" class="rounded-lg w-full" />
+      <img src="{{ asset('images/iklan.png') }}" class="rounded-lg w-full" />
+    </div>
+  </div>
+  <div class="bg-blue-600 rounded-xl p-6 sm:p-8 mt-10 relative overflow-hidden
+              flex flex-col sm:flex-row items-start sm:items-center gap-6
+              sm:justify-between text-white">
+
+    <div class="relative z-10 max-w-lg">
+      <h3 class="text-lg sm:text-xl font-semibold">
+        Percayakan Pada Ahlinya!
+      </h3>
+      <p class="text-sm opacity-90 mt-1">
+        Tunggu apalagi? Yuk percayakan pada ahlinya!
+      </p>
+    </div>
+
+    <a href="#" class="relative z-10 bg-teal-400 px-6 py-3 rounded-lg font-semibold text-sm">
+      Chat & Konsultasi via WA
+    </a>
+
+    <div class="absolute right-0 top-0 h-full w-40 sm:w-56 pointer-events-none">
+      <img src="{{ asset('images/pattern.png') }}"
+           class="h-full w-full object-cover opacity-90" />
+    </div>
+  </div>
+</section>
+
+    <section class="w-full bg-[#E9E4DA] px-6 sm:px-10 lg:px-30 py-12">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-[#5F6F52] text-center sm:text-left">
+
+        <!-- Home -->
+        <div class="space-y-2">
+          <h3 class="font-semibold text-lg font-poppins">Home</h3>
+          <ul class="space-y-1 text-sm">
+            <li><a href="{{ route('home') }}" class="hover:underline font-poppins">Home</a></li>
+            <li><a href="{{ route('home') }}" class="hover:underline font-poppins">About Us</a></li>
+            <li><a href="{{ route('home') }}" class="hover:underline font-poppins">Layanan Kami</a></li>
+            <li><a href="{{ route('home') }}" class="hover:underline font-poppins">Tugas populer</a></li>
+            <li><a href="{{ route('home') }}" class="hover:underline font-poppins">Kesan & pesan</a></li>
+          </ul>
+        </div>
+
+        <!-- Help -->
+        <div class="space-y-2">
+          <h3 class="font-semibold text-lg font-poppins">Help</h3>
+          <ul class="space-y-1 text-sm">
+            <li><a href="{{ route('cara_order') }}" class="hover:underline font-poppins">Cara Order</a></li>
+            <li><a href="{{ route('faq') }}" class="hover:underline font-poppins">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacts -->
+        <div class="space-y-2">
+          <h3 class="font-semibold text-lg font-poppins">Contacts</h3>
+          <ul class="space-y-1 text-sm">
+            <li class="font-poppins break-words">WA Senku</li>
+            <li class="font-poppins break-words">senkusolution@gmail.com</li>
+          </ul>
+        </div>
+
+        <!-- Social -->
+        <div class="space-y-4">
+          <h3 class="font-semibold text-lg text-black font-poppins">
+            FOLLOW <span class="text-[#FE8929]">US</span>
+          </h3>
+          <div class="flex gap-3 justify-center sm:justify-start flex-wrap">
+            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
+              <img src="{{ asset('images/instagram.png') }}" class="w-[22px] h-[22px]" />
+            </a>
+            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
+              <img src="{{ asset('images/tiktok.png') }}" class="w-[22px] h-[22px]" />
+            </a>
+            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
+              <img src="{{ asset('images/x.png') }}" class="w-[22px] h-[22px]" />
+            </a>
+            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:scale-105 transition">
+              <img src="{{ asset('images/threads.png') }}" class="w-[22px] h-[22px]" />
+            </a>
+          </div>
+        </div>
       </div>
-  </section>
+
+      <!-- Footer Bottom -->
+      <div class="mt-12 text-center text-xs text-[#6B705C] font-poppins px-4">
+        Made with ♡ by SenkuSolutions ID © 2025. All rights reserved.
+      </div>
+    </section>
   </main>
   <script src="{{ asset('js/common.js') }}"></script>
 </body>

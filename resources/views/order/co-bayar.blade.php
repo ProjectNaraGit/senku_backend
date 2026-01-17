@@ -20,20 +20,20 @@
       <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
 
       {{-- STEP INDICATOR --}}
-      <div class="relative z-10 w-[50%] max-w-4xl flex items-center justify-between mb-10 px-6">
+      <div class="relative z-10 w-full md:w-[50%] max-w-4xl flex items-center justify-between mb-15 md:mb-10 px-6">
           <div class="flex flex-col items-center gap-2 text-orange-500 font-semibold">
             <span class="w-7 h-7 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">1</span>
-            <p class="absolute w-[150px] mt-7 ml-8">Booking Details</p>
+            <p class="absolute w-20 md:w-37.5 mt-7 text-center">Booking Details</p>
           </div>
           <div class="flex-1 h-px bg-orange-500"></div>
           <div class="flex flex-col items-center gap-2 text-orange-500 font-semibold">
               <span class="w-7 h-7 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">2</span>
-              <p class="absolute w-[150px] mt-7 ml-16">Your Details</p>
+              <p class="absolute w-20 md:w-37.5 mt-7 text-center">Your Details</p>
           </div>
           <div class="flex-1 h-px bg-orange-500"></div>
-          <div class="flex flex-col items-center gap-2 text-orange-500 font-semibold">
+          <div class="flex flex-col items-center gap-2 text-gray-400">
               <span class="w-7 h-7 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">3</span>
-              <p class="absolute w-[150px] mt-7 ml-22">Payment</p>
+              <p class="absolute w-20 md:w-37.5 mt-7 text-center">Payment</p>
           </div>
       </div>
 

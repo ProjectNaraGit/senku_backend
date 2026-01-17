@@ -12,49 +12,121 @@
         </style>
   @endif
 </head>
-<body class="bg-[#E9E5DC]">
+<body class="bg-[#5F6F52]">
   <main>
-    <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover -z-10" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
-    <div class="flex justify-center flex-col items-center h-screen gap-2 mx-7 md:mx-0">
-      <svg class="z-99" width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M45.8333 0C20.5208 0 0 20.5208 0 45.8333C0 71.1458 20.5208 91.6667 45.8333 91.6667C71.1458 91.6667 91.6667 71.1458 91.6667 45.8333C91.6667 20.5208 71.1458 0 45.8333 0ZM65.7 38.0833C66.0658 37.6652 66.3443 37.1781 66.5191 36.6507C66.6939 36.1233 66.7615 35.5663 66.7178 35.0124C66.6741 34.4586 66.5202 33.919 66.2649 33.4255C66.0096 32.932 65.6583 32.4946 65.2314 32.1389C64.8046 31.7832 64.311 31.5165 63.7796 31.3544C63.2482 31.1923 62.6897 31.1382 62.137 31.1951C61.5843 31.2521 61.0486 31.4189 60.5614 31.686C60.0742 31.953 59.6453 32.3148 59.3 32.75L41.3833 54.2458L32.1125 44.9708C31.3267 44.2118 30.2741 43.7919 29.1817 43.8014C28.0892 43.8109 27.0441 44.2491 26.2716 45.0216C25.4991 45.7941 25.0609 46.8392 25.0514 47.9317C25.0419 49.0241 25.4618 50.0767 26.2208 50.8625L38.7208 63.3625C39.1302 63.7717 39.6204 64.091 40.1601 64.3002C40.6997 64.5095 41.2771 64.604 41.8553 64.5777C42.4335 64.5514 42.9999 64.405 43.5184 64.1477C44.0369 63.8904 44.496 63.5279 44.8667 63.0833L65.7 38.0833Z" fill="#5F6F52"/>
-      </svg>
-      <h1 class="font-poppins font-bold text-2xl">Pesanan Anda Telah Selesai!</h1>
-      <p class="font-poppins">Anda akan menerima email konfirmasi yang berisi rincian pesanan</p>
-      <a href=""
-        class="w-full max-w-sm py-3 px-6
-              rounded-full
-              border-2 border-[#5F6F52]
-              text-[#5F6F52]
-              transition
-              font-poppins
-              font-bold
-              text-center">
-        Print Bukti Pembayaran
-      </a>
-      <a href=""
-        class="w-full max-w-sm py-3 px-6
-              rounded-full
-              border-2 border-[#5F6F52]
-              text-[#5F6F52]
-              transition
-              font-poppins
-              font-bold
-              text-center">
-        Hubungi Admin Senku
-      </a>
-      <a href="{{ route('user.dashboard') }}"
-        class="w-full max-w-md py-4 px-6
-              rounded-full
-              bg-[#5F6F52]
-              text-white
-              font-semibold
-              transition mt-6
-              text-center">
-        Go to the Home Page
-      </a>
+    <section class="min-h-screen bg-[#E9E5DC] relative flex flex-col items-center py-12 -z-10">
+        <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover -z-5" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
+        <h1 class="font-mochi font-medium text-3xl text-[#5F6F52]">Detail SNK</h1>
+        <div class="w-full px-4 md:px-30 mt-10 font-poppins">
+            <!-- Ruang Lingkup Layanan -->
+            <div class="w-full bg-[#FFFCFC] p-4 text-[#5F6F52] text-xl rounded-xl mt-4">
+                <h3>Ruang Lingkup Layanan</h3>
+            </div>
+            <div class="w-full bg-[#5F6F52] p-4 text-[#FFFCFC] rounded-xl mt-2">
+                <ul class="list-disc ml-7 space-y-1">
+                    <li>Pengerjaan tugas akademik & bimbingan belajar sesuai kesepakatan.</li>
+                    <li>Revisi gratis 2x, selebihnya dikenakan biaya tambahan.</li>
+                    <li>Tidak menerima tugas yang melanggar etika akademik berat.</li>
+                    <li>Deadline harus jelas sejak awal, percepatan dikenakan biaya tambahan.</li>
+                </ul>
+            </div>
 
-    </div>
+            <!-- Jenis Tugas yang Tidak Kami Kerjakan -->
+            <div class="w-full bg-[#FFFCFC] p-4 text-[#5F6F52] text-xl rounded-xl mt-4">
+                <h3>Jenis Tugas yang Tidak Kami Kerjakan</h3>
+            </div>
+            <div class="w-full bg-[#5F6F52] p-4 text-[#FFFCFC] rounded-xl mt-2">
+                <ul class="list-disc ml-7 space-y-1">
+                    <li>Seleksi masuk universitas (SPMB, SBMPTN, dll).</li>
+                    <li>Kompetisi, lomba, atau olimpiade.</li>
+                    <li>Seleksi kerja.</li>
+                </ul>
+            </div>
+
+            <!-- Pembayaran -->
+            <div class="w-full bg-[#FFFCFC] p-4 text-[#5F6F52] text-xl rounded-xl mt-4">
+                <h3>Pembayaran</h3>
+            </div>
+            <div class="w-full bg-[#5F6F52] p-4 text-[#FFFCFC] rounded-xl mt-2">
+                <ul class="list-disc ml-7 space-y-1">
+                    <li>Minimal DP 50% di muka, pelunasan sebelum hasil diserahkan.</li>
+                    <li>Keterlambatan pembayaran dapat menunda pengiriman.</li>
+                </ul>
+            </div>
+
+            <!-- Pembatalan & Refund -->
+            <div class="w-full bg-[#FFFCFC] p-4 text-[#5F6F52] text-xl rounded-xl mt-4">
+                <h3>Pembatalan & Refund</h3>
+            </div>
+            <div class="w-full bg-[#5F6F52] p-4 text-[#FFFCFC] rounded-xl mt-2">
+                <ul class="list-disc ml-7 space-y-1">
+                    <li>Pembatalan ≥3 hari sebelum deadline: gratis.</li>
+                    <li>Pembatalan &lt;3 hari: dikenakan biaya 50%.</li>
+                    <li>Refund berlaku jika:</li>
+                    <li class="ml-5">✔ Tim telat &gt;6 jam dari deadline.</li>
+                    <li class="ml-5">✔ Kesalahan pengerjaan hingga 70%.</li>
+                    <li>Tidak ada refund untuk tugas yang sudah selesai / sedang dikerjakan.</li>
+                    <li>Proses refund: 1×24 jam setelah klaim disetujui.</li>
+                </ul>
+            </div>
+
+            <!-- Tanggung Jawab Klien -->
+            <div class="w-full bg-[#FFFCFC] p-4 text-[#5F6F52] text-xl rounded-xl mt-4">
+                <h3>Tanggung Jawab Klien</h3>
+            </div>
+            <div class="w-full bg-[#5F6F52] p-4 text-[#FFFCFC] rounded-xl mt-2">
+                <ul class="list-disc ml-7 space-y-1">
+                    <li>Memberikan informasi tugas lengkap & akurat.</li>
+                    <li>Bertanggung jawab atas penggunaan hasil sesuai etika & hukum.</li>
+                    <li>Tidak boleh menyalahgunakan hasil tugas.</li>
+                </ul>
+            </div>
+
+            <!-- Tanggung Jawab Senku Solution -->
+            <div class="w-full bg-[#FFFCFC] p-4 text-[#5F6F52] text-xl rounded-xl mt-4">
+                <h3>Tanggung Jawab Senku Solution</h3>
+            </div>
+            <div class="w-full bg-[#5F6F52] p-4 text-[#FFFCFC] rounded-xl mt-2">
+                <ul class="list-disc ml-7 space-y-1">
+                    <li>Hasil dikerjakan profesional, sesuai spesifikasi & bebas plagiarisme.</li>
+                    <li>Tidak menjamin nilai akademik.</li>
+                    <li>Menjaga kerahasiaan identitas klien.</li>
+                </ul>
+            </div>
+
+            <!-- Kerahasiaan -->
+            <div class="w-full bg-[#FFFCFC] p-4 text-[#5F6F52] text-xl rounded-xl mt-4">
+                <h3>Kerahasiaan</h3>
+            </div>
+            <div class="w-full bg-[#5F6F52] p-4 text-[#FFFCFC] rounded-xl mt-2">
+                <ul class="list-disc ml-7 space-y-1">
+                    <li>Semua informasi klien dijaga kerahasiaannya.</li>
+                    <li>Klien tidak boleh membagikan proses kerja tanpa izin tertulis.</li>
+                </ul>
+            </div>
+
+            <!-- Hak Kekayaan Intelektual -->
+            <div class="w-full bg-[#FFFCFC] p-4 text-[#5F6F52] text-xl rounded-xl mt-4">
+                <h3>Hak Kekayaan Intelektual</h3>
+            </div>
+            <div class="w-full bg-[#5F6F52] p-4 text-[#FFFCFC] rounded-xl mt-2">
+                <ul class="list-disc ml-7 space-y-1">
+                    <li>Hak tugas menjadi milik Senku Solution sampai pembayaran lunas.</li>
+                    <li>Setelah lunas, klien mendapat hak penggunaan non-eksklusif.</li>
+                </ul>
+            </div>
+
+            <!-- Perubahan Syarat -->
+            <div class="w-full bg-[#FFFCFC] p-4 text-[#5F6F52] text-xl rounded-xl mt-4">
+                <h3>Perubahan Syarat</h3>
+            </div>
+            <div class="w-full bg-[#5F6F52] p-4 text-[#FFFCFC] rounded-xl mt-2">
+                <p>
+                    Senku Solution berhak memperbarui syarat & ketentuan kapan saja.
+                </p>
+            </div>
+        </div>
+  </section>
   </main>
   <script src="{{ asset('js/common.js') }}"></script>
 </body>
