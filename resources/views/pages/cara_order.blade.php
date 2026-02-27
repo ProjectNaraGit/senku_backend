@@ -13,153 +13,154 @@
   @endif
 </head>
 <body class="bg-[#5F6F52]">
-  <nav class="w-full px-[120px] py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
-    <div class="flex justify-between">
+  <nav class="w-full px-4 md:px-30 py-4 bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
+    <div class="flex justify-between items-center">
         <div class="">
           <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}" alt="logo" class="h-7">
         </div>
-        <div class="flex gap-5 justify-between items-center">
+        <div class="gap-5 justify-between items-center hidden md:flex">
           <a href="{{ route('home') }}" class="font-poppins font-light text-[1.1em]">Home</a>
           <a href="{{ route('cara_order') }}" class="font-poppins font-light text-[1.1em]">Cara Order</a>
           <a href="{{ route('testimoni') }}" class="font-poppins font-light text-[1.1em]">Testimoni</a>
           <a href="{{ route('faq') }}" class="font-poppins font-light text-[1.1em]">FAQ</a>
           <a href="{{ route('kontak') }}" class="font-poppins font-light text-[1.1em]">Kontak</a>
         </div>
-        <div class="relative">
-          <button
-            onclick="toggleLogin()"
-            class="bg-[#5F6F52] hover:bg-[#37402f] cursor-pointer text-white px-4 py-2 rounded-lg font-poppins font-light text-[1.1em] flex items-center gap-2"
-          >
-            Login
-            <svg
-              class="w-4 h-4 transition-transform duration-300"
-              id="loginIcon"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+        <div class="flex gap-2">
+          <button class="md:hidden" onclick="toggleMobileMenu()">
+            ☰
           </button>
+          <div class="relative">
+            <button
+              onclick="toggleLogin()"
+              class="bg-[#5F6F52] hover:bg-[#37402f] cursor-pointer text-white px-4 py-2 rounded-lg font-poppins font-light text-[1.1em] flex items-center gap-2"
+            >
+              Login
+              <svg
+                class="w-4 h-4 transition-transform duration-300"
+                id="loginIcon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
 
-          <!-- Dropdown -->
-          <div
-            id="loginDropdown"
-            class="hidden absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg border z-50"
-          >
-            <a href="{{ route('siswa.login') }}" class="block px-4 py-2 hover:bg-gray-100">
-              Siswa
-            </a>
-            <a href="{{ route('mahasiswa.login') }}" class="block px-4 py-2 hover:bg-gray-100">
-              Mahasiswa
-            </a>
-            <a href="{{ route('umum.login') }}" class="block px-4 py-2 hover:bg-gray-100">
-              Umum
-            </a>
+            <!-- Dropdown -->
+            <div
+              id="loginDropdown"
+              class="hidden absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg border z-50"
+            >
+              <a href="{{ route('siswa.login') }}" class="block px-4 py-2 hover:bg-gray-100">
+                Siswa
+              </a>
+              <a href="{{ route('mahasiswa.login') }}" class="block px-4 py-2 hover:bg-gray-100">
+                Mahasiswa
+              </a>
+              <a href="{{ route('umum.login') }}" class="block px-4 py-2 hover:bg-gray-100">
+                Umum
+              </a>
+            </div>
           </div>
         </div>
     </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden flex-row justify-between items-center gap-3 mt-4 md:hidden">
+      <a href="{{ route('home') }}">Home</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('cara_order') }}">Cara Order</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('testimoni') }}">Testimoni</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('faq') }}">FAQ</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="{{ route('kontak') }}">Kontak</a>
+    </div>
   </nav>
-  <main>
-    <section class="w-full bg-[#5F6F52] px-[120px] py-20 flex flex-row justify-center items-center">
-      <h1 class="font-mochi text-[48px] text-[#E5E0D8]">Cara Order</h1>
+  <main class="relative">
+    <div class="absolute inset-0 opacity-15 pointer-events-none bg-repeat z-0" style="background-image: url('{{ asset('images/background%20pattern.png') }}'); background-size: 520px;"></div>
+    <section class="w-full bg-[#E5E0D8] px-7.5 md:px-30 py-20 flex flex-row justify-center items-center">
+      <h1 class="z-10 font-mochi text-[48px] text-[#5F6F52] text-center">Cara Order</h1>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8] rounded-t-3xl">
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="step1-icon" class="w-12 h-12">
-        </div>
+    <section class="z-10 w-full py-[60px] px-7.5 md:px-30 bg-[#5F6F52] rounded-t-3xl">
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleStep('step1')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="step1-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleStep('step1')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold text-[#E5E0D8] cursor-pointer" onclick="toggleStep('step1')">
             1. Hubungi Kami
           </h3>
-          <p id="step1" class="hidden font-poppins text-[15px]">Hubungi kami melalui WhatsApp, Instagram, atau platform lainnya. Ceritakan kebutuhan kamu — jenis tugas, deadline, dan detail lain yang diperlukan.</p>
+          <p id="step1" class="hidden font-poppins text-[15px] leading-relaxed text-[#E5E0D8] mt-2">Hubungi kami melalui WhatsApp, Instagram, atau platform lainnya. Ceritakan kebutuhan kamu — jenis tugas, deadline, dan detail lain yang diperlukan.</p>
         </div>
       </div>
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="step2-icon" class="w-12 h-12">
-        </div>
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleStep('step2')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="step2-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleStep('step2')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold text-[#E5E0D8] cursor-pointer" onclick="toggleStep('step2')">
             2. Konsultasi & Penawaran
           </h3>
-          <p id="step2" class="hidden font-poppins text-[15px]">Tim kami akan menganalisis kebutuhan kamu dan memberikan estimasi waktu pengerjaan serta harga. Kamu bisa diskusi dulu sampai deal.</p>
+          <p id="step2" class="hidden font-poppins text-[15px] leading-relaxed text-[#E5E0D8] mt-2">Tim kami akan menganalisis kebutuhan kamu dan memberikan estimasi waktu pengerjaan serta harga. Kamu bisa diskusi dulu sampai deal.</p>
         </div>
       </div>
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="step3-icon" class="w-12 h-12">
-        </div>
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleStep('step3')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="step3-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleStep('step3')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold text-[#E5E0D8] cursor-pointer" onclick="toggleStep('step3')">
             3. Pembayaran
           </h3>
-          <p id="step3" class="hidden font-poppins text-[15px]">Setelah deal, lakukan pembayaran sesuai kesepakatan (DP atau full payment). Kami terima transfer bank dan e-wallet.</p>
+          <p id="step3" class="hidden font-poppins text-[15px] leading-relaxed text-[#E5E0D8] mt-2">Setelah deal, lakukan pembayaran sesuai kesepakatan (DP atau full payment). Kami terima transfer bank dan e-wallet.</p>
         </div>
       </div>
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="step4-icon" class="w-12 h-12">
-        </div>
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleStep('step4')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="step4-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleStep('step4')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold text-[#E5E0D8] cursor-pointer" onclick="toggleStep('step4')">
             4. Proses Pengerjaan
           </h3>
-          <p id="step4" class="hidden font-poppins text-[15px]">Tim kami mulai mengerjakan pesanan kamu. Kami akan kasih update progres secara berkala agar kamu tetap tahu perkembangannya.</p>
+          <p id="step4" class="hidden font-poppins text-[15px] leading-relaxed text-[#E5E0D8] mt-2">Tim kami mulai mengerjakan pesanan kamu. Kami akan kasih update progres secara berkala agar kamu tetap tahu perkembangannya.</p>
         </div>
       </div>
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="step5-icon" class="w-12 h-12">
-        </div>
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleStep('step5')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="step5-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleStep('step5')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold text-[#E5E0D8] cursor-pointer" onclick="toggleStep('step5')">
             5. Review & Revisi
           </h3>
-          <p id="step5" class="hidden font-poppins text-[15px]">Setelah selesai, kami kirim hasil kerja untuk kamu review. Kalau ada yang perlu diperbaiki, kami siap revisi sesuai kesepakatan.</p>
+          <p id="step5" class="hidden font-poppins text-[15px] leading-relaxed text-[#E5E0D8] mt-2">Setelah selesai, kami kirim hasil kerja untuk kamu review. Kalau ada yang perlu diperbaiki, kami siap revisi sesuai kesepakatan.</p>
         </div>
       </div>
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="step6-icon" class="w-12 h-12">
-        </div>
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleStep('step6')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="step6-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleStep('step6')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold text-[#E5E0D8] cursor-pointer" onclick="toggleStep('step6')">
             6. Selesai & Pengiriman Final
           </h3>
-          <p id="step6" class="hidden font-poppins text-[15px]">Setelah semua oke, kami kirim file final ke kamu. Pesanan selesai dan kamu siap pakai hasilnya!</p>
+          <p id="step6" class="hidden font-poppins text-[15px] leading-relaxed text-[#E5E0D8] mt-2">Setelah semua oke, kami kirim file final ke kamu. Pesanan selesai dan kamu siap pakai hasilnya!</p>
         </div>
       </div>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8]">
-      <div class="w-full flex justify-center">
-        <h2 class="mb-8 font-poppins text-[40px] font-semibold">Follow <span class="text-[#FE8929]">Us</span></h2>
-      </div>
-      <div class="flex flex-row justify-center gap-10 w-full mt-4">
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[54px] h-[54px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/tiktok.png') }}" alt="" class="w-[57px] h-[57px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/x.png') }}" alt="" class="w-[52px] h-[52px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/threads.png') }}" alt="" class="w-[58px] h-[58px]">
-        </a>
-      </div>
-    </section>
+    @include('components.simple-footer')
   </main>
-  <script src="{{ asset('js/common.js') }}"></script>
   <script>
   function toggleStep(id) {
     const el = document.getElementById(id)
     const elicon = document.getElementById(id+"-icon")
     el.classList.toggle('hidden')
-    elicon.classList.toggle('rotate-90')
+    elicon.src = elicon.src.includes('beaker.png')
+        ? "{{ asset('images/beaker_spill.png') }}"
+        : "{{ asset('images/beaker.png') }}"
   }
   </script>
 </body>

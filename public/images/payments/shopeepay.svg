@@ -1,0 +1,8 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="24" fill="#FF6B00"/>
+  <g transform="translate(30 24)" fill="#ffffff">
+    <path d="M30 0c-9.941 0-18 8.059-18 18v6H6c-3.314 0-6 2.686-6 6v36c0 3.314 2.686 6 6 6h48c3.314 0 6-2.686 6-6V30c0-3.314-2.686-6-6-6H48v-6C48 8.059 39.941 0 30 0zm0 12c3.314 0 6 2.686 6 6v6H24v-6c0-3.314 2.686-6 6-6z"/>
+    <path d="M48 42H12a3 3 0 00-3 3v6a3 3 0 003 3h36a3 3 0 003-3v-6a3 3 0 00-3-3z"/>
+  </g>
+  <text x="60" y="106" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="'Poppins', 'Segoe UI', sans-serif">ShopeePay</text>
+</svg>

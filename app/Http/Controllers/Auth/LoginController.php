@@ -49,54 +49,21 @@ class LoginController extends Controller
     // Validasi input login
     protected function validateLogin(Request $request)
     {
-        $rules = [
+        $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
             'user_type' => 'required|in:mahasiswa,umum,siswa',
-        ];
-
-        // Tambahkan validasi tambahan berdasarkan tipe user
-        switch ($request->user_type) {
-            case 'mahasiswa':
-                $rules['nim'] = 'required|string|max:20';
-                break;
-            case 'siswa':
-                $rules['nisn'] = 'required|string|max:20';
-                break;
-            case 'umum':
-                $rules['nama_lengkap'] = 'required|string|max:255';
-                break;
-        }
-
-        $request->validate($rules);
+        ]);
     }
 
     // Menyiapkan credentials untuk login
     protected function credentials(Request $request)
     {
-        $credentials = [
+        return [
             'email' => $request->email,
             'password' => $request->password,
             'user_type' => $request->user_type,
         ];
-
-        // Tambahkan field tambahan berdasarkan tipe user
-        switch ($request->user_type) {
-            case 'mahasiswa':
-                $credentials['nim'] = $request->nim;
-                break;
-            case 'siswa':
-                $credentials['nisn'] = $request->nisn;
-                break;
-            case 'umum':
-                $credentials['name'] = $request->nama_lengkap;
-                break;
-        }
-
-        // Pastikan user tidak dihapus (soft delete)
-        $credentials['deleted_at'] = null;
-
-        return $credentials;
     }
 
     // Redirect setelah login berhasil
@@ -146,6 +113,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('home');
     }
 }

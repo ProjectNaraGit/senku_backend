@@ -13,18 +13,23 @@
   <?php endif; ?>
 </head>
 <body class="bg-[#5F6F52]">
-  <nav class="w-full px-[120px] py-5 h-fit bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
-    <div class="flex justify-between">
-        <div class="">
-          <img src="<?php echo e(asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png')); ?>" alt="logo" class="h-7">
-        </div>
-        <div class="flex gap-5 justify-between items-center">
+  <nav class="w-full px-4 md:px-30 py-4 bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
+    <div class="flex justify-between items-center">
+      <img src="<?php echo e(asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png')); ?>"
+         class="h-7" />
+
+        <div class="gap-5 justify-between items-center hidden md:flex">
           <a href="<?php echo e(route('home')); ?>" class="font-poppins font-light text-[1.1em]">Home</a>
           <a href="<?php echo e(route('cara_order')); ?>" class="font-poppins font-light text-[1.1em]">Cara Order</a>
           <a href="<?php echo e(route('testimoni')); ?>" class="font-poppins font-light text-[1.1em]">Testimoni</a>
           <a href="<?php echo e(route('faq')); ?>" class="font-poppins font-light text-[1.1em]">FAQ</a>
           <a href="<?php echo e(route('kontak')); ?>" class="font-poppins font-light text-[1.1em]">Kontak</a>
         </div>
+
+        <div class="flex gap-2">
+        <button class="md:hidden" onclick="toggleMobileMenu()">
+          ☰
+        </button>
         <div class="relative">
           <button
             onclick="toggleLogin()"
@@ -59,40 +64,106 @@
             </a>
           </div>
         </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden flex-row justify-between items-center gap-3 mt-4 md:hidden">
+      <a href="<?php echo e(route('home')); ?>">Home</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="<?php echo e(route('cara_order')); ?>">Cara Order</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="<?php echo e(route('testimoni')); ?>">Testimoni</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="<?php echo e(route('faq')); ?>">FAQ</a>
+      <div class="w-px bg-gray-800 h-5"></div>
+      <a href="<?php echo e(route('kontak')); ?>">Kontak</a>
     </div>
   </nav>
   <main>
-    <section class="w-full bg-[#5F6F52] px-[120px] py-20 flex flex-row justify-center items-center">
-      <h1 class="font-mochi text-[48px] text-[#E5E0D8]">Testimoni</h1>
+    <section class="relative w-full bg-[#5F6F52] px-7.5 md:px-30 py-20 flex flex-row justify-center items-center overflow-hidden">
+      <div class="absolute inset-0 opacity-15 pointer-events-none bg-repeat" style="background-image: url('<?php echo e(asset('images/background%20pattern.png')); ?>'); background-size: 520px;"></div>
+      <h1 class="relative font-mochi text-[48px] text-[#E5E0D8]">Testimoni</h1>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8]">
-      <div class="w-full flex justify-between gap-10">
-        <img src="<?php echo e(asset('images/testimoni.png')); ?>" alt="" class="flex-1">
-        <img src="<?php echo e(asset('images/testimoni.png')); ?>" alt="" class="flex-1">
-        <img src="<?php echo e(asset('images/testimoni.png')); ?>" alt="" class="flex-1">
-        <img src="<?php echo e(asset('images/testimoni.png')); ?>" alt="" class="flex-1">
-      </div>
+    <section class="relative w-full py-[60px] px-7.5 md:px-30 bg-[#E5E0D8] overflow-hidden">
+      <div class="absolute inset-0 opacity-20 pointer-events-none bg-repeat" style="background-image: url('<?php echo e(asset('images/background%20pattern.png')); ?>'); background-size: 520px;"></div>
+      <?php
+        $imageChunks = $testimonials->chunk(4);
+      ?>
+
+      <?php if($testimonials->isEmpty()): ?>
+        <p class="relative z-10 text-center text-gray-700 font-poppins">Belum ada gambar testimoni yang ditambahkan.</p>
+      <?php else: ?>
+        <div class="relative z-10 max-w-7xl mx-auto">
+          <div class="relative">
+            <button id="testimonialPrev" class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-all" aria-label="Sebelumnya">
+              <svg class="w-5 h-5 text-[#5F6F52]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button id="testimonialNext" class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-all" aria-label="Selanjutnya">
+              <svg class="w-5 h-5 text-[#5F6F52]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+            <div class="overflow-hidden">
+              <div id="testimonialSlider" class="flex transition-transform duration-500 ease-out">
+                <?php $__currentLoopData = $imageChunks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <div class="w-full shrink-0 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <?php $__currentLoopData = $chunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $testimonial): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <?php
+                        $imageSource = $testimonial->image_path && file_exists(public_path($testimonial->image_path))
+                          ? asset($testimonial->image_path)
+                          : asset('images/testimoni.png');
+                      ?>
+                      <div class="rounded-3xl overflow-hidden bg-white shadow">
+                        <img src="<?php echo e($imageSource); ?>" alt="Testimoni <?php echo e($loop->parent->iteration); ?>-<?php echo e($loop->iteration); ?>" class="w-full h-full object-cover">
+                      </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php for($i = $chunk->count(); $i < 4; $i++): ?>
+                      <div class="hidden md:block"></div>
+                    <?php endfor; ?>
+                  </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      <?php endif; ?>
     </section>
-    <section class="w-full py-[60px] px-[120px] bg-[#E5E0D8]">
-      <div class="w-full flex justify-center">
-        <h2 class="mb-8 font-poppins text-[40px] font-semibold">Follow <span class="text-[#FE8929]">Us</span></h2>
-      </div>
-      <div class="flex flex-row justify-center gap-10 w-full mt-4">
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="<?php echo e(asset('images/instagram.png')); ?>" alt="" class="w-[54px] h-[54px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="<?php echo e(asset('images/tiktok.png')); ?>" alt="" class="w-[57px] h-[57px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="<?php echo e(asset('images/x.png')); ?>" alt="" class="w-[52px] h-[52px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="<?php echo e(asset('images/threads.png')); ?>" alt="" class="w-[58px] h-[58px]">
-        </a>
-      </div>
-    </section>
+
+    <?php echo $__env->make('components.simple-footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
   </main>
   <script src="<?php echo e(asset('js/common.js')); ?>"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slider = document.getElementById('testimonialSlider');
+      const prevBtn = document.getElementById('testimonialPrev');
+      const nextBtn = document.getElementById('testimonialNext');
+
+      if (!slider || slider.children.length <= 1) {
+        prevBtn?.classList.add('opacity-40', 'cursor-not-allowed');
+        nextBtn?.classList.add('opacity-40', 'cursor-not-allowed');
+        return;
+      }
+
+      let currentSlide = 0;
+      const totalSlides = slider.children.length;
+
+      function updateSlider() {
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+
+      prevBtn?.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+      });
+
+      nextBtn?.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+      });
+    });
+  </script>
 </body>
 </html><?php /**PATH C:\LARAGON\laragon\www\senku-backend\resources\views/pages/testimoni.blade.php ENDPATH**/ ?>

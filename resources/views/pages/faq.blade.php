@@ -15,8 +15,8 @@
 <body class="bg-[#5F6F52]">
   <nav class="w-full px-4 md:px-30 py-4 bg-[#E5E0D8] sticky top-0 z-50 border-b border-gray-700">
     <div class="flex justify-between items-center">
-      <img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}"
-         class="h-7" />
+      <a href="{{ route('home') }}"><img src="{{ asset('images/7343c1fc35b5281de35c18d65f3824a08927c1b7.png') }}"
+         class="h-7" /></a>
 
         <div class="gap-5 justify-between items-center hidden md:flex">
           <a href="{{ route('home') }}" class="font-poppins font-light text-[1.1em]">Home</a>
@@ -81,122 +81,90 @@
     </div>
   </nav>
   <main class="relative">
-    <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover z-0" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
-    <section class="w-full bg-[#5F6F52] px-7.5 md:px-30 py-20 flex flex-row justify-center items-center">
-      <h1 class="font-mochi text-[48px] text-[#E5E0D8] z-10">FAQ</h1>
+    <div class="absolute inset-0 opacity-15 pointer-events-none bg-repeat z-0" style="background-image: url('{{ asset('images/background%20pattern.png') }}'); background-size: 520px;"></div>
+    <section class="w-full bg-[#5F6F52] px-7.5 md:px-30 py-12 flex flex-row justify-center items-center">
+      <h1 class="font-mochi text-[32px] text-[#E5E0D8] z-10">FAQ</h1>
     </section>
-    <section class="w-full py-[60px] px-7.5 md:px-30 bg-[#E5E0D8] rounded-t-3xl z-10">
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq1-icon" class="w-12 h-12">
-        </div>
+    <section class="w-full py-[40px] px-7.5 md:px-30 bg-[#E5E0D8] rounded-t-3xl z-10">
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleFaq('faq1')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq1-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-md md:text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq1')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq1')">
             1. Apa aja jenis jasa joki yang Senku Solutions tawarkan?
           </h3>
-          <p id="faq1" class="hidden font-poppins text-[15px]">Kami bantu berbagai kebutuhan digital dan akademik — mulai dari joki tugas, proyek, desain, sampai pengerjaan website. Pokoknya, kami bantu kamu biar hasilnya beres dan tepat waktu.</p>
+          <p id="faq1" class="hidden font-poppins text-[15px] leading-relaxed mt-2">Kami bantu berbagai kebutuhan digital dan akademik — mulai dari joki tugas, proyek, desain, sampai pengerjaan website. Pokoknya, kami bantu kamu biar hasilnya beres dan tepat waktu.</p>
         </div>
       </div>
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq2-icon" class="w-12 h-12">
-        </div>
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleFaq('faq2')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq2-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-md md:text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq2')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq2')">
             2. Apakah jasa ini aman dan rahasia?
           </h3>
-          <p id="faq2" class="hidden font-poppins text-[15px]">Tentu! Semua data dan file kamu dijaga kerahasiaannya. Kami nggak akan membagikan informasi apa pun ke pihak lain tanpa izin.</p>
+          <p id="faq2" class="hidden font-poppins text-[15px] leading-relaxed mt-2">Tentu! Semua data dan file kamu dijaga kerahasiaannya. Kami nggak akan membagikan informasi apa pun ke pihak lain tanpa izin.</p>
         </div>
       </div>
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq3-icon" class="w-12 h-12">
-        </div>
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleFaq('faq3')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq3-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-md md:text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq3')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq3')">
             3. Berapa lama waktu pengerjaannya?
           </h3>
-          <p id="faq3" class="hidden font-poppins text-[15px]">Tergantung tingkat kesulitan dan deadline yang kamu berikan. Tapi tenang aja — kami selalu berusaha kasih estimasi waktu yang realistis dan update progres secara rutin.</p>
+          <p id="faq3" class="hidden font-poppins text-[15px] leading-relaxed mt-2">Tergantung tingkat kesulitan dan deadline yang kamu berikan. Tapi tenang aja — kami selalu berusaha kasih estimasi waktu yang realistis dan update progres secara rutin.</p>
         </div>
       </div>
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq4-icon" class="w-12 h-12">
-        </div>
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleFaq('faq4')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq4-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-md md:text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq4')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq4')">
             4. Bagaimana sistem pembayarannya?
           </h3>
-          <p id="faq4" class="hidden font-poppins text-[15px]">Pembayaran bisa dilakukan via transfer bank atau e-wallet (kami akan kasih detailnya setelah deal). Kamu bisa pilih bayar DP dulu atau full sesuai kesepakatan.</p>
+          <p id="faq4" class="hidden font-poppins text-[15px] leading-relaxed mt-2">Pembayaran bisa dilakukan via transfer bank atau e-wallet (kami akan kasih detailnya setelah deal). Kamu bisa pilih bayar DP dulu atau full sesuai kesepakatan.</p>
         </div>
       </div>
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq5-icon" class="w-12 h-12">
-        </div>
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleFaq('faq5')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq5-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-md md:text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq5')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq5')">
             5. Apakah bisa revisi kalau hasilnya belum sesuai?
           </h3>
-          <p id="faq5" class="hidden font-poppins text-[15px]">Bisa dong! Kami sediakan revisi minor gratis selama masih dalam lingkup order awal. Kami pengin hasilnya benar-benar sesuai ekspektasi kamu.</p>
+          <p id="faq5" class="hidden font-poppins text-[15px] leading-relaxed mt-2">Bisa dong! Kami sediakan revisi minor gratis selama masih dalam lingkup order awal. Kami pengin hasilnya benar-benar sesuai ekspektasi kamu.</p>
         </div>
       </div>
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq6-icon" class="w-12 h-12">
-        </div>
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleFaq('faq6')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq6-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-md md:text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq6')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq6')">
             6. Apakah bisa order dadakan / express?
           </h3>
-          <p id="faq6" class="hidden font-poppins text-[15px]">Bisa, selama slot masih tersedia. Tapi karena pengerjaan express butuh tenaga ekstra, biasanya akan ada sedikit penyesuaian harga.</p>
+          <p id="faq6" class="hidden font-poppins text-[15px] leading-relaxed mt-2">Bisa, selama slot masih tersedia. Tapi karena pengerjaan express butuh tenaga ekstra, biasanya akan ada sedikit penyesuaian harga.</p>
         </div>
       </div>
-      <div class="flex border-b border-gray-400 pb-2 mb-2">
-        <div class="min-w-12 min-h-12">
-          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq7-icon" class="w-12 h-12">
-        </div>
+      <div class="flex border-b border-gray-400 pb-3 mb-3">
+        <button type="button" onclick="toggleFaq('faq7')" class="min-w-12 min-h-12 flex items-center justify-center mr-4 rounded-full bg-transparent cursor-pointer focus:outline-none">
+          <img src="{{ asset('images/beaker.png') }}" alt="beaker" id="faq7-icon" class="w-12 h-12 pointer-events-none">
+        </button>
         <div>
-          <h3 class="h-12 flex items-center text-md md:text-2xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq7')">
+          <h3 class="h-12 flex items-center text-lg md:text-xl font-poppins font-semibold cursor-pointer" onclick="toggleFaq('faq7')">
             7. Gimana cara tahu update progres pesanan saya?
           </h3>
-          <p id="faq7" class="hidden font-poppins text-[15px]">Tim kami akan kasih update rutin lewat chat (WhatsApp/Telegram) biar kamu tahu sejauh mana progres pengerjaannya..</p>
+          <p id="faq7" class="hidden font-poppins text-[15px] leading-relaxed mt-2">Tim kami akan kasih update rutin lewat chat (WhatsApp/Telegram) biar kamu tahu sejauh mana progres pengerjaannya..</p>
         </div>
       </div>
     </section>
-    <section class="w-full pt-15 px-7.5 md:px-30 bg-[#E5E0D8] rounded-t-2xl flex gap-4">
-        <div class="z-10 w-[35%] hidden md:block">
-            <img src="{{ asset('images/507a1e4eee802165ee833faef48b17639cc890bf.jpg') }}" alt="" class="h-[250px] object-cover">
-        </div>
-        <div>
-            <h2 class="font-bold text-4xl text-[#5D6B51] font-poppins">Layanan <span>Kami</span></h2>
-            <div class="flex flex-col md:flex-row gap-5 mt-4">
-                <p class="font-poppins">SenkuSolutions berkomitmen untuk selalu memberikan hasil terbaik dengan jaminan pelayanan yang cepat, akurat, dan bersahabat. Tidak perlu khawatir, setiap layanan Senkusolutions 100% bergaransi!</p>
-                <p class="font-poppins">HUBUNGI KAMI
-                    <br>WA Admin/CS: +62 
-                    <br>Email: Senkusolutions@gmail.com</p>
-            </div>
-        </div>
-    </section>
-    <section class="w-full px-7.5 md:px-30 bg-[#E5E0D8]">
-      <div class="w-full flex justify-center">
-        <h2 class="mb-8 font-poppins text-[40px] font-semibold">Follow <span class="text-[#FE8929]">Us</span></h2>
-      </div>
-      <div class="flex flex-row justify-center gap-5 md:gap-10 w-full mt-4">
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[54px] h-[54px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/tiktok.png') }}" alt="" class="w-[57px] h-[57px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/x.png') }}" alt="" class="w-[52px] h-[52px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/threads.png') }}" alt="" class="w-[58px] h-[58px]">
-        </a>
-      </div>
-    </section>
+    @include('components.simple-footer')
   </main>
 
   <script src="{{ asset('js/common.js') }}"></script>

@@ -13,6 +13,10 @@
   @endif
 </head>
 <body class="bg-[#5F6F52]">
+  @php
+    $placeholderImage = asset('images/layanan-placeholder.png');
+  @endphp
+
   <main>
     <section class="min-h-screen bg-[#E9E5DC] relative flex flex-col items-center py-12">
 
@@ -42,71 +46,303 @@
 
           <h2 class="text-center text-xl font-semibold mb-8">Detail Produk</h2>
 
-          {{-- MAIN PRODUCT --}}
+          {{-- CART ITEMS (dari keranjang) --}}
+          @if(isset($cartItems) && $cartItems->count() > 0)
+              @foreach($cartItems as $item)
+              <div class="flex items-center gap-4 pb-6 mb-6 border-b border-gray-200">
+                  <div class="w-16 h-16 rounded-lg bg-gray-300 overflow-hidden flex-shrink-0">
+                      @php
+                        $cartItemImage = $item->layanan->thumbnail_url;
+                      @endphp
+                      @if($cartItemImage)
+                          <img src="{{ $cartItemImage }}" alt="{{ $item->layanan->nama_layanan }}" class="w-full h-full object-cover">
+
+                      @else
+                          <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                              <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                              </svg>
+                          </div>
+                      @endif
+                  </div>
+
+                  <div class="flex-1">
+                      <p class="font-semibold">{{ $item->layanan->nama_layanan }}</p>
+                      <p class="text-sm text-gray-500">{{ Str::limit($item->layanan->deskripsi_layanan, 100) }}</p>
+                      <p class="text-sm mt-1 text-gray-600">Qty: {{ $item->quantity }} x Rp {{ number_format($item->harga_satuan, 0, ',', '.') }}</p>
+                      <p class="text-sm mt-1 font-semibold text-orange-500">Subtotal: Rp {{ number_format($item->subtotal, 0, ',', '.') }}</p>
+                  </div>
+              </div>
+              @endforeach
+          @elseif(isset($layanan) && $layanan)
+          {{-- SINGLE PRODUCT (checkout langsung dari detail layanan) --}}
           <div class="flex items-center gap-4 pb-6">
               <div class="w-16 h-16 rounded-lg bg-gray-300 overflow-hidden">
-                  <img src="" alt="" class="w-full h-full object-cover">
+                  @php
+                    $layananImage = $layanan->thumbnail_url;
+                  @endphp
+                  @if($layananImage)
+                      <img src="{{ $layananImage }}" alt="{{ $layanan->nama_layanan }}" class="w-full h-full object-cover">
+
+                  @else
+                      <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                          <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                          </svg>
+                      </div>
+                  @endif
               </div>
 
               <div class="flex-1">
-                  <p class="font-semibold">Nama Produk</p>
-                  <p class="text-sm text-gray-500">Detail produk</p>
-                  <p class="text-sm mt-1">harga (Rp. 60.0000)</p>
+                  <p class="font-semibold">{{ $layanan->nama_layanan }}</p>
+                  <p class="text-sm text-gray-500">{{ Str::limit($layanan->deskripsi_layanan, 100) }}</p>
+                  <p class="text-sm mt-1 font-semibold text-orange-500">Rp {{ number_format($layanan->harga_layanan, 0, ',', '.') }}</p>
               </div>
           </div>
 
           <hr>
+          @endif
 
           {{-- ADDITIONAL --}}
+          @if($additionalLayanan->count() > 0)
           <div class="mt-8">
               <h3 class="text-center font-semibold mb-6">Additional Produk</h3>
 
+              @foreach($additionalLayanan as $additional)
               {{-- ITEM --}}
               <div class="border rounded-xl p-4 flex justify-between items-center mb-4">
-                  <div>
-                      <p class="font-medium">Produk</p>
-                      <p class="text-sm text-orange-500">Rp.15.0000</p>
+                  <div class="flex-1">
+                      <p class="font-medium">{{ $additional->nama_layanan }}</p>
+                      <p class="text-xs text-gray-500 mt-1">{{ Str::limit($additional->deskripsi_layanan, 80) }}</p>
+                      <p class="text-sm text-orange-500 mt-2">Rp {{ number_format($additional->harga_layanan, 0, ',', '.') }}</p>
                   </div>
 
                   <div class="flex items-center gap-3">
-                      <button class="w-8 h-8 rounded bg-gray-200">−</button>
-                      <span>0</span>
-                      <button class="w-8 h-8 rounded bg-gray-200">+</button>
+                      <button class="w-8 h-8 rounded bg-gray-200 hover:bg-gray-300 transition" onclick="decrementQty({{ $additional->id }})">−</button>
+                      <span id="qty-{{ $additional->id }}">0</span>
+                      <button class="w-8 h-8 rounded bg-gray-200 hover:bg-gray-300 transition" onclick="incrementQty({{ $additional->id }}, {{ $additional->harga_layanan }})">+</button>
                   </div>
               </div>
+              @endforeach
+          </div>
+          @endif
 
-              {{-- ITEM --}}
-              <div class="border rounded-xl p-4 flex justify-between items-center">
-                  <div>
-                      <p class="font-medium">Produk</p>
-                      <ul class="text-sm text-gray-500 list-disc ml-4">
-                          <li>Detail produk</li>
-                          <li>Detail Produk</li>
-                      </ul>
-                      <p class="text-sm text-orange-500 mt-1">Rp.20.0000</p>
-                  </div>
-
-                  <div class="flex items-center gap-3">
-                      <button class="w-8 h-8 rounded bg-gray-200">−</button>
-                      <span>0</span>
-                      <button class="w-8 h-8 rounded bg-gray-200">+</button>
-                  </div>
+          {{-- DETAIL LAYANAN --}}
+          @if(isset($layanan) && $layanan)
+          <div class="mt-8">
+              <h3 class="font-semibold mb-4">Detail Layanan</h3>
+              <div class="bg-gray-50 rounded-lg p-4">
+                  <p class="text-sm text-gray-700 whitespace-pre-line">{{ $layanan->deskripsi_layanan }}</p>
               </div>
           </div>
+          @endif
 
           {{-- TOTAL --}}
           <div class="flex justify-between items-center mt-8 font-semibold">
               <span>Total Price</span>
-              <span class="text-orange-500">RP.10.000</span>
+              <span class="text-orange-500" id="total-price">
+                  @if(isset($total))
+                      Rp {{ number_format($total, 0, ',', '.') }}
+                  @elseif(isset($layanan))
+                      Rp {{ number_format($layanan->harga_layanan, 0, ',', '.') }}
+                  @endif
+              </span>
           </div>
       </div>
 
+      {{-- SNK CONFIRMATION --}}
+      <div class="relative z-10 mt-10 w-[90%] md:w-full max-w-3xl flex flex-col items-center gap-3 text-center">
+          <button type="button" id="snk-link" class="px-6 py-2 rounded-full border border-[#5F6F52] text-[#5F6F52] font-semibold hover:bg-[#5F6F52] hover:text-white transition">
+              📄 Baca Syarat & Ketentuan (SnK)
+          </button>
+          <label for="snk-checkbox" class="flex items-center gap-3 text-sm text-[#5F6F52]">
+              <input type="checkbox" id="snk-checkbox" class="w-4 h-4 text-orange-500 border-gray-300 rounded">
+              <span>Saya telah membaca dan memahami seluruh ketentuan SnK</span>
+          </label>
+          <p id="snk-hint" class="text-xs text-red-500">Baca dan centang SnK untuk melanjutkan</p>
+      </div>
+
       {{-- CTA --}}
-      <a href="{{ route('order.co-verification') }}" class="relative z-10 mt-10 bg-orange-500 hover:bg-orange-600 text-white px-10 py-3 rounded-full font-semibold">
-          Go to the Next Step
-      </a>
-  </section>
-  </main>
-  <script src="{{ asset('js/common.js') }}"></script>
+      <form id="checkout-form" action="{{ route('order.co-verification') }}" method="GET" class="relative z-10 mt-4">
+          <input type="hidden" name="items" id="checkout-items">
+          <input type="hidden" name="total" id="checkout-total">
+          <input type="hidden" name="from_cart" value="{{ isset($cartItems) && $cartItems->count() > 0 ? '1' : '0' }}">
+          <button id="next-step-btn" type="submit" disabled class="bg-orange-500 text-white px-10 py-3 rounded-full font-semibold opacity-60 cursor-not-allowed transition">
+              Go to the Next Step
+          </button>
+      </form>
+
+      <script>
+        const checkoutForm = document.getElementById('checkout-form');
+        const nextStepButton = document.getElementById('next-step-btn');
+        const snkCheckbox = document.getElementById('snk-checkbox');
+        const snkLink = document.getElementById('snk-link');
+        const snkHint = document.getElementById('snk-hint');
+        let hasOpenedSnk = sessionStorage.getItem('snkRead') === 'true';
+
+        function updateSnkState() {
+            const ready = hasOpenedSnk && snkCheckbox.checked;
+            nextStepButton.disabled = !ready;
+            nextStepButton.classList.toggle('opacity-60', !ready);
+            nextStepButton.classList.toggle('cursor-not-allowed', !ready);
+            nextStepButton.classList.toggle('hover:bg-orange-600', ready);
+            nextStepButton.classList.toggle('bg-orange-500', true);
+            snkHint?.classList.toggle('hidden', ready);
+        }
+
+        snkLink?.addEventListener('click', function () {
+            const encodedReturn = encodeURIComponent(window.location.href);
+            sessionStorage.removeItem('snkRead');
+            window.location.href = '{{ route('order.co-snk') }}?return=' + encodedReturn;
+        });
+
+        snkCheckbox?.addEventListener('change', updateSnkState);
+        updateSnkState();
+
+        window.addEventListener('pageshow', function () {
+            if (sessionStorage.getItem('snkRead') === 'true') {
+                hasOpenedSnk = true;
+                updateSnkState();
+            }
+        });
+
+        // Prepare checkout data before form submission
+        checkoutForm.addEventListener('submit', function(e) {
+            if (nextStepButton.disabled) {
+                e.preventDefault();
+                snkHint?.classList.remove('hidden');
+                if (snkHint) {
+                    snkHint.textContent = 'Mohon baca dan centang SnK sebelum melanjutkan.';
+                }
+                return;
+            }
+
+            let items = [];
+            let total = 0;
+            
+            @if(isset($cartItems) && $cartItems->count() > 0)
+                // From cart - collect cart items
+                @foreach($cartItems as $item)
+                    items.push({
+                        id: {{ $item->layanan->id }},
+                        name: "{{ addslashes($item->layanan->nama_layanan) }}",
+                        price: {{ $item->harga_satuan }},
+                        qty: {{ $item->quantity }},
+                        subtotal: {{ $item->subtotal }},
+                        image: "{{ addslashes($item->layanan->thumbnail_url ?? $placeholderImage) }}"
+                    });
+                    total += {{ $item->subtotal }};
+                @endforeach
+                
+                // Add additional items if any selected
+                @if($additionalLayanan->count() > 0)
+                    @foreach($additionalLayanan as $additional)
+                        let addQty{{ $additional->id }} = parseInt(document.getElementById('qty-{{ $additional->id }}')?.textContent || 0);
+                        if (addQty{{ $additional->id }} > 0) {
+                            items.push({
+                                id: {{ $additional->id }},
+                                name: "{{ addslashes($additional->nama_layanan) }}",
+                                price: {{ $additional->harga_layanan }},
+                                qty: addQty{{ $additional->id }},
+                                subtotal: {{ $additional->harga_layanan }} * addQty{{ $additional->id }},
+                                image: "{{ addslashes($additional->thumbnail_url ?? $placeholderImage) }}"
+                            });
+                            total += {{ $additional->harga_layanan }} * addQty{{ $additional->id }};
+                        }
+                    @endforeach
+                @endif
+            @elseif(isset($layanan) && $layanan)
+                // Single product checkout
+                items.push({
+                    id: {{ $layanan->id }},
+                    name: "{{ addslashes($layanan->nama_layanan) }}",
+                    price: {{ $layanan->harga_layanan }},
+                    qty: 1,
+                    subtotal: {{ $layanan->harga_layanan }},
+                    image: "{{ addslashes($layanan->thumbnail_url ?? $placeholderImage) }}"
+                });
+                total = {{ $layanan->harga_layanan }};
+                
+                // Add additional items
+                for (let id in additionalItems) {
+                    let addItem = additionalItems[id];
+                    if (addItem.qty > 0) {
+                        items.push({
+                            id: parseInt(id),
+                            name: addItem.name,
+                            price: addItem.price,
+                            qty: addItem.qty,
+                            subtotal: addItem.price * addItem.qty,
+                            image: addItem.image
+                        });
+                        total += addItem.price * addItem.qty;
+                    }
+                }
+            @endif
+            
+            document.getElementById('checkout-items').value = JSON.stringify(items);
+            document.getElementById('checkout-total').value = total;
+            sessionStorage.removeItem('snkRead');
+        });
+      </script>
+      
+      @if(isset($layanan) && $layanan)
+      <script>
+        let basePrice = {{ $layanan->harga_layanan }};
+        let additionalItems = {};
+        
+        // Store additional product metadata
+        let additionalMeta = {
+            @foreach($additionalLayanan as $additional)
+            {{ $additional->id }}: {
+                name: "{{ addslashes($additional->nama_layanan) }}",
+                image: "{{ addslashes($additional->thumbnail_url ?? $placeholderImage) }}"
+            }{{ !$loop->last ? ',' : '' }}
+            @endforeach
+        };
+
+        function incrementQty(id, price) {
+            let qtyElement = document.getElementById('qty-' + id);
+            let currentQty = parseInt(qtyElement.textContent);
+            qtyElement.textContent = currentQty + 1;
+            
+            additionalItems[id] = {
+                qty: currentQty + 1,
+                price: price,
+                name: additionalMeta[id].name,
+                image: additionalMeta[id].image
+            };
+            
+            updateTotal();
+        }
+
+        function decrementQty(id) {
+            let qtyElement = document.getElementById('qty-' + id);
+            let currentQty = parseInt(qtyElement.textContent);
+            
+            if (currentQty > 0) {
+                qtyElement.textContent = currentQty - 1;
+                
+                if (currentQty - 1 === 0) {
+                    delete additionalItems[id];
+                } else {
+                    additionalItems[id].qty = currentQty - 1;
+                }
+                
+                updateTotal();
+            }
+        }
+        
+        function updateTotal() {
+            let total = basePrice;
+            
+            for (let id in additionalItems) {
+                total += additionalItems[id].qty * additionalItems[id].price;
+            }
+            
+            document.getElementById('total-price').textContent = 'Rp ' + total.toLocaleString('id-ID');
+        }
+    </script>
+  @endif
 </body>
 </html>

@@ -4,17 +4,34 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Layanan;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     /**
      * Menampilkan dashboard user
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Ambil data layanan dari database, maksimal 8 untuk ditampilkan di grid 4x2
-        $layanan = Layanan::orderBy('id', 'asc')->limit(8)->get();
+        // Query layanan dengan filter kategori
+        $query = Layanan::query();
+        
+        // Filter berdasarkan kategori jika ada parameter
+        if ($request->has('kategori') && $request->kategori != 'semua') {
+            $query->where('kategori', $request->kategori);
+            $layanan = $query->orderBy('id', 'asc')->limit(8)->get();
+        } else {
+            // Tampilkan semua layanan jika kategori = semua atau tidak ada filter
+            $layanan = $query->orderBy('id', 'asc')->get();
+        }
+        
+        // Ambil semua kategori yang tersedia
+        $kategoris = Layanan::whereNotNull('kategori')
+            ->where('kategori', '!=', '')
+            ->distinct()
+            ->pluck('kategori');
         
         // Jika belum ada data layanan di database, gunakan data alternatif
         if ($layanan->isEmpty()) {
@@ -70,6 +87,16 @@ class DashboardController extends Controller
             ]);
         }
         
-        return view('user.dashboard', compact('layanan'));
+        $notificationCount = 0;
+
+        if (Auth::check()) {
+            $notificationCount = Pesanan::query()
+                ->where('user_id', Auth::id())
+                ->whereNull('status_seen_at')
+                ->whereNotNull('status')
+                ->count();
+        }
+
+        return view('user.dashboard', compact('layanan', 'kategoris', 'notificationCount'));
     }
 }

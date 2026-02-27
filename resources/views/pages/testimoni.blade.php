@@ -81,37 +81,89 @@
     </div>
   </nav>
   <main>
-    <section class="w-full bg-[#5F6F52] px-7.5 md:px-30 py-20 flex flex-row justify-center items-center">
-      <h1 class="font-mochi text-[48px] text-[#E5E0D8]">Testimoni</h1>
+    <section class="relative w-full bg-[#5F6F52] px-7.5 md:px-30 py-20 flex flex-row justify-center items-center overflow-hidden">
+      <div class="absolute inset-0 opacity-15 pointer-events-none bg-repeat" style="background-image: url('{{ asset('images/background%20pattern.png') }}'); background-size: 520px;"></div>
+      <h1 class="relative font-mochi text-[48px] text-[#E5E0D8]">Testimoni</h1>
     </section>
-    <section class="w-full py-[60px] px-7.5 md:px-30 bg-[#E5E0D8]">
-      <div class="w-full flex flex-col md:flex-row justify-between gap-10">
-        <img src="{{ asset('images/testimoni.png') }}" alt="" class="flex-1">
-        <img src="{{ asset('images/testimoni.png') }}" alt="" class="flex-1">
-        <img src="{{ asset('images/testimoni.png') }}" alt="" class="flex-1">
-        <img src="{{ asset('images/testimoni.png') }}" alt="" class="flex-1">
-      </div>
+    <section class="relative w-full py-[60px] px-7.5 md:px-30 bg-[#E5E0D8] overflow-hidden">
+      <div class="absolute inset-0 opacity-20 pointer-events-none bg-repeat" style="background-image: url('{{ asset('images/background%20pattern.png') }}'); background-size: 520px;"></div>
+      @php
+        $imageChunks = $testimonials->chunk(4);
+      @endphp
+
+      @if($testimonials->isEmpty())
+        <p class="relative z-10 text-center text-gray-700 font-poppins">Belum ada gambar testimoni yang ditambahkan.</p>
+      @else
+        <div class="relative z-10 max-w-7xl mx-auto">
+          <div class="relative">
+            <button id="testimonialPrev" class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-all" aria-label="Sebelumnya">
+              <svg class="w-5 h-5 text-[#5F6F52]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button id="testimonialNext" class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-all" aria-label="Selanjutnya">
+              <svg class="w-5 h-5 text-[#5F6F52]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+            <div class="overflow-hidden">
+              <div id="testimonialSlider" class="flex transition-transform duration-500 ease-out">
+                @foreach($imageChunks as $chunk)
+                  <div class="w-full shrink-0 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    @foreach($chunk as $testimonial)
+                      @php
+                        $imageSource = $testimonial->image_path && file_exists(public_path($testimonial->image_path))
+                          ? asset($testimonial->image_path)
+                          : asset('images/testimoni.png');
+                      @endphp
+                      <div class="rounded-3xl overflow-hidden bg-white shadow">
+                        <img src="{{ $imageSource }}" alt="Testimoni {{ $loop->parent->iteration }}-{{ $loop->iteration }}" class="w-full h-full object-cover">
+                      </div>
+                    @endforeach
+                    @for($i = $chunk->count(); $i < 4; $i++)
+                      <div class="hidden md:block"></div>
+                    @endfor
+                  </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      @endif
     </section>
-    <section class="w-full py-[60px] px-7.5 md:px-30 bg-[#E5E0D8]">
-      <div class="w-full flex justify-center">
-        <h2 class="mb-8 font-poppins text-[40px] font-semibold">Follow <span class="text-[#FE8929]">Us</span></h2>
-      </div>
-      <div class="flex flex-row justify-center gap-10 w-full mt-4">
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/instagram.png') }}" alt="" class="w-[54px] h-[54px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/tiktok.png') }}" alt="" class="w-[57px] h-[57px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/x.png') }}" alt="" class="w-[52px] h-[52px]">
-        </a>
-        <a href="" class="w-[100px] h-[100px] bg-white rounded-[30px] shadow shadow-gray-300 flex justify-center items-center">
-          <img src="{{ asset('images/threads.png') }}" alt="" class="w-[58px] h-[58px]">
-        </a>
-      </div>
-    </section>
+
+    @include('components.simple-footer')
   </main>
   <script src="{{ asset('js/common.js') }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slider = document.getElementById('testimonialSlider');
+      const prevBtn = document.getElementById('testimonialPrev');
+      const nextBtn = document.getElementById('testimonialNext');
+
+      if (!slider || slider.children.length <= 1) {
+        prevBtn?.classList.add('opacity-40', 'cursor-not-allowed');
+        nextBtn?.classList.add('opacity-40', 'cursor-not-allowed');
+        return;
+      }
+
+      let currentSlide = 0;
+      const totalSlides = slider.children.length;
+
+      function updateSlider() {
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+
+      prevBtn?.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+      });
+
+      nextBtn?.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+      });
+    });
+  </script>
 </body>
 </html>

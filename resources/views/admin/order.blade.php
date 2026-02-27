@@ -31,16 +31,24 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.layanan') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                <a href="{{ route('admin.layanan.index') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
                 <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v14M9 5v14M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>
                 <span class="flex-1 ms-3 whitespace-nowrap">Layanan</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.order') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                <a href="{{ route('admin.testimoni.index') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                    <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h7m0 0h7m-7 0v7m0-7V5"/></svg>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Testimoni</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.order.index') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
                 <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 13h3.439a.991.991 0 0 1 .908.6 3.978 3.978 0 0 0 7.306 0 .99.99 0 0 1 .908-.6H20M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6M4 13l2-9h12l2 9M9 7h6m-7 3h8"/></svg>
                 <span class="flex-1 ms-3 whitespace-nowrap">Order</span>
-                <span class="inline-flex items-center justify-center w-4.5 h-4.5 ms-2 text-xs font-medium text-fg-brand-strong bg-brand-soft border border-brand-subtle rounded-full">41</span>
+                @if($pendingOrdersCount > 0)
+                <span class="inline-flex items-center justify-center w-4.5 h-4.5 ms-2 text-xs font-medium text-fg-brand-strong bg-brand-soft border border-brand-subtle rounded-full">{{ $pendingOrdersCount }}</span>
+                @endif
                 </a>
             </li>
             <li>
@@ -56,8 +64,8 @@
         <div class="p-4">
             <h1 class="text-2xl font-semibold text-heading mb-4">Dashboard Order</h1>
             <div href="#" class="flex-1 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
-                <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">41</h5>
-                <p class="text-body">Pesanan aktif</p>
+                <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">{{ $pesanans->count() }}</h5>
+                <p class="text-body">Total Pesanan</p>
             </div>
         </div>
         <div class="p-4">
@@ -68,16 +76,19 @@
                         <thead class="bg-neutral-secondary-soft border-b border-default">
                             <tr>
                                 <th scope="col" class="px-6 py-3 font-medium">
-                                    Nama Layanan
+                                    Kode Pesanan
                                 </th>
                                 <th scope="col" class="px-6 py-3 font-medium">
-                                    Jenis
+                                    Pemesan
                                 </th>
                                 <th scope="col" class="px-6 py-3 font-medium">
-                                    Kategori
+                                    Layanan
                                 </th>
                                 <th scope="col" class="px-6 py-3 font-medium">
-                                    Biaya
+                                    Total Harga
+                                </th>
+                                <th scope="col" class="px-6 py-3 font-medium">
+                                    Deadline
                                 </th>
                                 <th scope="col" class="px-6 py-3 font-medium">
                                     Status
@@ -88,106 +99,48 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse($pesanans as $pesanan)
                             <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
                                 <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Apple MacBook Pro 17"
+                                    {{ $pesanan->kode_pesanan }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    Silver
+                                    {{ $pesanan->nama_pemesan }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    Laptop
+                                    {{ $pesanan->layanan->nama_layanan ?? '-' }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    $2999
+                                    Rp {{ number_format($pesanan->total_harga, 0, ',', '.') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="bg-success-soft text-fg-success-strong text-xs font-medium px-1.5 py-0.5 rounded">Selesai</span>
+                                    {{ $pesanan->deadline->format('d M Y') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="{{ route('admin.order.update') }}" class="font-medium text-fg-brand hover:underline">Update</a>
+                                    @if($pesanan->status == 'pending')
+                                        <span class="bg-warning-soft text-fg-warning text-xs font-medium px-1.5 py-0.5 rounded">Pending</span>
+                                    @elseif($pesanan->status == 'processing')
+                                        <span class="bg-neutral-secondary-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Processing</span>
+                                    @elseif($pesanan->status == 'completed')
+                                        <span class="bg-success-soft text-fg-success-strong text-xs font-medium px-1.5 py-0.5 rounded">Completed</span>
+                                    @elseif($pesanan->status == 'cancelled')
+                                        <span class="bg-danger-soft text-fg-danger-strong text-xs font-medium px-1.5 py-0.5 rounded">Cancelled</span>
+                                    @elseif($pesanan->status == 'selesai')
+                                        <span class="bg-success-soft text-fg-success-strong text-xs font-medium px-1.5 py-0.5 rounded">Selesai</span>
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="{{ route('admin.order.edit', $pesanan->id) }}" class="font-medium text-fg-brand hover:underline mr-2">Edit</a>
+                                    <a href="{{ route('admin.order.show', $pesanan->id) }}" class="font-medium text-fg-brand hover:underline">Detail</a>
                                 </td>
                             </tr>
-                            <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
-                                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Microsoft Surface Pro
-                                </th>
-                                <td class="px-6 py-4">
-                                    White
-                                </td>
-                                <td class="px-6 py-4">
-                                    Laptop PC
-                                </td>
-                                <td class="px-6 py-4">
-                                    $1999
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="bg-danger-soft text-fg-danger-strong text-xs font-medium px-1.5 py-0.5 rounded">Dibatalkan</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="{{ route('admin.order.update') }}" class="font-medium text-fg-brand hover:underline">Update</a>
+                            @empty
+                            <tr>
+                                <td colspan="7" class="px-6 py-4 text-center text-body">
+                                    Belum ada pesanan.
                                 </td>
                             </tr>
-                            <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
-                                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Magic Mouse 2
-                                </th>
-                                <td class="px-6 py-4">
-                                    Black
-                                </td>
-                                <td class="px-6 py-4">
-                                    Accessories
-                                </td>
-                                <td class="px-6 py-4">
-                                    $99
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="bg-warning-soft text-fg-warning text-xs font-medium px-1.5 py-0.5 rounded">Pending</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="{{ route('admin.order.update') }}" class="font-medium text-fg-brand hover:underline">Update</a>
-                                </td>
-                            </tr>
-                            <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
-                                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Google Pixel Phone
-                                </th>
-                                <td class="px-6 py-4">
-                                    Gray
-                                </td>
-                                <td class="px-6 py-4">
-                                    Phone
-                                </td>
-                                <td class="px-6 py-4">
-                                    $799
-                                </td>
-                                <td class="px-6 py-4">                                    
-                                    <span class="bg-neutral-secondary-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Progress</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="{{ route('admin.order.update') }}" class="font-medium text-fg-brand hover:underline">Update</a>
-                                </td>
-                            </tr>
-                            <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft">
-                                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Apple Watch 5
-                                </th>
-                                <td class="px-6 py-4">
-                                    Red
-                                </td>
-                                <td class="px-6 py-4">
-                                    Wearables
-                                </td>
-                                <td class="px-6 py-4">
-                                    $999
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="bg-neutral-secondary-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Progress</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="{{ route('admin.order.update') }}" class="font-medium text-fg-brand hover:underline">Update</a>
-                                </td>
-                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

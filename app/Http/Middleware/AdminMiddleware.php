@@ -11,7 +11,10 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::guard('admin')->check()) {
-            return response()->json(['message' => 'Unauthorized. Admin access required.'], 403);
+            if ($request->expectsJson()) {
+                return response()->json(['message' => 'Unauthorized. Admin access required.'], 403);
+            }
+            return redirect()->route('admin.login')->with('error', 'Silakan login terlebih dahulu.');
         }
 
         return $next($request);

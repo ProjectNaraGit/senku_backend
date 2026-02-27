@@ -31,16 +31,24 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.layanan') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                <a href="{{ route('admin.layanan.index') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
                 <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v14M9 5v14M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>
                 <span class="flex-1 ms-3 whitespace-nowrap">Layanan</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.order') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                <a href="{{ route('admin.testimoni.index') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                    <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h7m0 0h7m-7 0v7m0-7V5"/></svg>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Testimoni</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.order.index') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
                 <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 13h3.439a.991.991 0 0 1 .908.6 3.978 3.978 0 0 0 7.306 0 .99.99 0 0 1 .908-.6H20M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6M4 13l2-9h12l2 9M9 7h6m-7 3h8"/></svg>
                 <span class="flex-1 ms-3 whitespace-nowrap">Order</span>
-                <span class="inline-flex items-center justify-center w-4.5 h-4.5 ms-2 text-xs font-medium text-fg-brand-strong bg-brand-soft border border-brand-subtle rounded-full">41</span>
+                @if($pendingOrdersCount > 0)
+                <span class="inline-flex items-center justify-center w-4.5 h-4.5 ms-2 text-xs font-medium text-fg-brand-strong bg-brand-soft border border-brand-subtle rounded-full">{{ $pendingOrdersCount }}</span>
+                @endif
                 </a>
             </li>
             <li>
@@ -55,37 +63,54 @@
     <div class="p-4 sm:ml-64">
         <div class="p-4">
             <h1 class="text-2xl font-semibold text-heading mb-4">Admin Dashboard</h1>
-            <p class="text-body mb-4">Welcome to the admin dashboard. Use the sidebar to navigate through different sections.</p>
-            <!-- Add more dashboard content here -->
+            <p class="text-body mb-4">Selamat datang di dashboard admin. Gunakan sidebar untuk navigasi.</p>
         </div>
         <div class="p-4">
-            <h1 class="text-2xl font-semibold text-heading mb-4">Omset</h1>
-            <div class="flex gap-5">        
-                <div href="#" class="flex-1 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
-                    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Rp 123.456,78</h5>
-                    <p class="text-body">Omset hari ini</p>
+            <h1 class="text-2xl font-semibold text-heading mb-4">Statistik Pesanan</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">        
+                <div class="bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs">
+                    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">{{ $totalOrders }}</h5>
+                    <p class="text-body">Total Pesanan</p>
                 </div>
-                <div href="#" class="flex-1 bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
-                    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Rp 123.456,78</h5>
-                    <p class="text-body">Omset bulan ini</p>
+                <div class="bg-warning-soft p-6 border border-warning-subtle rounded-base shadow-xs">
+                    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">{{ $pendingOrders }}</h5>
+                    <p class="text-body">Pending</p>
+                </div>
+                <div class="bg-brand-soft p-6 border border-brand-subtle rounded-base shadow-xs">
+                    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">{{ $processingOrders }}</h5>
+                    <p class="text-body">Processing</p>
+                </div>
+                <div class="bg-success-soft p-6 border border-success-subtle rounded-base shadow-xs">
+                    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">{{ $completedOrders }}</h5>
+                    <p class="text-body">Completed</p>
                 </div>
             </div>
         </div>
         <div class="p-4">
-            <h1 class="text-2xl font-semibold text-heading mb-4">Order</h1>
+            <h1 class="text-2xl font-semibold text-heading mb-4">Total Pendapatan</h1>
+            <div class="bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs max-w-sm">
+                <h5 class="mb-3 text-3xl font-semibold tracking-tight text-heading leading-8">Rp {{ number_format($totalRevenue, 0, ',', '.') }}</h5>
+                <p class="text-body">Total pendapatan dari pesanan selesai</p>
+            </div>
+        </div>
+        <div class="p-4">
+            <h1 class="text-2xl font-semibold text-heading mb-4">Pesanan Terbaru</h1>
             <div class="flex">        
                 <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default flex-1">
                     <table class="w-full text-sm text-left rtl:text-right text-body">
                         <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
                             <tr>
                                 <th scope="col" class="px-6 py-3 font-medium">
-                                    Produk
+                                    Kode Pesanan
                                 </th>
                                 <th scope="col" class="px-6 py-3 font-medium">
-                                    Pengguna
+                                    Pemesan
                                 </th>
                                 <th scope="col" class="px-6 py-3 font-medium">
-                                    Jenis
+                                    Layanan
+                                </th>
+                                <th scope="col" class="px-6 py-3 font-medium">
+                                    Total Harga
                                 </th>
                                 <th scope="col" class="px-6 py-3 font-medium">
                                     Deadline
@@ -96,74 +121,44 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse($recentOrders as $order)
                             <tr class="bg-neutral-primary border-b border-default">
                                 <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Apple MacBook Pro 17"
+                                    {{ $order->kode_pesanan }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    Silver
+                                    {{ $order->nama_pemesan }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    Laptop
+                                    {{ $order->layanan->nama_layanan ?? '-' }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    $2999
+                                    Rp {{ number_format($order->total_harga, 0, ',', '.') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="bg-success-soft text-fg-success-strong text-xs font-medium px-1.5 py-0.5 rounded">Selesai</span>
+                                    {{ $order->deadline->format('d M Y') }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if($order->status == 'pending')
+                                        <span class="bg-warning-soft text-fg-warning text-xs font-medium px-1.5 py-0.5 rounded">Pending</span>
+                                    @elseif($order->status == 'processing')
+                                        <span class="bg-neutral-secondary-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Processing</span>
+                                    @elseif($order->status == 'completed')
+                                        <span class="bg-success-soft text-fg-success-strong text-xs font-medium px-1.5 py-0.5 rounded">Completed</span>
+                                    @elseif($order->status == 'cancelled')
+                                        <span class="bg-danger-soft text-fg-danger-strong text-xs font-medium px-1.5 py-0.5 rounded">Cancelled</span>
+                                    @elseif($order->status == 'selesai')
+                                        <span class="bg-success-soft text-fg-success-strong text-xs font-medium px-1.5 py-0.5 rounded">Selesai</span>
+                                    @endif
                                 </td>
                             </tr>
-                            <tr class="bg-neutral-primary border-b border-default">
-                                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Microsoft Surface Pro
-                                </th>
-                                <td class="px-6 py-4">
-                                    White
-                                </td>
-                                <td class="px-6 py-4">
-                                    Laptop PC
-                                </td>
-                                <td class="px-6 py-4">
-                                    $1999
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="bg-danger-soft text-fg-danger-strong text-xs font-medium px-1.5 py-0.5 rounded">Dibatalkan</span>
+                            @empty
+                            <tr>
+                                <td colspan="6" class="px-6 py-4 text-center text-body">
+                                    Belum ada pesanan.
                                 </td>
                             </tr>
-                            <tr class="bg-neutral-primary">
-                                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Magic Mouse 2
-                                </th>
-                                <td class="px-6 py-4">
-                                    Black
-                                </td>
-                                <td class="px-6 py-4">
-                                    Accessories
-                                </td>
-                                <td class="px-6 py-4">
-                                    $99
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="bg-warning-soft text-fg-warning text-xs font-medium px-1.5 py-0.5 rounded">Pending</span>
-                                </td>
-                            </tr>
-                            <tr class="bg-neutral-primary">
-                                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                                    Magic Mouse 2
-                                </th>
-                                <td class="px-6 py-4">
-                                    Black
-                                </td>
-                                <td class="px-6 py-4">
-                                    Accessories
-                                </td>
-                                <td class="px-6 py-4">
-                                    $99
-                                </td>
-                                <td class="px-6 py-4">                                    
-                                    <span class="bg-neutral-secondary-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Progress</span>
-                                </td>
-                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

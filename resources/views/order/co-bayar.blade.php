@@ -13,7 +13,91 @@
   @endif
 </head>
 <body class="bg-[#5F6F52]">
+  @php
+    $placeholderImage = asset('images/layanan-placeholder.png');
+
+    $uploadedLogos = [
+        'shoppe_pay' => 'Shopeepay_logo.jpg',
+        'superbank' => 'superbank_logo.png',
+        'qris' => 'qris_senku.jpeg',
+        'alo_bank' => 'allobank_logo.png',
+    ];
+
+    $defaultLogos = [
+        'shoppe_pay' => asset('images/payments/shopeepay.svg'),
+        'superbank' => asset('images/payments/superbank.svg'),
+        'qris' => asset('images/qris_senku.jpeg'),
+        'alo_bank' => asset('images/payments/alobank.svg'),
+    ];
+
+    $paymentLogos = [];
+    foreach ($uploadedLogos as $method => $filename) {
+        $path = public_path('images/' . $filename);
+        $paymentLogos[$method] = file_exists($path)
+            ? asset('images/' . $filename)
+            : $defaultLogos[$method];
+    }
+
+    $paymentOptions = [
+        [
+            'key' => 'shoppe_pay',
+            'label' => 'Shopee Pay',
+            'description' => 'Transfer ke rekening Shopee Pay',
+            'logo' => $paymentLogos['shoppe_pay']
+        ],
+        [
+            'key' => 'superbank',
+            'label' => 'Seabank',
+            'description' => 'Transfer ke rekening Seabank',
+            'logo' => $paymentLogos['superbank']
+        ],
+        [
+            'key' => 'qris',
+            'label' => 'QRIS Bank',
+            'description' => 'Scan QRIS untuk pembayaran',
+            'logo' => $paymentLogos['qris']
+        ],
+        [
+            'key' => 'alo_bank',
+            'label' => 'Alo Bank',
+            'description' => 'Transfer ke rekening Alo Bank',
+            'logo' => $paymentLogos['alo_bank']
+        ],
+    ];
+
+    $paymentDetailsData = [
+        'shoppe_pay' => [
+            'name' => 'Shopee Pay',
+            'account_number' => '081993211771',
+            'account_name' => 'PT Senku Indonesia',
+            'instructions' => 'Transfer ke nomor rekening di atas dan upload bukti transfer',
+            'logo' => $paymentLogos['shoppe_pay'],
+        ],
+        'superbank' => [
+            'name' => 'Seabank',
+            'account_number' => '901171899381',
+            'account_name' => 'PT Senku Indonesia',
+            'instructions' => 'Transfer ke nomor rekening Seabank dan upload bukti transfer',
+            'logo' => $paymentLogos['superbank'],
+        ],
+        'qris' => [
+            'name' => 'QRIS Bank',
+            'qr_code' => $paymentLogos['qris'],
+            'instructions' => 'Scan QR Code untuk melakukan pembayaran dan upload bukti pembayaran',
+            'logo' => $paymentLogos['qris'],
+        ],
+        'alo_bank' => [
+            'name' => 'Alo Bank',
+            'account_number' => '081993211771',
+            'account_name' => 'PT Senku Indonesia',
+            'instructions' => 'Transfer ke nomor rekening Alo Bank dan upload bukti transfer',
+            'logo' => $paymentLogos['alo_bank'],
+        ],
+    ];
+  @endphp
+
   <main>
+
     <section class="min-h-screen bg-[#E9E5DC] relative flex flex-col items-center py-12">
 
       {{-- BACKGROUND PATTERN --}}
@@ -43,49 +127,16 @@
             <div class="bg-white rounded-2xl p-8 shadow-sm">
                 <h2 class="text-lg font-semibold mb-6">Pilih metode pembayaran</h2>
 
-                {{-- ITEM --}}
-                <label class="flex items-start gap-4 p-4 border rounded-xl mb-4 cursor-pointer">
-                    <input type="radio" name="payment" class="mt-1 accent-orange-500">
-                    <div class="flex-1">
-                        <p class="font-medium">Shoppe Pay</p>
-                        <p class="text-sm text-gray-500">
-                            Anda akan diarahkan ke situs web Shoppe Pay setelah mengirimkan pesanan Anda.
-                        </p>
-                    </div>
-                    <div class="w-10 h-10 bg-gray-200 rounded"></div>
-                </label>
-
-                {{-- ITEM --}}
-                <label class="flex items-start gap-4 p-4 border rounded-xl mb-4 cursor-pointer">
-                    <input type="radio" name="payment" class="mt-1 accent-orange-500">
-                    <div class="flex-1">
-                        <p class="font-medium">Superbank</p>
-                        <p class="text-sm text-gray-500">
-                            Anda akan diarahkan ke situs web Superbank setelah mengirimkan pesanan Anda.
-                        </p>
-                    </div>
-                    <div class="w-10 h-10 bg-gray-200 rounded"></div>
-                </label>
-
-                {{-- ITEM --}}
-                <label class="flex items-start gap-4 p-4 border rounded-xl mb-4 cursor-pointer">
-                    <input type="radio" name="payment" class="mt-1 accent-orange-500">
-                    <div class="flex-1">
-                        <p class="font-medium">Qriss bank</p>
-                        <p class="text-sm text-gray-500">pilihan semuanya</p>
-                    </div>
-                    <div class="w-10 h-10 bg-gray-200 rounded"></div>
-                </label>
-
-                {{-- ITEM --}}
-                <label class="flex items-start gap-4 p-4 border rounded-xl cursor-pointer">
-                    <input type="radio" name="payment" class="mt-1 accent-orange-500">
-                    <div class="flex-1">
-                        <p class="font-medium">Alo bank</p>
-                        <p class="text-sm text-gray-500">pilih web alo bank</p>
-                    </div>
-                    <div class="w-10 h-10 bg-gray-200 rounded"></div>
-                </label>
+                @foreach($paymentOptions as $option)
+                    <label class="flex items-center gap-4 p-4 border rounded-xl mb-4 cursor-pointer payment-option {{ $loop->last ? '' : '' }}" data-method="{{ $option['key'] }}">
+                        <input type="radio" name="payment" value="{{ $option['key'] }}" class="mt-1 accent-orange-500 payment-radio">
+                        <div class="flex-1">
+                            <p class="font-medium">{{ $option['label'] }}</p>
+                            <p class="text-sm text-gray-500">{{ $option['description'] }}</p>
+                        </div>
+                        <img src="{{ $option['logo'] }}" alt="Logo {{ $option['label'] }}" class="w-12 h-12 rounded-lg border border-gray-100 object-contain bg-white p-2">
+                    </label>
+                @endforeach
             </div>
 
             {{-- RIGHT : SUMMARY --}}
@@ -93,59 +144,320 @@
 
                 <h2 class="text-lg font-semibold mb-6">Paket yang di pilih</h2>
 
-                {{-- PRODUCT --}}
-                <div class="flex gap-4 pb-6 border-b">
-                    <div class="w-16 h-16 rounded-lg bg-gray-300 overflow-hidden">
-                        <img src="" alt="" class="w-full h-full object-cover">
-                    </div>
-                    <div>
-                        <p class="font-semibold">Nama produk</p>
-                        <p class="text-sm text-gray-500">Detail Produk</p>
-                        <p class="text-sm mt-1">Harga (Rp. 10.000)</p>
-                    </div>
-                </div>
-
-                {{-- LIST --}}
-                <div class="mt-6 space-y-4 text-sm">
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-3">
-                            <span class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">2</span>
-                            Adult (18+) (€32.00)
+                {{-- PRODUCTS LIST --}}
+                @if(isset($items) && count($items) > 0)
+                    @foreach($items as $item)
+                    <div class="flex gap-4 pb-4 mb-4 {{ !$loop->last ? 'border-b' : '' }}">
+                        <div class="w-16 h-16 rounded-lg bg-gray-300 overflow-hidden shrink-0">
+                            @php
+                                $itemImage = $item['image'] ?? null;
+                            @endphp
+                            @if(!empty($itemImage))
+                                <img src="{{ $itemImage }}" alt="{{ $item['name'] }}" class="w-full h-full object-cover">
+                            @else
+                                <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                            @endif
                         </div>
-                        <span>Rp.</span>
-                    </div>
 
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-3">
-                            <span class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">1</span>
-                            Child (6-17)
+                        <div class="flex-1">
+                            <p class="font-semibold">{{ $item['name'] }}</p>
+                            <p class="text-sm text-gray-500">Qty: {{ $item['qty'] }} x Rp {{ number_format($item['price'], 0, ',', '.') }}</p>
+                            <p class="text-sm mt-1 font-semibold text-orange-500">Rp {{ number_format($item['subtotal'], 0, ',', '.') }}</p>
                         </div>
-                        <span>Rp.</span>
                     </div>
-
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-3">
-                            <span class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">1</span>
-                            Infant (0-5)
-                        </div>
-                        <span>Rp.</span>
-                    </div>
-                </div>
+                    @endforeach
+                @else
+                    <p class="text-gray-500 text-center py-4">Tidak ada item</p>
+                @endif
 
                 {{-- TOTAL --}}
-                <div class="flex justify-between items-center mt-8 font-semibold">
+                <div class="flex justify-between items-center mt-6 pt-6 border-t font-semibold">
                     <span>Total Price</span>
-                    <span class="text-orange-500">Rp.xxxx</span>
+                    <span class="text-orange-500">Rp {{ number_format($total ?? 0, 0, ',', '.') }}</span>
                 </div>
             </div>
         </div>
 
       {{-- CTA --}}
-      <a href="{{ route('order.co-finish') }}" class="relative z-10 mt-10 bg-orange-500 hover:bg-orange-600 text-white px-10 py-3 rounded-full font-semibold">
-          Go to the Next Step
-      </a>
+      <button id="create-order-btn" disabled class="relative z-10 mt-10 bg-orange-500 text-white px-10 py-3 rounded-full font-semibold opacity-60 cursor-not-allowed transition">
+          Buat Pesanan
+      </button>
+      <p id="payment-hint" class="relative z-10 text-xs text-red-500 mt-2">Pilih metode pembayaran terlebih dahulu</p>
+
+      {{-- MODAL UPLOAD BUKTI PEMBAYARAN --}}
+      <div id="payment-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+          <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              <div class="p-6 md:p-8">
+                  <div class="flex justify-between items-center mb-6">
+                      <h2 class="text-xl font-semibold">Detail Pembayaran</h2>
+                      <button id="close-modal" class="text-gray-400 hover:text-gray-600">
+                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                          </svg>
+                      </button>
+                  </div>
+
+                  {{-- PAYMENT DETAILS --}}
+                  <div class="bg-orange-50 rounded-xl p-6 mb-6">
+                      <h3 class="font-semibold mb-4">Informasi Transfer</h3>
+                      <div id="payment-details" class="space-y-3">
+                          {{-- Will be filled by JavaScript --}}
+                      </div>
+                      <div class="mt-4 pt-4 border-t border-orange-200">
+                          <div class="flex justify-between items-center">
+                              <span class="font-semibold">Total Pembayaran:</span>
+                              <span class="text-xl font-bold text-orange-500">Rp {{ number_format($total ?? 0, 0, ',', '.') }}</span>
+                          </div>
+                      </div>
+                  </div>
+
+                  {{-- TIMER --}}
+                  <div class="bg-red-50 rounded-xl p-4 mb-6 text-center">
+                      <p class="text-sm text-gray-600 mb-2">Batas waktu upload bukti pembayaran:</p>
+                      <p id="countdown-timer" class="text-2xl font-bold text-red-500">60:00</p>
+                      <p class="text-xs text-gray-500 mt-1">Silakan upload bukti pembayaran dalam 1 jam</p>
+                  </div>
+
+                  {{-- UPLOAD FORM --}}
+                  <form id="payment-proof-form" enctype="multipart/form-data">
+                      @csrf
+                      <input type="hidden" name="payment_method" id="selected-payment-method">
+                      <input type="hidden" name="total" value="{{ $total ?? 0 }}">
+                      <input type="hidden" name="items" value="{{ json_encode($items ?? []) }}">
+                      
+                      <div class="mb-6">
+                          <label class="block text-sm font-medium mb-2">Upload Bukti Pembayaran</label>
+                          <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center">
+                              <input type="file" name="payment_proof" id="payment-proof-input" accept="image/*" class="hidden" required>
+                              <label for="payment-proof-input" class="cursor-pointer">
+                                  <div id="upload-placeholder">
+                                      <svg class="w-12 h-12 mx-auto text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                      </svg>
+                                      <p class="text-sm text-gray-600">Klik untuk upload gambar</p>
+                                      <p class="text-xs text-gray-400 mt-1">PNG, JPG, JPEG (Max 5MB)</p>
+                                  </div>
+                                  <div id="preview-container" class="hidden">
+                                      <img id="preview-image" class="max-h-48 mx-auto rounded-lg mb-2">
+                                      <p class="text-sm text-green-600">✓ File berhasil dipilih</p>
+                                  </div>
+                              </label>
+                          </div>
+                      </div>
+
+                      <div class="flex gap-4">
+                          <button type="button" id="cancel-upload" class="flex-1 px-6 py-3 border border-gray-300 rounded-full font-semibold hover:bg-gray-50 transition">
+                              Batal
+                          </button>
+                          <button type="submit" id="submit-payment" class="flex-1 px-6 py-3 bg-orange-500 text-white rounded-full font-semibold hover:bg-orange-600 transition">
+                              Kirim Bukti Pembayaran
+                          </button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
   </section>
   </main>
+
   <script src="{{ asset('js/common.js') }}"></script>
+  <script>
+      let selectedPaymentMethod = null;
+      let countdownInterval = null;
+      let deadlineTime = null;
+
+      const createOrderBtn = document.getElementById('create-order-btn');
+      const paymentHint = document.getElementById('payment-hint');
+      const paymentRadios = document.querySelectorAll('.payment-radio');
+      const paymentModal = document.getElementById('payment-modal');
+      const closeModalBtn = document.getElementById('close-modal');
+      const cancelUploadBtn = document.getElementById('cancel-upload');
+      const paymentProofForm = document.getElementById('payment-proof-form');
+      const paymentProofInput = document.getElementById('payment-proof-input');
+      const uploadPlaceholder = document.getElementById('upload-placeholder');
+      const previewContainer = document.getElementById('preview-container');
+      const previewImage = document.getElementById('preview-image');
+
+      // Payment details for each method
+      const paymentDetails = @json($paymentDetailsData);
+
+      // Enable/disable button based on payment selection
+      paymentRadios.forEach(radio => {
+          radio.addEventListener('change', function() {
+              if (this.checked) {
+                  selectedPaymentMethod = this.value;
+                  createOrderBtn.disabled = false;
+                  createOrderBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+                  createOrderBtn.classList.add('hover:bg-orange-600');
+                  paymentHint.classList.add('hidden');
+              }
+          });
+      });
+
+      // Show modal when create order button clicked
+      createOrderBtn.addEventListener('click', function() {
+          if (!selectedPaymentMethod) return;
+          
+          // Set payment method in hidden input
+          document.getElementById('selected-payment-method').value = selectedPaymentMethod;
+          
+          // Display payment details
+          displayPaymentDetails(selectedPaymentMethod);
+          
+          // Start countdown timer (1 hour = 3600 seconds)
+          startCountdown(3600);
+          
+          // Show modal
+          paymentModal.classList.remove('hidden');
+      });
+
+      // Close modal handlers
+      closeModalBtn.addEventListener('click', closeModal);
+      cancelUploadBtn.addEventListener('click', closeModal);
+
+      function closeModal() {
+          paymentModal.classList.add('hidden');
+          if (countdownInterval) {
+              clearInterval(countdownInterval);
+          }
+          // Reset form
+          paymentProofForm.reset();
+          uploadPlaceholder.classList.remove('hidden');
+          previewContainer.classList.add('hidden');
+      }
+
+      // Display payment details based on selected method
+      function displayPaymentDetails(method) {
+          const details = paymentDetails[method];
+          const detailsContainer = document.getElementById('payment-details');
+          
+          let html = '';
+
+          if (details.logo) {
+              html += `
+                  <div class="flex items-center gap-3 mb-4">
+                      <img src="${details.logo}" alt="Logo ${details.name}" class="w-12 h-12 rounded-lg border border-gray-100 object-contain bg-white p-2">
+                      <p class="font-semibold text-lg">${details.name}</p>
+                  </div>
+              `;
+          } else {
+              html += `<p class="font-semibold text-lg mb-3">${details.name}</p>`;
+          }
+          
+          if (details.account_number) {
+              html += `
+                  <div class="flex justify-between py-2">
+                      <span class="text-gray-600">Nomor Rekening:</span>
+                      <span class="font-semibold">${details.account_number}</span>
+                  </div>
+                  <div class="flex justify-between py-2">
+                      <span class="text-gray-600">Atas Nama:</span>
+                      <span class="font-semibold">${details.account_name}</span>
+                  </div>
+              `;
+          }
+          
+          if (details.qr_code) {
+              html += `
+                  <div class="text-center py-4">
+                      <img src="${details.qr_code}" alt="QRIS" class="w-48 h-48 mx-auto rounded-lg object-contain bg-white p-4">
+                  </div>
+              `;
+          }
+          
+          html += `<p class="text-sm text-gray-600 mt-3">${details.instructions}</p>`;
+          
+          detailsContainer.innerHTML = html;
+      }
+
+      // Countdown timer
+      function startCountdown(seconds) {
+          deadlineTime = Date.now() + (seconds * 1000);
+          updateCountdown();
+          
+          countdownInterval = setInterval(updateCountdown, 1000);
+      }
+
+      function updateCountdown() {
+          const now = Date.now();
+          const remaining = Math.max(0, Math.floor((deadlineTime - now) / 1000));
+          
+          const minutes = Math.floor(remaining / 60);
+          const seconds = remaining % 60;
+          
+          document.getElementById('countdown-timer').textContent = 
+              `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+          
+          if (remaining === 0) {
+              clearInterval(countdownInterval);
+              alert('Waktu upload bukti pembayaran telah habis. Silakan buat pesanan baru.');
+              closeModal();
+          }
+      }
+
+      // File preview
+      paymentProofInput.addEventListener('change', function(e) {
+          const file = e.target.files[0];
+          if (file) {
+              // Validate file size (max 5MB)
+              if (file.size > 5 * 1024 * 1024) {
+                  alert('Ukuran file terlalu besar. Maksimal 5MB');
+                  this.value = '';
+                  return;
+              }
+              
+              // Preview image
+              const reader = new FileReader();
+              reader.onload = function(e) {
+                  previewImage.src = e.target.result;
+                  uploadPlaceholder.classList.add('hidden');
+                  previewContainer.classList.remove('hidden');
+              };
+              reader.readAsDataURL(file);
+          }
+      });
+
+      // Form submission
+      paymentProofForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const formData = new FormData(this);
+          
+          // Show loading state
+          const submitBtn = document.getElementById('submit-payment');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Mengirim...';
+          
+          // Send to server
+          fetch('{{ route("checkout.upload-proof") }}', {
+              method: 'POST',
+              body: formData,
+              headers: {
+                  'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+              }
+          })
+          .then(response => response.json())
+          .then(data => {
+              if (data.success) {
+                  alert('Bukti pembayaran berhasil dikirim!');
+                  window.location.href = '{{ route("order.co-finish") }}';
+              } else {
+                  alert('Gagal mengirim bukti pembayaran: ' + (data.message || 'Terjadi kesalahan'));
+                  submitBtn.disabled = false;
+                  submitBtn.textContent = 'Kirim Bukti Pembayaran';
+              }
+          })
+          .catch(error => {
+              console.error('Error:', error);
+              alert('Terjadi kesalahan saat mengirim bukti pembayaran');
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Kirim Bukti Pembayaran';
+          });
+      });
+  </script>
 </body>
 </html>

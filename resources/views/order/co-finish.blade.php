@@ -21,18 +21,7 @@
       </svg>
       <h1 class="font-poppins font-bold text-2xl">Pesanan Anda Telah Selesai!</h1>
       <p class="font-poppins">Anda akan menerima email konfirmasi yang berisi rincian pesanan</p>
-      <a href=""
-        class="w-full max-w-sm py-3 px-6
-              rounded-full
-              border-2 border-[#5F6F52]
-              text-[#5F6F52]
-              transition
-              font-poppins
-              font-bold
-              text-center">
-        Print Bukti Pembayaran
-      </a>
-      <a href=""
+      <a href="https://wa.me/6289699882356"
         class="w-full max-w-sm py-3 px-6
               rounded-full
               border-2 border-[#5F6F52]

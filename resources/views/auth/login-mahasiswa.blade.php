@@ -30,7 +30,7 @@
                         </div>
                     @endif
                     <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required class="bg-[#5F6F52] border border-[#E5E0D8] rounded-[40px] py-2 px-4 w-full my-2 text-[#FEFEFE] text-base md:text-[25px] placeholder:text-[#AAAAAA]">
-                    <input type="text" name="nim" placeholder="NIM" value="{{ old('nim') }}" required class="bg-[#5F6F52] border border-[#E5E0D8] rounded-[40px] py-2 px-4 w-full my-2 text-[#FEFEFE] text-base md:text-[25px] placeholder:text-[#AAAAAA]">
+                    <input type="text" name="nim" placeholder="NIM" value="{{ old('nim') }}" class="bg-[#5F6F52] border border-[#E5E0D8] rounded-[40px] py-2 px-4 w-full my-2 text-[#FEFEFE] text-base md:text-[25px] placeholder:text-[#AAAAAA]">
                     <input type="password" name="password" placeholder="Password" required class="bg-[#5F6F52] border border-[#E5E0D8] rounded-[40px] py-2 px-4 w-full my-2 text-[#FEFEFE] text-base md:text-[25px] placeholder:text-[#AAAAAA]">
                     <a href="{{ route('password.forget') }}" class="font-mochi font-bold text-[#E5E0D8] self-end mb-2">Lupa Password</a>
                 </div>

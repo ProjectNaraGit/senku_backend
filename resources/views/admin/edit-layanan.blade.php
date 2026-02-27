@@ -14,30 +14,121 @@
   <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
 </head>
 <body class="bg-dark-backdrop">
-    <h2 class="w-full text-center my-3 text-white font-semibold text-xl">Edit Layanan</h2>
-    <form class="max-w-md mx-auto">
-    <div class="relative z-0 w-full mb-5 group">
-        <input type="text" name="nama" id="nama" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
-        <label for="nama" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Nama Layanan</label>
+    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base ms-3 mt-3 text-sm p-2 focus:outline-none inline-flex sm:hidden">
+        <span class="sr-only">Open sidebar</span>
+        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
+        </svg>
+    </button>
+
+    <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-neutral-primary-soft border-e border-default">
+            <ul class="space-y-2 font-medium">
+                <li>
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6.025A7.5 7.5 0 1 0 17.975 14H10V6.025Z"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 3c-.169 0-.334.014-.5.025V11h7.975c.011-.166.025-.331.025-.5A7.5 7.5 0 0 0 13.5 3Z"/></svg>
+                        <span class="ms-3">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.layanan.index') }}" class="flex items-center px-2 py-1.5 text-heading rounded-base bg-neutral-secondary-soft">
+                        <svg class="shrink-0 w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v14M9 5v14M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Layanan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.testimoni.index') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h7m0 0h7m-7 0v7m0-7V5"/></svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Testimoni</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.order.index') }}" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 13h3.439a.991.991 0 0 1 .908.6 3.978 3.978 0 0 0 7.306 0 .99.99 0 0 1 .908-.6H20M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6M4 13l2-9h12l2 9M9 7h6m-7 3h8"/></svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Order</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"/></svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 max-w-4xl mx-auto">
+            <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h2 class="text-2xl font-semibold text-heading mb-1">Edit Layanan</h2>
+                    <p class="text-body">Perbarui detail layanan sesuai kebutuhan.</p>
+                </div>
+                <a href="{{ route('admin.layanan.index') }}" class="text-white bg-neutral-secondary-medium hover:bg-neutral-tertiary border border-default font-medium rounded-base text-sm px-4 py-2.5">Kembali</a>
+            </div>
+
+            @if ($errors->any())
+                <div class="mt-4 rounded-base border border-danger-subtle bg-danger-soft px-4 py-3 text-sm text-fg-danger-strong">
+                    <ul class="list-disc list-inside space-y-1">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <div class="bg-neutral-primary-soft border border-default rounded-base shadow-xs p-6 mt-6">
+                <form action="{{ route('admin.layanan.update', $layanan->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                    @csrf
+                    @method('PUT')
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label for="nama_layanan" class="block mb-2 text-sm font-medium text-heading">Nama Layanan <span class="text-fg-danger">*</span></label>
+                            <input type="text" id="nama_layanan" name="nama_layanan" value="{{ old('nama_layanan', $layanan->nama_layanan) }}" class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand placeholder:text-body" required>
+                        </div>
+                        <div>
+                            <label for="kategori" class="block mb-2 text-sm font-medium text-heading">Kategori</label>
+                            <input type="text" id="kategori" name="kategori" value="{{ old('kategori', $layanan->kategori) }}" class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand placeholder:text-body" placeholder="Contoh: Akademik">
+                        </div>
+                        <div>
+                            <label for="harga_layanan" class="block mb-2 text-sm font-medium text-heading">Harga Layanan (Rp) <span class="text-fg-danger">*</span></label>
+                            <input type="number" min="0" step="1000" id="harga_layanan" name="harga_layanan" value="{{ old('harga_layanan', $layanan->harga_layanan) }}" class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand placeholder:text-body" required>
+                        </div>
+                        <div>
+                            <label for="order" class="block mb-2 text-sm font-medium text-heading">Urutan Tampil</label>
+                            <input type="number" id="order" name="order" value="{{ old('order', $layanan->order) }}" class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand placeholder:text-body">
+                            <p class="text-xs text-body mt-1">Angka lebih kecil akan ditampilkan lebih awal.</p>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="deskripsi_layanan" class="block mb-2 text-sm font-medium text-heading">Deskripsi <span class="text-fg-danger">*</span></label>
+                            <textarea id="deskripsi_layanan" name="deskripsi_layanan" rows="5" class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand placeholder:text-body" required>{{ old('deskripsi_layanan', $layanan->deskripsi_layanan) }}</textarea>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="gambar_layanan" class="block mb-2 text-sm font-medium text-heading">Thumbnail Layanan</label>
+                            <input type="file" id="gambar_layanan" name="gambar_layanan" accept="image/*" class="block w-full text-sm text-heading border border-default rounded-base cursor-pointer bg-neutral-secondary-medium focus:outline-none focus:ring-2 focus:ring-brand">
+                            <p class="text-xs text-body mt-1">Biarkan kosong jika tidak ingin mengganti gambar. Maksimal 2MB.</p>
+                            @if ($layanan->gambar_layanan)
+                                <div class="mt-3 flex items-center gap-3">
+                                    <img src="{{ asset('storage/' . $layanan->gambar_layanan) }}" alt="Thumbnail lama" class="w-24 h-24 object-cover rounded-base border border-default">
+                                    <span class="text-xs text-body">Gambar saat ini</span>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="md:col-span-2 flex items-center gap-3">
+                            <input type="hidden" name="is_active" value="0">
+                            <input type="checkbox" id="is_active" name="is_active" value="1" class="w-4 h-4 text-brand bg-neutral-secondary-medium border-default rounded" {{ old('is_active', $layanan->is_active) ? 'checked' : '' }}>
+                            <label for="is_active" class="text-sm text-heading">Tampilkan layanan ini kepada pengguna</label>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 md:flex-row md:justify-end">
+                        <button type="submit" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-6 py-2.5">Simpan Perubahan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <label for="description" class="block mb-2.5 text-sm font-medium text-heading">Deskripsi</label>
-    <textarea id="description" rows="4" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full p-3.5 shadow-xs placeholder:text-body" placeholder="Write your thoughts here..."></textarea>
-    <div class="relative z-0 w-full my-5 group">
-        <input type="text" name="harga" id="floating_harga" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
-        <label for="floating_harga" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Harga</label>
-    </div>
-    <label class="block mb-2.5 text-sm font-medium text-heading" for="file_input">Upload thumbnail</label>
-    <input class="cursor-pointer bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full shadow-xs placeholder:text-body" id="file_input" type="file">
-    <label for="category" class="block my-2.5 text-sm font-medium text-heading">Pilih Kategori</label>
-    <select id="category" class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
-        <option selected>Pilih Kategori</option>
-        <option value="US">United States</option>
-        <option value="CA">Canada</option>
-        <option value="FR">France</option>
-        <option value="DE">Germany</option>
-    </select>
-    <button type="submit" class="mt-5 text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Submit</button>
-    </form>
+
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 </body>
 </html>

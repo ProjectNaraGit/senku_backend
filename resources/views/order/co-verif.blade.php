@@ -46,7 +46,8 @@
         Verifikasi Data
     </h2>
 
-    <form class="flex flex-col gap-6">
+    <form action="{{ route('checkout.process') }}" method="POST" class="flex flex-col gap-6">
+        @csrf
 
         <!-- INPUT GRID -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10">
@@ -122,14 +123,21 @@
                 focus:outline-none focus:ring-1 focus:ring-[#5F6F52]">
         </div>
 
+        {{-- SUBMIT BUTTON --}}
+        <div class="flex justify-center mt-6">
+            <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-10 py-3 rounded-full font-semibold">
+                Lanjut ke Pembayaran
+            </button>
+        </div>
+
     </form>
     </div>
 
 
       {{-- CTA --}}
-      <a href="{{ route('order.co-payment') }}" class="relative z-10 mt-10 bg-orange-500 hover:bg-orange-600 text-white px-10 py-3 rounded-full font-semibold">
+      {{-- <a href="{{ route('order.co-payment') }}" class="relative z-10 mt-10 bg-orange-500 hover:bg-orange-600 text-white px-10 py-3 rounded-full font-semibold">
           Go to the Next Step
-      </a>
+      </a> --}}
   </section>
   </main>
   <script src="{{ asset('js/common.js') }}"></script>

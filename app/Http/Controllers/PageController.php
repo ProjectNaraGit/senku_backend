@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -16,7 +17,11 @@ class PageController extends Controller
     }
     public function testimoni()
     {
-        return view('pages.testimoni');
+        $testimonials = Testimonial::query()
+            ->orderBy('id')
+            ->get();
+
+        return view('pages.testimoni', compact('testimonials'));
     }
     public function faq()
     {
