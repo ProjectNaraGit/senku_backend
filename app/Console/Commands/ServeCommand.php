@@ -104,7 +104,7 @@ class ServeCommand extends Command
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return int
      */
-    public function handle(InputInterface $input, OutputInterface $output)
+    protected function handle(InputInterface $input, OutputInterface $output)
     {
         $this->input = $input;
         $this->output = $output;
