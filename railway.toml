@@ -1,6 +1,6 @@
 [build]
 builder = "NIXPACKS"
-buildCommand = "composer install --optimize-autoloader --no-dev && touch database/database.sqlite && php artisan migrate --force && npm install && npm run build"
+buildCommand = "composer install --optimize-autoloader --no-dev && npm install && npm run build"
 
 [deploy]
 startCommand = "sh -c 'php -S 0.0.0.0:$PORT -t public'"
@@ -8,5 +8,5 @@ startCommand = "sh -c 'php -S 0.0.0.0:$PORT -t public'"
 [environments.production.variables]
 APP_ENV = "production"
 APP_KEY = "base64:8SIrfbjl7E5TSr8iLBa3HWHYKUnjzO0ujhmWP5nNNnw="  # Replace with your actual APP_KEY
-DB_CONNECTION = "sqlite"  # Or your database config
+DB_CONNECTION = "pgsql"  # PostgreSQL database
 # Add other env vars as needed

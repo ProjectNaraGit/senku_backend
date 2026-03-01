@@ -51,10 +51,6 @@ COPY . .
 # Remove .env to use Railway env vars
 RUN rm .env
 
-# Setup database
-RUN touch database/database.sqlite
-RUN chown -R www-data:www-data database
-
 # Remove local node_modules to ensure fresh install
 RUN rm -rf node_modules
 
