@@ -48,8 +48,8 @@ RUN composer install --optimize-autoloader --no-dev --prefer-dist --no-scripts
 # Copy application code
 COPY . .
 
-# Remove .env to use Railway env vars
-RUN rm .env
+# Remove .env to use Railway env vars (force remove if exists)
+RUN rm -f .env
 
 # Remove local node_modules to ensure fresh install
 RUN rm -rf node_modules
