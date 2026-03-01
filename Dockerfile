@@ -48,6 +48,9 @@ RUN composer install --optimize-autoloader --no-dev --prefer-dist --no-scripts
 # Copy application code
 COPY . .
 
+# Remove local node_modules to ensure fresh install
+RUN rm -rf node_modules
+
 # Install Node dependencies
 RUN npm install
 
