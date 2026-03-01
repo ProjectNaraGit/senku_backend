@@ -75,4 +75,4 @@ RUN chmod -R 775 /var/www/bootstrap/cache
 
 # Expose port 9000 and start php-fpm server (Railway will override with start command)
 EXPOSE 9000
-CMD ["php-fpm"]
+CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-8000} -t public/"]
