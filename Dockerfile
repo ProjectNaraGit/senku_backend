@@ -73,6 +73,6 @@ RUN chown -R www-data:www-data /var/www/bootstrap/cache
 RUN chmod -R 775 /var/www/storage
 RUN chmod -R 775 /var/www/bootstrap/cache
 
-# Expose port 9000 and start php-fpm server (Railway will override with start command)
+# Expose port 9000 and start Laravel artisan server
 EXPOSE 9000
-CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-8000} -t public/"]
+CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=$PORT"]
