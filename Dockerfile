@@ -48,6 +48,13 @@ RUN composer install --optimize-autoloader --no-dev --prefer-dist --no-scripts
 # Copy application code
 COPY . .
 
+# Remove .env to use Railway env vars
+RUN rm .env
+
+# Setup database
+RUN touch database/database.sqlite
+RUN chown -R www-data:www-data database
+
 # Remove local node_modules to ensure fresh install
 RUN rm -rf node_modules
 
