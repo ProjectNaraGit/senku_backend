@@ -75,4 +75,4 @@ RUN chmod -R 775 /var/www/bootstrap/cache
 
 # Expose port 9000 and start Laravel artisan server
 EXPOSE 9000
-CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-8000}"]
+CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=$PORT"]
