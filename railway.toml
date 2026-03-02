@@ -3,10 +3,10 @@ builder = "NIXPACKS"
 buildCommand = "composer install --optimize-autoloader --no-dev && npm install && npm run build"
 
 [deploy]
-startCommand = "php artisan migrate --force && sh -c 'php -S 0.0.0.0:$PORT -t public'"
+startCommand = "php artisan migrate --force ; sh -c 'php -S 0.0.0.0:$PORT -t public'"
 
 [environments.production.variables]
 APP_ENV = "production"
-APP_KEY = "base64:8SIrfbjl7E5TSr8iLBa3HWHYKUnjzO0ujhmWP5nNNnw="  # Replace with your actual APP_KEY
+APP_KEY = "base64:zjy4X0S0SMVPwKni7dvW5cDtgMuf2Yfm7i+eRJPV6uQ="  # Generated new key
 DB_CONNECTION = "pgsql"  # PostgreSQL database
 # Add other env vars as needed
