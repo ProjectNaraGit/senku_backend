@@ -13,9 +13,11 @@
   @endif
 </head>
 <body class="bg-[#E5E0D8] overflow-hidden">
-  <main class="bg-cover h-screen w-screen flex flex-col-reverse md:flex-row" style="background-image: url('{{ asset('images/Background%20pattern.png') }}'), url('{{ asset('images/login%20vector.png') }}'); background-size: cover, contain; background-position: center, center; background-repeat: repeat, no-repeat;">
-    <div class="flex-1"></div>
-    <div class="flex-2 flex my-10 px-3 md:px-0">
+  <main class="relative h-screen w-screen flex flex-col-reverse md:flex-row bg-repeat" style="background-image: url('{{ asset('images/Background%20pattern.png') }}'); background-size: 280px; background-position: center;">
+    <div class="absolute inset-0 bg-no-repeat" style="background-image: url('{{ asset('images/login%20vector.png') }}'); background-position: center bottom; background-size: 100% auto; opacity: 0.9;"></div>
+    <div class="absolute inset-0 bg-linear-to-b from-[#E5E0D8]/40 via-transparent to-[#E5E0D8]/40"></div>
+    <div class="flex-1 relative z-10"></div>
+    <div class="flex-2 flex my-10 px-3 md:px-0 relative z-10">
         <div class="bg-[#5F6F52] flex-1 rounded-[20px] shadow shadow-gray-700 p-2 flex">
             <form action="{{ route('login') }}" method="POST" class="flex-1 w-full px-10 py-10 flex flex-col items-center justify-around">
                 @csrf
@@ -38,7 +40,7 @@
             </form>
         </div>
     </div>
-    <div class="flex-1 my-10">
+    <div class="flex-1 my-10 relative z-10">
       <a href="{{ route('umum.signup') }}">
         <img src="{{ asset('images/login.png') }}" alt="" class="w-[70%] ml-auto mr-auto select-none" draggable="false" oncontextmenu="return false;">
       </a>
