@@ -12,7 +12,7 @@
         </style>
   @endif
 </head>
-<body class=" bg-cover overflow-hidden" style="background-image: url('{{ asset('images/login_Vector.png') }}')">
+<body class=" bg-cover overflow-hidden" style="background-image: url('{{ asset('images/login_Vector.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
   <main class="h-screen w-screen flex justify-center">
     <div class="bg-[#5F6F52] flex flex-col items-center justify-between py-10 mx-3 px-5 md:px-15 my-10 rounded-3xl shadow-md shadow-gray-500">
       <div class="bg-[#798c69] w-10 h-10 flex justify-center items-center rounded-[50%]">

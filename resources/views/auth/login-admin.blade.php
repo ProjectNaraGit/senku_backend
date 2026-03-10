@@ -12,7 +12,7 @@
   @endif
 </head>
 <body class="bg-[#E5E0D8] overflow-hidden">
-  <main class="bg-cover h-screen w-screen flex flex-col-reverse md:flex-row" style="background-image: url('{{ asset('images/Background%20pattern.png') }}'), url('{{ asset('images/login_Vector.png') }}'); background-size: cover, contain; background-position: center, center; background-repeat: repeat, no-repeat;">
+  <main class="bg-cover h-screen w-screen flex flex-col-reverse md:flex-row" style="background-image: url('{{ asset('images/Background%20pattern.png') }}'), url('{{ asset('images/login_Vector.png') }}'); background-size: cover, cover; background-position: center, center; background-repeat: repeat, no-repeat;">
     <div class="flex-1"></div>
     <div class="flex-2 flex my-10 px-3 md:px-0">
         <div class="bg-[#5F6F52] flex-1 rounded-[20px] shadow shadow-gray-700 p-2 flex">

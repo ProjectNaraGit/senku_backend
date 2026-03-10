@@ -14,7 +14,7 @@
 </head>
 <body class="bg-[#E5E0D8] overflow-hidden">
   <main class="relative h-screen w-screen flex flex-col-reverse md:flex-row bg-repeat" style="background-image: url('{{ asset('images/Background%20pattern.png') }}'); background-size: 280px; background-position: center;">
-    <div class="absolute inset-0 bg-no-repeat" style="background-image: url('{{ asset('images/login_Vector.png') }}'); background-position: center bottom; background-size: 100% auto; opacity: 0.9;"></div>
+    <div class="absolute inset-0 bg-no-repeat" style="background-image: url('{{ asset('images/login_Vector.png') }}'); background-position: center bottom; background-size: cover; opacity: 0.9;"></div>
     <div class="absolute inset-0 bg-linear-to-b from-[#E5E0D8]/40 via-transparent to-[#E5E0D8]/40"></div>
     <div class="flex-1 relative z-10"></div>
     <div class="flex-2 flex my-10 px-3 md:px-0 relative z-10">
