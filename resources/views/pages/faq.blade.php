@@ -81,7 +81,7 @@
     </div>
   </nav>
   <main class="relative">
-    <div class="absolute inset-0 opacity-15 pointer-events-none bg-repeat z-0" style="background-image: url('{{ asset('images/background%20pattern.png') }}'); background-size: 520px;"></div>
+    <div class="absolute inset-0 opacity-15 pointer-events-none bg-repeat z-0" style="background-image: url('{{ asset('images/Background_pattern.png') }}'); background-size: 520px;"></div>
     <section class="w-full bg-[#5F6F52] px-7.5 md:px-30 py-12 flex flex-row justify-center items-center">
       <h1 class="font-mochi text-[32px] text-[#E5E0D8] z-10">FAQ</h1>
     </section>

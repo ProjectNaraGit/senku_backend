@@ -15,7 +15,7 @@
 <body class="bg-[#5F6F52]">
   <main>
     <section class="min-h-screen bg-[#E9E5DC] relative flex flex-col items-center py-12 overflow-hidden">
-        <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover z-0" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
+        <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover z-0" style="background-image: url('{{ asset('images/Background_pattern.png') }}')"></div>
         <h1 class="font-mochi font-medium text-3xl text-[#5F6F52]">Detail SNK</h1>
         <div class="w-full px-4 md:px-30 mt-10 font-poppins relative z-10">
             <!-- Ruang Lingkup Layanan -->

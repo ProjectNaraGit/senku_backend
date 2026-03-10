@@ -21,7 +21,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url('{{ asset('images/background%20pattern.png') }}');
+      background-image: url('{{ asset('images/Background_pattern.png') }}');
       background-size: 520px;
       background-repeat: repeat;
       opacity: 0.15;
@@ -104,7 +104,7 @@
 
   <script src="javascript/common.js"></script>
   <main class="relative">
-    <div class="absolute inset-0 opacity-20 pointer-events-none z-0 bg-size-[100%]" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
+    <div class="absolute inset-0 opacity-20 pointer-events-none z-0 bg-size-[100%]" style="background-image: url('{{ asset('images/Background_pattern.png') }}')"></div>
     <section class="pattern-overlay w-full bg-[#5F6F52] px-4 md:px-30 py-12 md:py-20">
       <div class="max-w-7xl mx-auto flex flex-col gap-8 relative z-10">
 

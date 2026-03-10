@@ -81,14 +81,14 @@
     </div>
   </nav>
   <main class="relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover z-0" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
+    <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover z-0" style="background-image: url('{{ asset('images/Background_pattern.png') }}')"></div>
 
     <section class="relative z-10 w-full bg-[#E5E0D8] px-7.5 md:px-30 py-20 flex flex-col justify-center items-center" style="background-color: rgba(229, 224, 216, 0.92); backdrop-filter: blur(2px);">
       <h1 class="font-mochi text-[48px] text-[#FE8929]">Kontak</h1>
       <p class="text-center font-poppins text-[16px]">Punya pertanyaan atau hanya ingin menyapa? <br> Jangan ragu, kami sangat senang mendengar kabar dari Anda.</p>
     </section>
     <section class="relative z-10 w-full py-[60px] px-7.5 md:px-30 bg-[#5F6F52] rounded-t-2xl overflow-hidden" style="background-color: rgba(95, 111, 82, 0.92); backdrop-filter: blur(2px);">
-      <div class="absolute inset-0 opacity-25 pointer-events-none bg-repeat" style="background-image: url('{{ asset('images/background%20pattern.png') }}'); background-size: 520px;"></div>
+      <div class="absolute inset-0 opacity-25 pointer-events-none bg-repeat" style="background-image: url('{{ asset('images/Background_pattern.png') }}'); background-size: 520px;"></div>
 
       <form action="" class="md:px-10 flex flex-col relative z-10">
 

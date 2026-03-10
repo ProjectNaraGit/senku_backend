@@ -241,17 +241,17 @@
     .pattern-overlay::before {
 
       content: '';
-
+      
       position: absolute;
-
+      
       inset: 0;
-
-      background-image: url('{{ asset('images/background%20pattern.png') }}');
-
+      
+      background-image: url('{{ asset('images/Background_pattern.png') }}');
+      
       background-size: 520px;
-
+      
       background-repeat: repeat;
-
+      
       opacity: 0.15;
 
       pointer-events: none;

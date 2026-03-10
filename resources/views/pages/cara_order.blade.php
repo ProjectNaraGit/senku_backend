@@ -79,7 +79,7 @@
     </div>
   </nav>
   <main class="relative">
-    <div class="absolute inset-0 opacity-15 pointer-events-none bg-repeat z-0" style="background-image: url('{{ asset('images/background%20pattern.png') }}'); background-size: 520px;"></div>
+    <div class="absolute inset-0 opacity-15 pointer-events-none bg-repeat z-0" style="background-image: url('{{ asset('images/Background_pattern.png') }}'); background-size: 520px;"></div>
     <section class="w-full bg-[#E5E0D8] px-7.5 md:px-30 py-20 flex flex-row justify-center items-center">
       <h1 class="z-10 font-mochi text-[48px] text-[#5F6F52] text-center">Cara Order</h1>
     </section>

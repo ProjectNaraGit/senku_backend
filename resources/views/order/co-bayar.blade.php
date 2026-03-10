@@ -101,7 +101,7 @@
     <section class="min-h-screen bg-[#E9E5DC] relative flex flex-col items-center py-12">
 
       {{-- BACKGROUND PATTERN --}}
-      <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover" style="background-image: url('{{ asset('images/background%20pattern.png') }}')"></div>
+      <div class="absolute inset-0 opacity-20 pointer-events-none bg-cover" style="background-image: url('{{ asset('images/Background_pattern.png') }}')"></div>
 
       {{-- STEP INDICATOR --}}
       <div class="relative z-10 w-full md:w-[50%] max-w-4xl flex items-center justify-between mb-15 md:mb-10 px-6">

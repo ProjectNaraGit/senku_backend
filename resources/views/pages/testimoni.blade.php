@@ -82,11 +82,11 @@
   </nav>
   <main>
     <section class="relative w-full bg-[#5F6F52] px-7.5 md:px-30 py-20 flex flex-row justify-center items-center overflow-hidden">
-      <div class="absolute inset-0 opacity-15 pointer-events-none bg-repeat" style="background-image: url('{{ asset('images/background%20pattern.png') }}'); background-size: 520px;"></div>
+      <div class="absolute inset-0 opacity-15 pointer-events-none bg-repeat" style="background-image: url('{{ asset('images/Background_pattern.png') }}'); background-size: 520px;"></div>
       <h1 class="relative font-mochi text-[48px] text-[#E5E0D8]">Testimoni</h1>
     </section>
     <section class="relative w-full py-[60px] px-7.5 md:px-30 bg-[#E5E0D8] overflow-hidden">
-      <div class="absolute inset-0 opacity-20 pointer-events-none bg-repeat" style="background-image: url('{{ asset('images/background%20pattern.png') }}'); background-size: 520px;"></div>
+      <div class="absolute inset-0 opacity-20 pointer-events-none bg-repeat" style="background-image: url('{{ asset('images/Background_pattern.png') }}'); background-size: 520px;"></div>
       @php
         $imageChunks = $testimonials->chunk(4);
       @endphp
