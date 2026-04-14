@@ -8,6 +8,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  @include('components.favicon-links')
+
   <script>
 
     document.documentElement.classList.add('js-enabled');
