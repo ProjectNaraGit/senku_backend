@@ -308,7 +308,7 @@
 
         <button class="md:hidden" onclick="toggleMobileMenu()">
 
-          
+          <span class="text-2xl">&#9776;</span>
 
         </button>
 
@@ -354,23 +354,23 @@
 
             id="loginDropdown"
 
-            class="hidden absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg border z-50"
+            class="hidden absolute right-0 mt-2 w-44 bg-[#5F6F52] rounded-lg shadow-lg border z-50"
 
           >
 
-            <a href="{{ route('siswa.login') }}" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="{{ route('siswa.login') }}" class="block px-4 py-2 text-white hover:bg-[#37402f]">
 
               Siswa
 
             </a>
 
-            <a href="{{ route('mahasiswa.login') }}" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="{{ route('mahasiswa.login') }}" class="block px-4 py-2 text-white hover:bg-[#37402f]">
 
               Mahasiswa
 
             </a>
 
-            <a href="{{ route('umum.login') }}" class="block px-4 py-2 hover:bg-gray-100">
+            <a href="{{ route('umum.login') }}" class="block px-4 py-2 text-white hover:bg-[#37402f]">
 
               Umum
 
@@ -412,140 +412,164 @@
 
   </nav>
 
-    <section id="hero-section" class="pattern-overlay w-full bg-[#5F6F52] px-7.5 md:px-30 pt-20 flex flex-col gap-6">
+    <section id="hero-section" class="pattern-overlay w-full relative min-h-[420px] max-[500px]:min-h-[350px] md:min-h-[300px] bg-[#2f4a33]">
 
-      <div class="flex flex-col lg:flex-row gap-5">
+      <!-- Video Background with Text Overlay -->
+      <div class="absolute inset-0 z-0 mt-0 md:-mt-16">
+        <video 
+          id="heroVideo"
+          src="{{ asset('videos/hero.mp4') }}" 
+          alt="Hero Video" 
+          class="w-full h-full object-cover"
+          autoplay 
+          muted 
+          loop 
+          playsinline>
+        </video>
+        
+        <!-- Dark Overlay for text visibility -->
+        <div class="absolute inset-0 bg-black/40"></div>
 
-        <div class="flex-2 flex flex-col gap-5 max-w-full md:max-w-2xl lg:max-w-[620px]">
+        <!-- Bottom gradient fade to blend video into background -->
+        <div class="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style="background: linear-gradient(to bottom, transparent 0%, #2f4a33 100%);"></div>
+        
+        <!-- Text Content Overlay -->
+        <div class="absolute inset-x-0 top-0 px-7.5 md:px-30 pt-0 md:pt-40">
+          <div class="flex flex-col lg:flex-row gap-5 h-full">
+            <div class="flex-2 flex flex-col max-[500px]:gap-2 gap-5 max-w-full md:max-w-2xl lg:max-w-[620px] justify-start md:justify-center pt-6 md:pt-0">
 
-          <h1 class="font-mochi text-[32px] md:text-[44px] text-[#E5E0D8] hero-fade-left leading-snug" data-hero-animate>
-            Welcome to Senku Solutions, laboratorium pemecahan masalah Anda!
-          </h1>
+              <h1 class="font-mochi max-[500px]:text-[16px] max-[500px]:leading-tight text-[24px] md:text-[36px] xl:text-[44px] text-white hero-fade-left leading-snug" data-hero-animate>
+                Welcome to Senku Solutions, laboratorium pemecahan masalah Anda!
+              </h1>
 
-          <p class="font-poppins text-[16px] md:text-[18px] font-normal text-[#E5E0D8] hero-fade-left leading-relaxed" data-hero-animate>
-            Terinspirasi dari semangat sains dan logika, kami menyediakan jasa konsultasi & bimbingan profesional sejak 2019. Kami adalah partner terpercaya bagi siapa pun yang menghadapi tantangan di bidang akademik, hukum, hingga pengembangan diri. Dengan pendekatan logis, berbasis ilmu pengetahuan, dan 100% rahasia. Solusi kami bukan instan, tapi strategis dan memberdayakan. Silahkan jelajahi katalog layanan kami atau chat kami untuk konsultasi
-          </p>
+              <p class="font-poppins max-[500px]:text-[10px] max-[500px]:leading-normal text-[13px] md:text-[16px] xl:text-[18px] font-normal text-white hero-fade-left leading-relaxed" data-hero-animate>
+                Terinspirasi dari semangat sains dan logika, kami menyediakan jasa konsultasi & bimbingan profesional sejak 2019. Kami adalah partner terpercaya bagi siapa pun yang menghadapi tantangan di bidang akademik, hukum, hingga pengembangan diri. Dengan pendekatan logis, berbasis ilmu pengetahuan, dan 100% rahasia. Solusi kami bukan instan, tapi strategis dan memberdayakan. Silahkan jelajahi katalog layanan kami atau chat kami untuk konsultasi
+              </p>
 
-        </div>
-
-        <div class="flex-1 hidden md:block md:max-w-sm lg:max-w-md xl:max-w-lg ml-auto pl-4 md:pl-8">
-
-          <img src="{{ asset('images/hero.png') }}" alt="Hero Image" class="hero-fade-right w-full h-auto" data-hero-animate>
-
-        </div>
-
-      </div>
-
-      <div id="hero-about-dropdown" data-expanded="false" class="w-full bg-white/10 border border-white/10 rounded-3xl p-5 md:p-6 text-[#E5E0D8] space-y-5 shadow-lg shadow-black/10 overflow-hidden" style="max-height: 0; opacity: 0; transition: max-height 0.45s ease, opacity 0.45s ease;">
-
-        <div class="space-y-2">
-          <p class="font-mochi text-[26px] text-[#D98C45]">About Senku Solutions</p>
-
-          <p class="font-poppins text-sm leading-relaxed">
-            Mengubah masalah menjadi sains. Sejak 2019 kami berperan sebagai laboratorium strategi yang merakit formula personal untuk setiap tantangan. Kami percaya tidak ada masalah yang tak bisa diurai ketika logika dan empati berjalan bersama.
-          </p>
-        </div>
-
-        <div class="space-y-2">
-          <p class="font-poppins font-semibold text-sm uppercase tracking-wide text-[#D98C45]">Filosofi Kami: Logic Over Luck</p>
-
-          <p class="font-poppins text-sm leading-relaxed">
-            Dunia boleh kacau, tapi kami tidak bertaruh pada keberuntungan. Terinspirasi dari determinasi sains, setiap kasus kami bedah hingga elemen terkecilnya untuk membangun solusi yang kokoh, strategis, dan memberdayakan.
-          </p>
-        </div>
-
-        <div class="space-y-3">
-          <p class="font-poppins font-semibold text-base text-[#D98C45]">Apa yang Kami Lakukan?</p>
-
-          <p class="font-poppins text-sm leading-relaxed">
-            Kami menyediakan jasa konsultasi lintas disiplin yang menavigasi tiga pilar utama.
-          </p>
-          <ul class="font-poppins text-sm leading-relaxed list-disc pl-5 space-y-2">
-            <li><span class="font-semibold text-[#D98C45]">Akademik:</span> Mengubah data dan teori menjadi pemahaman tajam agar Anda lulus labirin edukasi dengan efisien.</li>
-            <li><span class="font-semibold text-[#D98C45]">Hukum:</span> Menyederhanakan kompleksitas legal menjadi langkah strategis yang terukur dan aman.</li>
-            <li><span class="font-semibold text-[#D98C45]">Pengembangan Diri:</span> Menggunakan psikologi dan manajemen strategis untuk mengaktifkan potensi maksimal individu.</li>
-
-          </ul>
-        </div>
-
-        <div class="space-y-3">
-          <p class="font-poppins font-semibold text-base text-[#D98C45]">Mengapa Memilih Laboratorium Kami?</p>
-
-          <div class="grid md:grid-cols-2 gap-3">
-            <div class="bg-white/5 rounded-2xl p-4 space-y-1">
-              <p class="font-semibold text-[#D98C45]">Berbasis Ilmu Pengetahuan</p>
-
-              <p class="text-sm">Solusi kami berakar pada teori dan praktik yang teruji, bukan opini sesaat.</p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-4 space-y-1">
-              <p class="font-semibold text-[#D98C45]">100% Rahasia</p>
 
-              <p class="text-sm">Privasi Anda aman lewat kanal komunikasi terenkripsi dan tim yang terjaga etikanya.</p>
-            </div>
-            <div class="bg-white/5 rounded-2xl p-4 space-y-1">
-              <p class="font-semibold text-[#D98C45]">Strategis, Bukan Instan</p>
-
-              <p class="text-sm">Kami membangun peta jalan jangka panjang agar Anda siap menghadapi tantangan berikutnya.</p>
-            </div>
-            <div class="bg-white/5 rounded-2xl p-4 space-y-1">
-              <p class="font-semibold text-[#D98C45]">Empati & Logika</p>
-
-              <p class="text-sm">Kami mendengar dengan empati, lalu mengeksekusi dengan presisi logis.</p>
+            <!-- Empty space for balance on desktop -->
+            <div class="flex-1 hidden md:block md:max-w-sm lg:max-w-md xl:max-w-lg ml-auto pl-4 md:pl-8">
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="space-y-2">
-          <p class="font-poppins font-semibold text-base text-[#D98C45]">Visi Kami</p>
+      <div id="hero-about-dropdown" data-expanded="false" class="pattern-overlay w-full bg-[#2f4a33] border-transparent rounded-none p-0 text-white space-y-0 shadow-none overflow-hidden relative -z-10" style="max-height: 0; opacity: 0; transition: max-height 0.45s ease, opacity 0.45s ease; z-index: 1">
 
-          <p class="font-poppins text-sm leading-relaxed">
-            Menjadi pusat inkubasi solusi tepercaya yang membuat setiap orang pulang dengan kejernihan pikiran dan rencana aksi konkret. Kami tidak hanya menyelesaikan masalah—kami membentuk Anda menjadi pemecah masalah bagi diri sendiri.
-          </p>
-          <p class="font-poppins text-sm italic">“Dalam setiap krisis terdapat elemen-elemen yang bisa disusun kembali menjadi kemenangan. Itulah esensi Senku Solutions.”</p>
-          <p class="font-poppins text-sm leading-relaxed">Mari kita mulai eksperimen kesuksesan Anda hari ini.</p>
-        </div>
-        
-        <!-- Close button at bottom -->
-        <div class="flex justify-center mt-8">
-          <button id="close-hero-about" class="px-6 py-2 bg-[#D98C45] hover:bg-[#C67C35] text-white font-poppins text-sm font-semibold rounded-full transition-colors">
-            Tutup
-          </button>
+        <div class="relative">
+          <!-- White brightness overlay to match hero section tone -->
+          <div class="absolute inset-0 pointer-events-none" style="background-color: rgba(255,255,255,0.08); z-index: 1;"></div>
+          <!-- Pattern sains overlay - sama dengan hero section (opacity 0.15) -->
+          <div class="absolute inset-0 pointer-events-none" style="background-image: url('{{ asset('images/Background_pattern.png') }}'); background-size: 520px; background-repeat: repeat; opacity: 0.15; z-index: 2;"></div>
+          
+          <!-- Content layer -->
+          <div class="p-4 md:p-8 pb-8 md:pb-10 space-y-3 md:space-y-6 relative" style="z-index: 10;">
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-3 md:p-4 space-y-1 md:space-y-2 relative z-50">
+              <p class="font-mochi text-[clamp(18px,4vw,26px)] text-[#D98C45] relative z-50">About Senku Solutions</p>
+
+              <p class="font-poppins text-[clamp(10px,2.5vw,14px)] leading-relaxed text-white relative z-50">
+                Mengubah masalah menjadi sains. Sejak 2019 kami berperan sebagai laboratorium strategi yang merakit formula personal untuk setiap tantangan. Kami percaya tidak ada masalah yang tak bisa diurai ketika logika dan empati berjalan bersama.
+              </p>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-3 md:p-4 space-y-1 md:space-y-2">
+              <p class="font-poppins font-semibold text-[clamp(11px,2.8vw,14px)] uppercase tracking-wide text-[#D98C45] relative z-50">Filosofi Kami: Logic Over Luck</p>
+
+              <p class="font-poppins text-[clamp(10px,2.5vw,14px)] leading-relaxed text-white relative z-50">
+                Dunia boleh kacau, tapi kami tidak bertaruh pada keberuntungan. Terinspirasi dari determinasi sains, setiap kasus kami bedah hingga elemen terkecilnya untuk membangun solusi yang kokoh, strategis, dan memberdayakan.
+              </p>
+            </div>
+
+            <div class="bg-white/8 backdrop-blur-sm rounded-2xl p-3 md:p-4 space-y-2 md:space-y-3">
+              <p class="font-poppins font-semibold text-[clamp(12px,3vw,16px)] text-[#D98C45] relative z-50">Apa yang Kami Lakukan?</p>
+
+              <p class="font-poppins text-[clamp(10px,2.5vw,14px)] leading-relaxed text-white relative z-50">
+                Kami menyediakan jasa konsultasi lintas disiplin yang menavigasi tiga pilar utama.
+              </p>
+              <ul class="font-poppins text-[clamp(10px,2.5vw,14px)] leading-relaxed list-disc pl-5 space-y-1 md:space-y-2 text-white relative z-50">
+                <li><span class="font-semibold text-[#D98C45]">Akademik:</span> Mengubah data dan teori menjadi pemahaman tajam agar Anda lulus labirin edukasi dengan efisien.</li>
+                <li><span class="font-semibold text-[#D98C45]">Hukum:</span> Menyederhanakan kompleksitas legal menjadi langkah strategis yang terukur dan aman.</li>
+                <li><span class="font-semibold text-[#D98C45]">Pengembangan Diri:</span> Menggunakan psikologi dan manajemen strategis untuk mengaktifkan potensi maksimal individu.</li>
+
+              </ul>
+            </div>
+
+            <div class="bg-white/8 backdrop-blur-sm rounded-2xl p-3 md:p-4 space-y-2 md:space-y-3">
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+                <div class="bg-white/10 rounded-2xl p-3 md:p-4 space-y-1">
+                  <p class="font-semibold text-[clamp(11px,2.8vw,14px)] text-[#D98C45] relative z-50">Berbasis Ilmu Pengetahuan</p>
+
+                  <p class="text-[clamp(10px,2.5vw,14px)] text-white relative z-50">Solusi kami berakar pada teori dan praktik yang teruji, bukan opini sesaat.</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-3 md:p-4 space-y-1">
+                  <p class="font-semibold text-[clamp(11px,2.8vw,14px)] text-[#D98C45] relative z-50">100% Rahasia</p>
+
+                  <p class="text-[clamp(10px,2.5vw,14px)] text-white relative z-50">Privasi Anda aman lewat kanal komunikasi terenkripsi dan tim yang terjaga etikanya.</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-3 md:p-4 space-y-1">
+                  <p class="font-semibold text-[clamp(11px,2.8vw,14px)] text-[#D98C45] relative z-50">Strategis, Bukan Instan</p>
+
+                  <p class="text-[clamp(10px,2.5vw,14px)] text-white relative z-50">Kami membangun peta jalan jangka panjang agar Anda siap menghadapi tantangan berikutnya.</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-3 md:p-4 space-y-1">
+                  <p class="font-semibold text-[clamp(11px,2.8vw,14px)] text-[#D98C45] relative z-50">Empati & Logika</p>
+
+                  <p class="text-[clamp(10px,2.5vw,14px)] text-white relative z-50">Kami mendengar dengan empati, lalu mengeksekusi dengan presisi logis.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-3 md:p-4 space-y-1 md:space-y-2">
+              <p class="font-poppins font-semibold text-[clamp(12px,3vw,16px)] text-[#D98C45] relative z-50">Visi Kami</p>
+
+              <p class="font-poppins text-[clamp(10px,2.5vw,14px)] leading-relaxed text-white relative z-50">
+                Menjadi pusat inkubasi solusi tepercaya yang membuat setiap orang pulang dengan kejernihan pikiran dan rencana aksi konkret. Kami tidak hanya menyelesaikan masalah--kami membentuk Anda menjadi pemecah masalah bagi diri sendiri.
+              </p>
+              <p class="font-poppins text-[clamp(10px,2.5vw,14px)] italic text-white relative z-50">"Dalam setiap krisis terdapat elemen-elemen yang bisa disusun kembali menjadi kemenangan. Itulah esensi Senku Solutions."</p>
+              <p class="font-poppins text-[clamp(10px,2.5vw,14px)] leading-relaxed text-white relative z-50">Mari kita mulai eksperimen kesuksesan Anda hari ini.</p>
+            </div>
+            
+            <!-- Close button at bottom -->
+            <div class="flex justify-center pt-2 pb-4 md:pt-3 md:pb-6 relative z-50">
+              <button id="close-hero-about" class="px-5 py-1.5 md:px-6 md:py-2 bg-[#D98C45] hover:bg-[#C67C35] text-white font-poppins text-[clamp(12px,3vw,14px)] font-semibold rounded-full transition-colors">
+                Tutup
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
     </section>
 
-    <section class="pattern-overlay w-full mt-14 md:mt-20 pb-15 px-7.5 md:px-30  bg-[#E5E0D8] rounded-t-3xl">
+    <section class="pattern-overlay w-full pb-15 px-7.5 md:px-30  bg-[#E5E0D8] rounded-t-3xl">
 
-      <div class="w-full flex flex-col md:flex-row justify-center gap-8 md:gap-6 lg:gap-8 relative md:-ml-[100px]">
+      <div class="w-full flex flex-col md:flex-row justify-center gap-6 md:gap-6 lg:gap-8 relative md:-ml-[100px]">
 
-        <div class="rounded-[20px] md:max-w-72 text-[14px] flex-1 p-4 bg-white -mt-10 shadow-xl shadow-gray-400 flex flex-col h-full min-h-[360px] hero-fade-up" data-hero-animate>
+        <div class="rounded-[20px] md:max-w-72 text-[12px] md:text-[14px] flex-1 p-4 bg-white -mt-6 md:-mt-4 shadow-xl shadow-gray-400 flex flex-col h-auto min-h-[auto] md:min-h-[360px] hero-fade-up z-10" data-hero-animate>
 
-
-
-          <div class="flex mb-4 min-h-[120px]">
-
-
+          <div class="flex items-start gap-3 mb-2 min-h-[80px] md:min-h-[120px]">
 
             <div class="flex-1">
 
-              <img src="{{ asset('images/e7112bf1923a361b34ce13055c57d032c50a17ca.png') }}" alt="icon" class="w-16 h-16">
+              <img src="{{ asset('images/e7112bf1923a361b34ce13055c57d032c50a17ca.png') }}" alt="icon" class="w-12 h-12 md:w-16 md:h-16">
 
             </div>
 
             <div class="flex-2">
 
-              <div class="text-[16px] text-[#5F6F52] font-semibold font-poppins mb-1">Serba bisa</div>
+              <div class="text-[14px] md:text-[16px] text-[#5F6F52] font-semibold font-poppins mb-1">Serba bisa</div>
 
-              <div class="text-[24px] text-[#5F6F52] font-semibold font-poppins leading-tight">Tugas atau Konsultasi</div>
+              <div class="text-[18px] md:text-[24px] text-[#5F6F52] font-semibold font-poppins leading-tight">Tugas atau Konsultasi</div>
 
             </div>
 
           </div>
 
-          <div class="bg-white rounded-2xl p-4 min-h-[165px] flex flex-col justify-between mt-auto">
+          <div class="bg-white rounded-2xl p-3 flex flex-col gap-2">
 
-            <p class="font-poppins text-[13px]">
+            <p class="font-poppins text-[12px] md:text-[13px]">
 
               Kami hadir sebagai solusi lengkap untuk segala kebutuhan akademis Anda. Mulai dari bantuan penyelesaian tugas yang terstruktur hingga sesi konsultasi mendalam untuk memahami materi secara tuntas bersama tim ahli kami.
 
@@ -553,35 +577,31 @@
 
           </div>
 
-
-
         </div>
 
-        <div class="rounded-[20px] md:max-w-72 text-[14px] flex-1 p-4 bg-white -mt-10 shadow-xl shadow-gray-400 flex flex-col h-full min-h-[360px] hero-fade-up" data-hero-animate>
+        <div class="rounded-[20px] md:max-w-72 text-[12px] md:text-[14px] flex-1 p-4 bg-white mt-0 md:-mt-4 shadow-xl shadow-gray-400 flex flex-col h-auto min-h-[auto] md:min-h-[360px] hero-fade-up z-10" data-hero-animate>
 
-
-
-          <div class="flex mb-4 min-h-[120px]">
+          <div class="flex items-start gap-3 mb-2 min-h-[80px] md:min-h-[120px]">
 
             <div class="flex-1">
 
-              <img src="{{ asset('images/78b570f382834f7c2682ac6349195a12978b9273.png') }}" alt="icon" class="w-16 h-16">
+              <img src="{{ asset('images/78b570f382834f7c2682ac6349195a12978b9273.png') }}" alt="icon" class="w-12 h-12 md:w-16 md:h-16">
 
             </div>
 
             <div class="flex-2">
 
-              <div class="text-[16px] text-[#5F6F52] font-semibold font-poppins mb-1">Privasi dan Keamanan Terjaga</div>
+              <div class="text-[14px] md:text-[16px] text-[#5F6F52] font-semibold font-poppins mb-1">Privasi & Keamanan</div>
 
-              <div class="text-[24px] text-[#5F6F52] font-semibold font-poppins leading-tight">Privasi Terjaga 100%</div>
+              <div class="text-[18px] md:text-[24px] text-[#5F6F52] font-semibold font-poppins leading-tight">Privasi Terjaga 100%</div>
 
             </div>
 
           </div>
 
-          <div class="bg-white rounded-2xl p-4 min-h-[165px] flex flex-col justify-between mt-auto">
+          <div class="bg-white rounded-2xl p-3 flex flex-col gap-2">
 
-            <p class="font-poppins text-[13px]">
+            <p class="font-poppins text-[12px] md:text-[13px]">
 
               Keamanan data Anda adalah prioritas utama kami. Kami menjamin kerahasiaan identitas dan detail proyek Anda sepenuhnya dengan sistem perlindungan informasi yang ketat, sehingga Anda bisa merasa tenang dan aman.
 
@@ -589,33 +609,31 @@
 
           </div>
 
-
-
         </div>
 
-        <div class="rounded-[20px] md:max-w-72 text-[14px] flex-1 p-4 bg-white -mt-10 shadow-xl shadow-gray-400 flex flex-col h-full min-h-[360px] hero-fade-up" data-hero-animate>
+        <div class="rounded-[20px] md:max-w-72 text-[12px] md:text-[14px] flex-1 p-4 bg-white mt-0 md:-mt-4 shadow-xl shadow-gray-400 flex flex-col h-auto min-h-[auto] md:min-h-[360px] hero-fade-up z-10" data-hero-animate>
 
-          <div class="flex mb-4 min-h-[120px]">
+          <div class="flex items-start gap-3 mb-2 min-h-[80px] md:min-h-[120px]">
 
             <div class="flex-1">
 
-              <img src="{{ asset('images/ac1a0c3d62e9c6c03c8dd582e9d5f93097ccb8ec.png') }}" alt="icon" class="w-16 h-16">
+              <img src="{{ asset('images/ac1a0c3d62e9c6c03c8dd582e9d5f93097ccb8ec.png') }}" alt="icon" class="w-12 h-12 md:w-16 md:h-16">
 
             </div>
 
             <div class="flex-2">
 
-              <div class="text-[16px] text-[#5F6F52] font-semibold font-poppins mb-1">Jam Operasional</div>
+              <div class="text-[14px] md:text-[16px] text-[#5F6F52] font-semibold font-poppins mb-1">Jam Operasional</div>
 
-              <div class="text-[24px] text-[#5F6F52] font-semibold font-poppins leading-tight">Layanan Cepat</div>
+              <div class="text-[18px] md:text-[24px] text-[#5F6F52] font-semibold font-poppins leading-tight">Layanan Cepat</div>
 
             </div>
 
           </div>
 
-          <div class="bg-white rounded-2xl p-4 min-h-[165px] flex flex-col justify-between mt-auto">
+          <div class="bg-white rounded-2xl p-3 flex flex-col gap-2">
 
-            <p class="font-poppins text-[13px]">
+            <p class="font-poppins text-[12px] md:text-[13px]">
 
               Waktu Anda sangat berharga. Tim dukungan kami siap memberikan respon kilat dan penanganan yang efisien setiap saat, memastikan setiap kendala atau pertanyaan Anda terselesaikan tanpa harus menunggu lama.
 
@@ -635,7 +653,7 @@
 
       <div class="w-full flex justify-center">
 
-        <h2 class="mb-8 text-[48px] font-mochi font-semibold text-[#5D6B51]">Layanan <span class="text-[#B56727]">Kami</span></h2>
+        <h2 class="mb-6 md:mb-8 text-[32px] md:text-[48px] font-mochi font-semibold text-[#5D6B51]">Layanan <span class="text-[#B56727]">Kami</span></h2>
 
       </div>
 
@@ -643,57 +661,57 @@
 
         <div class="flex-1 lg:max-w-70 max-w-none bg-white p-4 rounded-[30px]">
 
-          <div class="w-full h-40 rounded-[22px] overflow-hidden mb-3">
+          <div class="w-full h-32 md:h-40 rounded-[22px] overflow-hidden mb-3">
 
             <img src="{{ asset('images/akademik_riset.png') }}" alt="Akademik & Riset" class="w-full h-full object-cover">
 
           </div>
 
-          <h3 class="font-poppins font-bold text-md md:text-[20px]">Akademik & Riset</h3>
+          <h3 class="font-poppins font-bold text-[16px] md:text-[20px]">Akademik & Riset</h3>
 
-          <p class="text-[15px] font-normal font-poppins">Bantuan tugas sekolah/kuliah (kecuali eksakta) dan bimbingan skripsi/tesis lengkap dari proposal hingga tuntas.</p>
+          <p class="text-[13px] md:text-[15px] font-normal font-poppins">Bantuan tugas sekolah/kuliah (kecuali eksakta) dan bimbingan skripsi/tesis lengkap dari proposal hingga tuntas.</p>
 
         </div>
 
         <div class="flex-1 lg:max-w-70 max-w-none bg-white p-4 rounded-[30px]">
 
-          <div class="w-full h-40 rounded-[22px] overflow-hidden mb-3">
+          <div class="w-full h-32 md:h-40 rounded-[22px] overflow-hidden mb-3">
 
             <img src="{{ asset('images/kreatif_visual.png') }}" alt="Kreatif & Visual" class="w-full h-full object-cover">
 
           </div>
 
-          <h3 class="font-poppins font-bold text-md md:text-[20px]">Kreatif & Visual</h3>
+          <h3 class="font-poppins font-bold text-[16px] md:text-[20px]">Kreatif & Visual</h3>
 
-          <p class="text-[15px] font-normal font-poppins">Solusi desain visual untuk poster, banner, brosur, hingga edit foto profesional dan pas foto untuk UMKM atau instansi.</p>
+          <p class="text-[13px] md:text-[15px] font-normal font-poppins">Solusi desain visual untuk poster, banner, brosur, hingga edit foto profesional dan pas foto untuk UMKM atau instansi.</p>
 
         </div>
 
         <div class="flex-1 lg:max-w-70 max-w-none bg-white p-4 rounded-[30px]">
 
-          <div class="w-full h-40 rounded-[22px] overflow-hidden mb-3">
+          <div class="w-full h-32 md:h-40 rounded-[22px] overflow-hidden mb-3">
 
             <img src="{{ asset('images/konsultasi_hukum_psikologi.png') }}" alt="Konsultasi Hukum & Psikologi" class="w-full h-full object-cover">
 
           </div>
 
-          <h3 class="font-poppins font-bold text-[17px] md:text-[18px] leading-tight">Konsultasi Hukum & Psikologi</h3>
+          <h3 class="font-poppins font-bold text-[16px] md:text-[20px] leading-tight">Konsultasi Hukum & Psikologi</h3>
 
-          <p class="text-[15px] font-normal font-poppins">Konsultasi hukum non-litigasi dan layanan teman ngobrol untuk kesehatan mental secara virtual maupun tatap muka.</p>
+          <p class="text-[13px] md:text-[15px] font-normal font-poppins">Konsultasi hukum non-litigasi dan layanan teman ngobrol untuk kesehatan mental secara virtual maupun tatap muka.</p>
 
         </div>
 
         <div class="flex-1 lg:max-w-70 max-w-none bg-white p-4 rounded-[30px]">
 
-          <div class="w-full h-40 rounded-[22px] overflow-hidden mb-3">
+          <div class="w-full h-32 md:h-40 rounded-[22px] overflow-hidden mb-3">
 
             <img src="{{ asset('images/teman_belajar.png') }}" alt="Partner Belajar" class="w-full h-full object-cover">
 
           </div>
 
-          <h3 class="font-poppins font-bold text-md md:text-[20px]">Partner Belajar</h3>
+          <h3 class="font-poppins font-bold text-[16px] md:text-[20px]">Partner Belajar</h3>
 
-          <p class="text-[15px] font-normal font-poppins">Teman belajar khusus untuk siswa SMP hingga Mahasiswa jurusan Hukum, Komunikasi, dan Psikologi.</p>
+          <p class="text-[13px] md:text-[15px] font-normal font-poppins">Teman belajar khusus untuk siswa SMP hingga Mahasiswa jurusan Hukum, Komunikasi, dan Psikologi.</p>
 
         </div>
 
@@ -705,7 +723,7 @@
 
       <div class="w-full flex justify-center">
 
-        <h2 class="mb-8 font-mochi text-[48px] font-semibold">
+        <h2 class="mb-6 md:mb-8 font-mochi text-[32px] md:text-[48px] font-semibold text-center leading-tight">
 
           <span class="text-[#5D6B51]">Tugas</span> <span class="text-[#B56727]">Populer</span>
 
@@ -715,15 +733,15 @@
 
 
 
-      <div class="w-full flex lg:flex-row flex-col sm:flexmdol grow justify-center gap-3">
+      <div class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-6">
 
-        <div class="flex-1 lg:max-w-88.5 sm:w-full bg sm:mdfull bg-[#5F6F52] p-4 pt-8 rounded-lg flex flex-col h-full md:min-h-[320px]">
+        <div class="bg-[#5F6F52] p-5 md:p-6 rounded-2xl flex flex-col h-full min-h-[320px]">
 
-          <h3 class="font-poppins font-extrabold text-[20px] text-white md:text-[18px] md:leading-tight">Paket Kilat Bimbingan Skripsi</h3>
+          <h3 class="font-poppins font-extrabold text-[17px] md:text-[20px] text-white leading-snug">Paket Kilat Bimbingan Skripsi</h3>
 
-          <p class="text-[15px] font-normal font-poppins text-white mt-2 md:text-[14px] md:leading-snug">Pendampingan penuh dari Bab 1 sampai sidang, termasuk pembuatan PPT.</p>
+          <p class="text-[13px] md:text-[15px] font-normal font-poppins text-white mt-2 leading-snug mb-5 grow">Pendampingan penuh dari Bab 1 sampai sidang, termasuk pembuatan PPT.</p>
 
-          <div class="w-full h-[210px] md:h-[230px] rounded-[22px] overflow-hidden mt-6 shrink-0 md:mt-4">
+          <div class="w-full h-[180px] md:h-[220px] rounded-[20px] overflow-hidden shrink-0 mt-auto">
 
             <img src="{{ asset('images/skripsi_perBab.png') }}" alt="layanan1" class="w-full h-full object-cover">
 
@@ -731,13 +749,13 @@
 
         </div>
 
-        <div class="flex-1 lg:max-w-88.5 sm:w-full bg sm:mdfull bg-[#5F6F52] p-4 pt-8 rounded-lg flex flex-col h-full md:min-h-[320px]">
+        <div class="bg-[#5F6F52] p-5 md:p-6 rounded-2xl flex flex-col h-full min-h-[320px]">
 
-          <h3 class="font-poppins font-extrabold text-[20px] text-white md:text-[18px] md:leading-tight">Desain Konten UMKM</h3>
+          <h3 class="font-poppins font-extrabold text-[17px] md:text-[20px] text-white leading-snug">Desain Konten UMKM</h3>
 
-          <p class="text-[15px] font-normal font-poppins text-white mt-2 md:text-[14px] md:leading-snug">Paket edit foto produk dan desain brosur promosi.</p>
+          <p class="text-[13px] md:text-[15px] font-normal font-poppins text-white mt-2 leading-snug mb-5 grow">Paket edit foto produk dan desain brosur promosi.</p>
 
-          <div class="w-full h-[210px] md:h-[230px] rounded-[22px] overflow-hidden mt-6 shrink-0 md:mt-4">
+          <div class="w-full h-[180px] md:h-[220px] rounded-[20px] overflow-hidden shrink-0 mt-auto">
 
             <img src="{{ asset('images/design_poster_banner.png') }}" alt="layanan1" class="w-full h-full object-cover">
 
@@ -745,13 +763,13 @@
 
         </div>
 
-        <div class="flex-1 lg:max-w-88.5 sm:w-full bg sm:mdfull bg-[#5F6F52] p-4 pt-8 rounded-lg flex flex-col h-full md:min-h-[320px]">
+        <div class="bg-[#5F6F52] p-5 md:p-6 rounded-2xl flex flex-col h-full min-h-[320px]">
 
-          <h3 class="font-poppins font-extrabold text-[20px] text-white md:text-[18px] md:leading-tight">Jasa Olah Data & Tugas Hukum</h3>
+          <h3 class="font-poppins font-extrabold text-[17px] md:text-[20px] text-white leading-snug">Jasa Olah Data & Tugas Hukum</h3>
 
-          <p class="text-[15px] font-normal font-poppins text-white mt-2 md:text-[14px] md:leading-snug">Bantuan tugas khusus rumpun ilmu sosial dan hukum.</p>
+          <p class="text-[13px] md:text-[15px] font-normal font-poppins text-white mt-2 leading-snug mb-5 grow">Bantuan tugas khusus rumpun ilmu sosial dan hukum.</p>
 
-          <div class="w-full h-[210px] md:h-[230px] rounded-[22px] overflow-hidden mt-6 shrink-0 md:mt-4">
+          <div class="w-full h-[180px] md:h-[220px] rounded-[20px] overflow-hidden shrink-0 mt-auto">
 
             <img src="{{ asset('images/olah_data.png') }}" alt="layanan1" class="w-full h-full object-cover">
 
@@ -769,7 +787,7 @@
 
       <div class="w-full flex justify-center">
 
-        <h2 class="mb-8 font-mochi text-[48px] font-semibold">
+        <h2 class="mb-6 md:mb-8 font-mochi text-[32px] md:text-[48px] font-semibold text-center leading-tight">
 
           <span class="text-[#5D6B51]">Kesan</span> <span class="text-[#B56727]">&</span> <span class="text-[#5D6B51]">Pesan</span>
 
@@ -779,7 +797,7 @@
 
       <div class="relative max-w-7xl mx-auto px-4 md:px-0">
 
-        <button onclick="slideTestimonial(-1)" class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-all hover:scale-110">
+        <button onclick="slideTestimonial(-1)" class="hidden xl:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-all hover:scale-110">
 
           <svg class="w-6 h-6 text-[#5F6F52]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 
@@ -789,7 +807,7 @@
 
         </button>
 
-        <button onclick="slideTestimonial(1)" class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-all hover:scale-110">
+        <button onclick="slideTestimonial(1)" class="hidden xl:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-all hover:scale-110">
 
           <svg class="w-6 h-6 text-[#5F6F52]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 
@@ -799,11 +817,11 @@
 
         </button>
 
-        <div class="px-0 md:px-12 overflow-x-auto md:overflow-hidden">
+        <div class="px-0 xl:px-12 overflow-x-auto xl:overflow-hidden snap-x snap-mandatory pt-2 pb-6 xl:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 
-          <div id="testimonialSlider" class="flex flex-col md:flex-row gap-4 md:gap-5 transition-none md:transition-transform md:duration-700 md:ease-in-out">
+          <div id="testimonialSlider" class="flex flex-row gap-4 xl:gap-5 transition-none xl:transition-transform xl:duration-700 xl:ease-in-out items-stretch">
 
-            <div class="rounded-xl p-5 bg-white border border-[#E6E6E6] shadow w-full md:w-[calc(33.333%-13.33px)] shrink-0 flex flex-col h-auto md:h-[200px]">
+            <div class="rounded-xl p-5 bg-white border border-[#E6E6E6] shadow w-full md:w-[45vw] lg:w-[400px] xl:w-[calc(33.333%-13.33px)] shrink-0 flex flex-col h-auto min-h-[200px] snap-center">
 
               <p class="text-[13px] font-medium font-poppins mb-3 grow leading-relaxed">"Asli, Senku ngebantu banget pas aku lagi burnout parah sama tugas hukum yang numpuk. Penjelasannya nggak cuma sekadar 'jadi', tapi aku juga jadi paham materinya. Life saver banget buat pejuang gelar!"</p>
 
@@ -823,7 +841,7 @@
 
             </div>
 
-            <div class="rounded-xl p-5 bg-white border border-[#E6E6E6] shadow w-full md:w-[calc(33.333%-13.33px)] shrink-0 flex flex-col h-auto md:h-[200px]">
+            <div class="rounded-xl p-5 bg-white border border-[#E6E6E6] shadow w-full md:w-[45vw] lg:w-[400px] xl:w-[calc(33.333%-13.33px)] shrink-0 flex flex-col h-auto min-h-[200px] snap-center">
 
               <p class="text-[13px] font-medium font-poppins mb-3 grow leading-relaxed">"Awalnya skeptis, tapi ternyata bimbingan di sini sedetail itu. Dari proposal sampe revisi Bab 4 bener-bener ditemenin. Kakaknya sabar banget, padahal aku banyak nanya. Fixed sih, rekomen buat yang lagi stuck skripsian!"</p>
 
@@ -843,7 +861,7 @@
 
             </div>
 
-            <div class="rounded-xl p-5 bg-white border border-[#E6E6E6] shadow w-full md:w-[calc(33.333%-13.33px)] shrink-0 flex flex-col h-auto md:h-[200px]">
+            <div class="rounded-xl p-5 bg-white border border-[#E6E6E6] shadow w-full md:w-[45vw] lg:w-[400px] xl:w-[calc(33.333%-13.33px)] shrink-0 flex flex-col h-auto min-h-[200px] snap-center">
 
               <p class="text-[13px] font-medium font-poppins mb-3 grow leading-relaxed">"Gila sih, hasil edit pas fotonya rapi banget tapi tetep natural! Desain bannernya juga 'masuk' banget sama selera aku yang pengen kelihatan modern. Harganya ramah dikantong, tapi kualitasnya high-end."</p>
 
@@ -863,7 +881,7 @@
 
             </div>
 
-            <div class="rounded-xl p-5 bg-white border border-[#E6E6E6] shadow w-full md:w-[calc(33.333%-13.33px)] shrink-0 flex flex-col h-auto md:h-[200px]">
+            <div class="rounded-xl p-5 bg-white border border-[#E6E6E6] shadow w-full md:w-[45vw] lg:w-[400px] xl:w-[calc(33.333%-13.33px)] shrink-0 flex flex-col h-auto min-h-[200px] snap-center">
 
               <p class="text-[13px] font-medium font-poppins mb-3 grow leading-relaxed">"Nyaman banget bisa sharing di sini. Rasanya kayak ngobrol sama kakak sendiri yang paham hukum sekaligus psikologi. Pulang curhat jadi lebih plong dan dapet point of view baru. Makasih Senku!"</p>
 
@@ -883,7 +901,7 @@
 
             </div>
 
-            <div class="rounded-xl p-5 bg-white border border-[#E6E6E6] shadow w-full md:w-[calc(33.333%-13.33px)] shrink-0 flex flex-col h-auto md:h-[200px]">
+            <div class="rounded-xl p-5 bg-white border border-[#E6E6E6] shadow w-full md:w-[45vw] lg:w-[400px] xl:w-[calc(33.333%-13.33px)] shrink-0 flex flex-col h-auto min-h-[200px] snap-center">
 
               <p class="text-[13px] font-medium font-poppins mb-3 grow leading-relaxed">"Tim Senku bantu revisi jurnalku sampai diterima editor. Feedback-nya rinci, cepet, dan tetap ramah. Rasanya punya mentor pribadi yang selalu standby kapan pun dibutuhin."</p>
 
@@ -903,7 +921,7 @@
 
             </div>
 
-            <div class="rounded-xl p-5 bg-white border border-[#E6E6E6] shadow w-full md:w-[calc(33.333%-13.33px)] shrink-0 flex flex-col h-auto md:h-[200px]">
+            <div class="rounded-xl p-5 bg-white border border-[#E6E6E6] shadow w-full md:w-[45vw] lg:w-[400px] xl:w-[calc(33.333%-13.33px)] shrink-0 flex flex-col h-auto min-h-[200px] snap-center">
 
               <p class="text-[13px] font-medium font-poppins mb-3 grow leading-relaxed">"Order desain booth untuk event komunitas langsung jadi sesuai brief. Warna, teks, sampai mockup final semua presisi. Senku ngerti banget estetika brand lokal!"</p>
 
@@ -927,7 +945,7 @@
 
         </div>
 
-        <div class="hidden md:flex justify-center gap-2 mt-6">
+        <div class="hidden xl:flex justify-center gap-2 mt-6">
 
           <button onclick="goToTestimonial(0)" class="testimonial-dot w-3 h-3 rounded-full bg-[#B56727] transition-all hover:scale-125"></button>
 
@@ -953,7 +971,7 @@
 
         function isDesktopSlider() {
 
-          return window.innerWidth >= 768;
+          return window.innerWidth >= 1280;
 
         }
 
@@ -1095,9 +1113,9 @@
 
     <section class="pattern-overlay w-full py-[110px] px-7.5 md:px-30 bg-[#E5E0D8]">
 
-      <div class="w-full flex justify-center">
+      <div class="w-full flex justify-center text-center">
 
-        <h2 class="mb-8 font-poppins text-[40px] font-semibold"><span class="text-[#5F6F52]">Visit</span> <span class="text-[#FE8929]">Our</span> <span class="text-[#5F6F52]">Site</span></h2>
+        <h2 class="mb-6 md:mb-8 font-poppins text-[28px] md:text-[40px] font-semibold"><span class="text-[#5F6F52]">Visit</span> <span class="text-[#FE8929]">Our</span> <span class="text-[#5F6F52]">Site</span></h2>
 
       </div>
 
@@ -1393,6 +1411,20 @@
 
     });
 
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const heroVideo = document.getElementById('heroVideo');
+      if (heroVideo) {
+        const LOOP_OFFSET = 0.5; // Seek 0.5s before end for smooth loop
+        heroVideo.addEventListener('timeupdate', function() {
+          if (heroVideo.currentTime > heroVideo.duration - LOOP_OFFSET) {
+            heroVideo.currentTime = 0;
+          }
+        });
+      }
+    });
   </script>
 
   <script src="{{ asset('js/common.js') }}"></script>
