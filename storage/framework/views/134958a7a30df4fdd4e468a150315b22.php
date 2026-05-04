@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+  <?php echo $__env->make('components.favicon-links', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Styles / Scripts -->
@@ -13,9 +14,11 @@
   <?php endif; ?>
 </head>
 <body class="bg-[#E5E0D8] overflow-hidden">
-  <main class="bg-cover h-screen w-screen flex flex-col-reverse md:flex-row" style="background-image: url('<?php echo e(asset('images/login%20vector.png')); ?>')">
-    <div class="flex-1"></div>
-    <div class="flex-2 flex my-10 px-3 md:px-0">
+  <main class="relative h-screen w-screen flex flex-col-reverse md:flex-row bg-repeat" style="background-image: url('<?php echo e(asset('images/Background%20pattern.png')); ?>'); background-size: 280px; background-position: center;">
+    <div class="absolute inset-0 bg-no-repeat" style="background-image: url('<?php echo e(asset('images/login_Vector.png')); ?>'); background-position: center bottom; background-size: cover; opacity: 0.9;"></div>
+    <div class="absolute inset-0 bg-linear-to-b from-[#E5E0D8]/40 via-transparent to-[#E5E0D8]/40"></div>
+    <div class="flex-1 relative z-10"></div>
+    <div class="flex-2 flex my-10 px-3 md:px-0 relative z-10">
         <div class="bg-[#5F6F52] flex-1 rounded-[20px] shadow shadow-gray-700 p-2 flex">
             <form action="<?php echo e(route('login')); ?>" method="POST" class="flex-1 w-full px-10 py-10 flex flex-col items-center justify-around">
                 <?php echo csrf_field(); ?>
@@ -38,7 +41,7 @@
             </form>
         </div>
     </div>
-    <div class="flex-1 my-10">
+    <div class="flex-1 my-10 relative z-10">
       <a href="<?php echo e(route('umum.signup')); ?>">
         <img src="<?php echo e(asset('images/login.png')); ?>" alt="" class="w-[70%] ml-auto mr-auto select-none" draggable="false" oncontextmenu="return false;">
       </a>

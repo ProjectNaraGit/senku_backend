@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+  <?php echo $__env->make('components.favicon-links', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Styles / Scripts -->
@@ -13,7 +14,7 @@
   <?php endif; ?>
 </head>
 <body class="bg-[#E5E0D8] overflow-hidden">
-  <main class="bg-cover h-screen w-screen flex flex-col-reverse md:flex-row" style="background-image: url('<?php echo e(asset('images/login%20vector.png')); ?>')">
+  <main class="bg-cover h-screen w-screen flex flex-col-reverse md:flex-row" style="background-image: url('<?php echo e(asset('images/login_Vector.png')); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="flex-1"></div>
     <div class="flex-2 flex my-10 px-3 md:px-0">
         <div class="bg-[#5F6F52] flex-1 rounded-[20px] shadow shadow-gray-700 p-2 flex overflow-y-auto">

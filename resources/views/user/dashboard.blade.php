@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+  @include('components.favicon-links')
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -99,7 +100,7 @@
                 Profile
               </a>
               <hr class="border-t border-gray-500">
-              <a href="{{ route('user.profile') }}#status-pesanan" class="block px-4 py-2 hover.bg-gray-100 text-[#5F6F52] font-semibold">
+              <a href="{{ route('user.profile') }}#status-pesanan" class="block px-4 py-2 hover:bg-gray-100 text-[#5F6F52] font-semibold">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5F6F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /><path d="M9 12l.01 0" /><path d="M13 12l2 0" /><path d="M9 16l.01 0" /><path d="M13 16l2 0" /></svg>
                 Status Order
               </a>
@@ -131,7 +132,7 @@
   <main class="science-splash">
     <section class="pattern-overlay w-full bg-[#5F6F52] px-5 md:px-10 lg:px-[120px] py-16 md:py-24">
         <!-- Filter Kategori -->
-        <div class="mb-8 flex flex-col md:flex-row gap-4 md:gap-0 md:justify-between md:items-center">
+        <div class="mb-8 flex flex-col md:flex-row gap-4 md:gap-0 md:justify-between md:items-center relative z-20">
             <h2 class="text-[#E5E0D8] font-bold text-2xl text-center md:text-left md:text-3xl">Layanan Kami</h2>
             <div class="relative w-full md:w-auto">
                 <button

@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="dark">
 <head>
+  @include('components.favicon-links')
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Styles / Scripts -->

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <?php echo $__env->make('components.favicon-links', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
   <!-- Styles / Scripts -->
   <?php if(file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot'))): ?>
       <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
@@ -79,7 +80,7 @@
     </div>
   </nav>
   <main class="relative">
-    <div class="absolute inset-0 opacity-15 pointer-events-none bg-repeat z-0" style="background-image: url('<?php echo e(asset('images/background%20pattern.png')); ?>'); background-size: 520px;"></div>
+    <div class="absolute inset-0 opacity-15 pointer-events-none bg-repeat z-0" style="background-image: url('<?php echo e(asset('images/Background_pattern.png')); ?>'); background-size: 520px;"></div>
     <section class="w-full bg-[#E5E0D8] px-7.5 md:px-30 py-20 flex flex-row justify-center items-center">
       <h1 class="z-10 font-mochi text-[48px] text-[#5F6F52] text-center">Cara Order</h1>
     </section>

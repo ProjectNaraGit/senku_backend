@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+  @include('components.favicon-links')
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Styles / Scripts -->
@@ -15,30 +16,46 @@
 <body class=" bg-cover overflow-hidden" style="background-image: url('{{ asset('images/login_Vector.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
   <main class="h-screen w-screen flex justify-center">
     <div class="bg-[#5F6F52] max-w-[647px] py-10 mx-3 px-5 md:px-15 my-10 rounded-3xl shadow-md shadow-gray-500">
-      <form action="" class="flex flex-col items-center justify-between h-full">
+      <form method="POST" action="{{ route('password.update') }}" class="flex flex-col items-center justify-between h-full">
+        @csrf
+        <input type="hidden" name="token" value="{{ $token }}">
+        <input type="hidden" name="email" value="{{ $email ?? old('email') }}">
+
         <div class="bg-[#E5E0D8] w-10 h-10 flex justify-center items-center rounded-[50%] hidden">
         <svg width="19" height="10" viewBox="0 0 19 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 10C6.15196 9.99846 7.26816 9.59975 8.16039 8.8711C9.05263 8.14245 9.66632 7.12842 9.898 6H12V8H14V6H16V9H18V6H19V4H9.898C9.66632 2.87158 9.05263 1.85755 8.16039 1.1289C7.26816 0.400248 6.15196 0.00153976 5 0C2.243 0 0 2.243 0 5C0 7.757 2.243 10 5 10ZM5 2C6.654 2 8 3.346 8 5C8 6.654 6.654 8 5 8C3.346 8 2 6.654 2 5C2 3.346 3.346 2 5 2Z" fill="#ffffff"/></svg>
         </div>
         <h1 class="text-[#E5E0D8] font-mochi font-bold text-xl md:text-3xl text-center">Atur Kata Sandi Baru</h1>
-        <p class="text-[#E5E0D8] text-center">Kata sandi baru Anda harus berbeda dari kata sandi yang pernah digunakan sebelumnya!</p>
-        <div class="relative w-full">
+        <p class="text-[#E5E0D8] text-center mt-2">Kata sandi baru Anda harus berbeda dari kata sandi yang pernah digunakan sebelumnya!</p>
+
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4 text-sm w-full text-center" role="alert">
+                <ul class="list-none">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <div class="relative w-full mt-4">
           <label for="password" class="text-[#E5E0D8]">Password Baru</label>
           <input
             type="password"
-            name="new-password"
-            id="new-password"
+            name="password"
+            id="password"
+            required
             placeholder="Enter your password"
-            class="border border-[#E5E0D8] rounded-[20px] py-2 px-4 pr-12 w-full my-4
-                  text-[#FEFEFE] text-[25px] placeholder:text-[#E5E0D8] bg-transparent"
+            class="border border-[#E5E0D8] rounded-[20px] py-2 px-4 pr-12 w-full my-2
+                  text-[#FEFEFE] text-[20px] md:text-[25px] placeholder:text-[#E5E0D8] bg-transparent"
           />
           <!-- Toggle button -->
           <button
             type="button"
-            onclick="togglePassword('new-password', this)"
-            class="absolute right-4 top-[58px] text-[#E5E0D8]"
+            onclick="togglePassword('password', this)"
+            class="absolute right-4 top-[48px] md:top-[52px] text-[#E5E0D8]"
           >
             <!-- icon eye -->
-            <svg id="eye-open-new-password" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+            <svg id="eye-open-password" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -48,7 +65,7 @@
                       -4.477 0-8.268-2.943-9.542-7z" />
             </svg>
             <!-- icon eye-off -->
-            <svg id="eye-closed-new-password" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+            <svg id="eye-closed-password" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M13.875 18.825A10.05 10.05 0 0112 19
@@ -58,24 +75,25 @@
             </svg>
           </button>
         </div>
-        <div class="relative w-full">
-          <label for="password" class="text-[#E5E0D8]">Konfirmasi Password</label>
+        <div class="relative w-full mt-2">
+          <label for="password_confirmation" class="text-[#E5E0D8]">Konfirmasi Password</label>
           <input
             type="password"
-            name="confirm-password"
-            id="confirm-password"
+            name="password_confirmation"
+            id="password_confirmation"
+            required
             placeholder="Enter your password"
-            class="border border-[#E5E0D8] rounded-[20px] py-2 px-4 pr-12 w-full my-4
-                  text-[#FEFEFE] text-[25px] placeholder:text-[#E5E0D8] bg-transparent"
+            class="border border-[#E5E0D8] rounded-[20px] py-2 px-4 pr-12 w-full my-2
+                  text-[#FEFEFE] text-[20px] md:text-[25px] placeholder:text-[#E5E0D8] bg-transparent"
           />
           <!-- Toggle button -->
           <button
             type="button"
-            onclick="togglePassword('confirm-password', this)"
-            class="absolute right-4 top-[58px] text-[#E5E0D8]"
+            onclick="togglePassword('password_confirmation', this)"
+            class="absolute right-4 top-[48px] md:top-[52px] text-[#E5E0D8]"
           >
             <!-- icon eye -->
-            <svg id="eye-open-confirm-password" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+            <svg id="eye-open-password_confirmation" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -85,7 +103,7 @@
                       -4.477 0-8.268-2.943-9.542-7z" />
             </svg>
             <!-- icon eye-off -->
-            <svg id="eye-closed-confirm-password" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+            <svg id="eye-closed-password_confirmation" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M13.875 18.825A10.05 10.05 0 0112 19
@@ -95,11 +113,9 @@
             </svg>
           </button>
         </div>
-        <div class="flex flex-col w-full items-center">
-          <!-- <button type="submit" class="bg-[#E5E0D8] text-[#5F6F52] rounded-[40px] py-2.5 px-6 my-4 font-poppins font-semibold w-full">Reset Password</button> -->
-          <a href="lupa password-check email.html" class="block bg-[#E5E0D8] text-[#5F6F52] rounded-[40px] py-2.5 px-6 my-2 font-poppins font-semibold w-full text-center">Reset Password</a>
-          <a href="lupa password-check email.html" class="block bg-[#E5E0D8] text-[#5F6F52] rounded-[40px] py-2.5 px-6 my-2 font-poppins font-semibold w-full text-center">Konfirmasi</a>
-          <a href="" class="text-[#E5E0D8]">←Kembali Untuk Login</a>
+        <div class="flex flex-col w-full items-center mt-6">
+          <button type="submit" class="bg-[#E5E0D8] text-[#5F6F52] rounded-[40px] py-2.5 px-6 my-2 font-poppins font-semibold w-full text-center hover:bg-white transition-colors">Reset Password</button>
+          <a href="{{ route('login') }}" class="text-[#E5E0D8] mt-4">← Kembali Untuk Login</a>
         </div>
       </form>
     </div>
